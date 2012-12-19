@@ -1,6 +1,6 @@
 [user]
-    name = Niels van Dijk
-    email = niels@nielsvandijk.nl
+    name = Marko Tibold
+	email = marko@tibold.nl
 
 [core]
     excludesfile = ~/.gitignore

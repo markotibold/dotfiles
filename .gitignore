@@ -9,3 +9,7 @@
 *.egg-info
 *.sql
 *.tar
+*.swp
+*.sql
+*.egg-info
+project_media.tar
