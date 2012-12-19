@@ -15,7 +15,7 @@ export LANG="en_US"
 
 # virtualenvwrapper related
 source /usr/local/bin/virtualenvwrapper.sh
-export WORKON_HOME="~/mac_envs"
+export WORKON_HOME=~/mac_envs
 export PATH="/usr/local/bin:/usr/local/mysql/bin:$PATH"
 
 # Hack for mysql-python, TODO really solve this

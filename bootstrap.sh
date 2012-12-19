@@ -12,5 +12,9 @@ echo "symlink .gitignore"
 rm -f ~/.gitignore
 ln -s ~/.dotfiles/.gitignore ~/.gitignore
 
+echo "symlink .ackrc"
+rm -f ~/.ackrc
+ln -s ~/.dotfiles/.ackrc ~/.ackrc
+
 echo "setup osx settings"
 ./.osx
