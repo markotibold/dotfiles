@@ -13,3 +13,4 @@
 *.sql
 *.egg-info
 project_media.tar
+.ropeproject
