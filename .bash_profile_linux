@@ -1,0 +1,11 @@
+# Load .aliases
+source ~/.dotfiles/.aliases
+
+# Load .bash_prompt
+source ~/.dotfiles/.bash_prompt
+
+# virtualenvwrapper related
+source /usr/local/bin/virtualenvwrapper.sh
+export WORKON_HOME=~/linux_envs
+export PATH="/usr/local/bin:/usr/local/mysql/bin:$PATH"
+
