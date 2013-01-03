@@ -14,3 +14,4 @@
 *.egg-info
 project_media.tar
 .ropeproject
+.project
