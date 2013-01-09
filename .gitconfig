@@ -15,7 +15,7 @@
     s = status -s
     c = commit -am
     a = add
-    f = fetch
+    f = fetch --all
     m = merge
     co = checkout
     rb = rebase
