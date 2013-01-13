@@ -55,3 +55,6 @@ PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]at \[$ORANGE\]\h \[$WHITE\]in \[$GREEN\]\
 # ls colours
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxFxhxhxhxhxcxcx
+
+# coffeescript config file
+export COFFEELINT_CONFIG=~/.dotfiles/.coffeelint
