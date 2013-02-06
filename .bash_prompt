@@ -58,3 +58,6 @@ export LSCOLORS=gxBxhxDxFxhxhxhxhxcxcx
 
 # coffeescript config file
 export COFFEELINT_CONFIG=~/.dotfiles/.coffeelint
+
+# Add bin directory to path
+PATH=$PATH:~/.dotfiles/bin

@@ -16,5 +16,9 @@ alias ll="ls -lah ${colorflag}"
 # django runserver
 alias rs="python manage.py runserver 0:8000"
 
+# django syncdb
+ alias pms="python manage.py syncdb"
+
 # common typo's
 alias gti="git"
+
