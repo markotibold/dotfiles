@@ -1,0 +1,12 @@
+#!/bin/bash
+DIRS=`ls`
+for d in $DIRS
+do
+    if [ -d $d ]
+    then
+        echo $d
+        cd $d
+        git pull
+        cd ..
+    fi
+done
