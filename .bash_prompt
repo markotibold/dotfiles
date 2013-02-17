@@ -61,3 +61,6 @@ export COFFEELINT_CONFIG=~/.dotfiles/.coffeelint
 
 # Add bin directory to path
 PATH=$PATH:~/.dotfiles/bin
+
+# python tab-completion
+export PYTHONSTARTUP=$HOME/.dotfiles/.pythonrc
