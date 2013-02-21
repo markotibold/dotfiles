@@ -22,3 +22,4 @@ alias rs="python manage.py runserver 0:8000"
 # common typo's
 alias gti="git"
 
+alias st="open -a \"SourceTree\" ."
