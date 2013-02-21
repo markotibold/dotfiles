@@ -133,7 +133,7 @@ let mapleader = ','
 
     let g:ctrlp_custom_ignore = {
 	\ 'dir':  '\.git$\|\.hg$\|\.svn$',
-	\ 'file': '\.exe$\|\.so$\|\.dll$' }
+	\ 'file': '\.exe$\|\.so$\|\.dll$|\.pyc$' }
 
     let g:neocomplcache_enable_at_startup = 1
     if !exists('g:neocomplcache_omni_functions')
@@ -236,3 +236,5 @@ let mapleader = ','
 
     " Quicksave command
     noremap <Leader>w :update<CR>"
+
+    map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
