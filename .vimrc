@@ -109,7 +109,6 @@ let mapleader = ','
     set tabstop=4                   " an indentation every four columns
     set softtabstop=4               " let backspace delete indent
 
-    autocmd FileType c,cpp,java,php,javascript,python,twig,xml,yml autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 
     " Easier moving in tabs and windows
     map <C-J> <C-W>j<C-W>_
@@ -232,7 +231,7 @@ let mapleader = ','
     set autoread 
 
     " make yank copy to the global system clipboard
-    set clipboard=unnamed
+    set clipboard=unnamedplus
 
     " Quicksave command
     noremap <Leader>w :update<CR>"
