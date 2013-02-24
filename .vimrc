@@ -237,3 +237,6 @@ let mapleader = ','
     noremap <Leader>w :update<CR>"
 
     map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
+
+    "netrw ignore
+    let g:netrw_list_hide= '.*\.swp$,.*\.pyc'
