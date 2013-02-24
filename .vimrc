@@ -69,174 +69,218 @@ let mapleader = ','
 
 " My bundle settings 
 " vim: set foldmarker={,} foldlevel=0 foldmethod=marker spell:
-    " vim-django:
-    let g:django_projects = '~/devshare'    "vim-django: Sets all projects under devshare
-    let g:django_activate_virtualenv = 1    "vim-django: Try to activate the associated virtualenv
-    let g:django_activate_nerdtree = 1      "vim-django: Start NERDTree upon activation
+" vim-django:
+let g:django_projects = '~/devshare'    "vim-django: Sets all projects under devshare
+let g:django_activate_virtualenv = 1    "vim-django: Try to activate the associated virtualenv
+let g:django_activate_nerdtree = 1      "vim-django: Start NERDTree upon activation
 
-    " vim-coffee-script autocompile onsave
-    au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
+" vim-coffee-script autocompile onsave
+au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
 
 " My UI related settings 
-    set vb                      " Disable the bell
-    set guifont=Monaco:h12
-    colorscheme wombat
-    set incsearch
-    set colorcolumn=120
-    set nospell                 " Why doesn't this stick??
-    syntax on
-    set mouse=a                 " automatically enable mouse usage
-    set mousehide               " hide the mouse cursor while typing
-    scriptencoding utf-8
- 
-    set history=1000                " Store a ton of history (default is 20)
-    set spell                       " spell checking on
-    set cursorline                  " highlight current line
-   
-    set backspace=indent,eol,start  " backspace for dummies
-    set linespace=0                 " No extra spaces between rows
-    set showmatch                   " show matching brackets/parenthesis
-    set incsearch                   " find as you type search
-    set hlsearch                    " highlight search terms
-    set ignorecase                  " case insensitive search
-    set smartcase                   " case sensitive when uc present
+set vb                      " Disable the bell
+set guifont=Monaco:h12
+colorscheme wombat
+set incsearch
+set colorcolumn=80
+set nospell                 " Why doesn't this stick??
+syntax on
+set mouse=a                 " automatically enable mouse usage
+set mousehide               " hide the mouse cursor while typing
+scriptencoding utf-8
 
-    " Formatting 
-    set nowrap                      " wrap long lines
-    set autoindent                  " indent at the same level of the previous line
-    set shiftwidth=4                " use indents of 4 spaces
-    set expandtab                   " tabs are spaces, not tabs
-    set tabstop=4                   " an indentation every four columns
-    set softtabstop=4               " let backspace delete indent
+set history=1000                " Store a ton of history (default is 20)
+set spell                       " spell checking on
+set cursorline                  " highlight current line
+
+set backspace=indent,eol,start  " backspace for dummies
+set linespace=0                 " No extra spaces between rows
+set showmatch                   " show matching brackets/parenthesis
+set incsearch                   " find as you type search
+set hlsearch                    " highlight search terms
+set ignorecase                  " case insensitive search
+set smartcase                   " case sensitive when uc present
+
+" Formatting 
+set nowrap                      " wrap long lines
+set autoindent                  " indent at the same level of the previous line
+set shiftwidth=4                " use indents of 4 spaces
+set expandtab                   " tabs are spaces, not tabs
+set tabstop=4                   " an indentation every four columns
+set softtabstop=4               " let backspace delete indent
 
 
-    " Easier moving in tabs and windows
-    map <C-J> <C-W>j<C-W>_
-    map <C-K> <C-W>k<C-W>_
-    map <C-L> <C-W>l<C-W>_
-    map <C-H> <C-W>h<C-W>_
+" Easier moving in tabs and windows
+map <C-J> <C-W>j<C-W>_
+map <C-K> <C-W>k<C-W>_
+map <C-L> <C-W>l<C-W>_
+map <C-H> <C-W>h<C-W>_
 
-    " Wrapped lines goes down/up to next row, rather than next line in file.
-    nnoremap j gj
-    nnoremap k gk
+" Wrapped lines goes down/up to next row, rather than next line in file.
+nnoremap j gj
+nnoremap k gk
 
-    " Yank from the cursor to the end of the line, to be consistent with C and D.
-    nnoremap Y y$
+" Yank from the cursor to the end of the line, to be consistent with C and D.
+nnoremap Y y$
 
-    " visual shifting (does not exit Visual mode)
-    vnoremap < <gv
-    vnoremap > >gv
+" visual shifting (does not exit Visual mode)
+vnoremap < <gv
+vnoremap > >gv
 
-    let g:pymode_lint_checker = "pyflakes"
-    let g:pymode_utils_whitespaces = 0
+let g:pymode_lint_checker = "pyflakes"
+let g:pymode_utils_whitespaces = 0
 
-    let g:ctrlp_custom_ignore = {
-	\ 'dir':  '\.git$\|\.hg$\|\.svn$',
-	\ 'file': '\.exe$\|\.so$\|\.dll$|\.pyc$' }
+let g:ctrlp_custom_ignore = {
+\ 'dir':  '\.git$\|\.hg$\|\.svn$',
+\ 'file': '\.exe$\|\.so$\|\.dll$|\.pyc$' }
 
-    let g:neocomplcache_enable_at_startup = 1
-    if !exists('g:neocomplcache_omni_functions')
-	let g:neocomplcache_omni_functions = {}
+let g:neocomplcache_enable_at_startup = 1
+if !exists('g:neocomplcache_omni_functions')
+let g:neocomplcache_omni_functions = {}
+endif
+let g:neocomplcache_omni_functions['python'] = 'jedi#complete'
+let g:jedi#popup_on_dot = 0
+
+" Plugin key-mappings.
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+
+" <TAB>: completion.
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+
+" Enable heavy omni completion.
+if !exists('g:neocomplcache_omni_patterns')
+let g:neocomplcache_omni_patterns = {}
+endif
+let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
+
+nnoremap <Leader>u :UndotreeToggle<CR>
+let g:undotree_SetFocusWhenToggle=1 " if undotree is opened, it is likely one wants to interact with it.
+
+ " indent_guides {
+    if !exists('g:spf13_no_indent_guides_autocolor')
+        let g:indent_guides_auto_colors = 1
+    else
+        " for some colorscheme ,autocolor will not work,like 'desert','ir_black'.
+        autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#212121   ctermbg=3
+        autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#404040 ctermbg=4
     endif
-    let g:neocomplcache_omni_functions['python'] = 'jedi#complete'
-    let g:jedi#popup_on_dot = 0
-
-    " Plugin key-mappings.
-    imap <C-k> <Plug>(neosnippet_expand_or_jump)
-    smap <C-k> <Plug>(neosnippet_expand_or_jump)
-
-    " <TAB>: completion.
-    inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-    inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
-
-    " Enable omni completion.
-    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-    autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-    autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-    autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-
-    " Enable heavy omni completion.
-    if !exists('g:neocomplcache_omni_patterns')
-	let g:neocomplcache_omni_patterns = {}
-    endif
-    let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-    let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-    let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-    let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-    let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
-
-    nnoremap <Leader>u :UndotreeToggle<CR>
-    let g:undotree_SetFocusWhenToggle=1 " if undotree is opened, it is likely one wants to interact with it.
-
-     " indent_guides {
-        if !exists('g:spf13_no_indent_guides_autocolor')
-            let g:indent_guides_auto_colors = 1
-        else
-            " for some colorscheme ,autocolor will not work,like 'desert','ir_black'.
-            autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#212121   ctermbg=3
-            autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#404040 ctermbg=4
-        endif
-        set ts=4 sw=4 et
-        let g:indent_guides_start_level = 2
-        let g:indent_guides_guide_size = 1
-        let g:indent_guides_enable_on_vim_startup = 1
-     " }
+    set ts=4 sw=4 et
+    let g:indent_guides_start_level = 2
+    let g:indent_guides_guide_size = 1
+    let g:indent_guides_enable_on_vim_startup = 1
+ " }
 
 " My mappings 
-    " Execute file being edited with <Shift> + e:
-    map <buffer> <S-e> :w<CR>:!/usr/bin/env python % <CR>
+" Execute file being edited with <Shift> + e:
+map <buffer> <S-e> :w<CR>:!/usr/bin/env python % <CR>
 
-    " Rope mappings:
-    map <leader>j :RopeGotoDefinition<CR>
+" Rope mappings:
+map <leader>j :RopeGotoDefinition<CR>
 
-    inoremap jj <ESC> "jj brings you back to normal mode from insert mode
+inoremap jj <ESC> "jj brings you back to normal mode from insert mode
 
-    " Move current line up / down
-    nnoremap <C-cr> ddp
-    nnoremap <S-C-cr> ddkP
+" Move current line up / down
+nnoremap <C-cr> ddp
+nnoremap <S-C-cr> ddkP
 
-    " Uppercase current word
-    nnoremap <C-u> vawUe
-    inoremap <C-u> <ESC>vawUi
+" Uppercase current word
+nnoremap <C-u> vawUe
+inoremap <C-u> <ESC>vawUi
 
-    " Quickly edit this file
-    nnoremap <leader>ev :vsplit $HOME/.vimrc<cr>
-    nnoremap <leader>sv :source $HOME/.vimrc<cr>
+" Quickly edit this file
+nnoremap <leader>ev :vsplit $HOME/.vimrc<cr>
+nnoremap <leader>sv :source $HOME/.vimrc<cr>
 
-    " Automatically fix common typos
-    iabbrev teh ihe
+" Automatically fix common typos
+iabbrev teh ihe
 
-    " Quickly switch between open windows
-    nnoremap <leader>h <C-w>h
-    nnoremap <leader>l <C-w>l
+" Quickly switch between open windows
+nnoremap <leader>h <C-w>h
+nnoremap <leader>l <C-w>l
 
-    " Quickly go to next buffer
-    nnoremap <C-n> :bn<cr>
+" Quickly go to next buffer
+nnoremap <C-n> :bn<cr>
 
-    " Fold and unfold with space
-    nnoremap <space> za
+" Fold and unfold with space
+nnoremap <space> za
 
-    " Paste mode prevents indenting text when pasting
-    set pastetoggle=<F2>
+" Paste mode prevents indenting text when pasting
+set pastetoggle=<F2>
 
-    " unfold all folds 
-    nnoremap <S-space> zR
+" unfold all folds 
+nnoremap <S-space> zR
 
-    " Sorting
-    vnoremap <leader>s :sort <CR>
+" Sorting
+vnoremap <leader>s :sort <CR>
 
-    " reload file when changes happen in other editors
-    set autoread 
+" reload file when changes happen in other editors
+set autoread 
 
-    " make yank copy to the global system clipboard
+
+" yank copy to the global system clipboard
+let s:uname = system("uname")
+if s:uname == "Darwin\n"
+    " Do Mac stuff here
+    set clipboard=unnamed
+else
     set clipboard=unnamedplus
+endif
 
-    " Quicksave command
-    noremap <Leader>w :update<CR>"
+" Quicksave command
+noremap <Leader>w :update<CR>"
 
-    map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
+map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 
-    "netrw ignore
-    let g:netrw_list_hide= '.*\.swp$,.*\.pyc'
+"netrw ignore
+let g:netrw_list_hide= '.*\.swp$,.*\.pyc'
+
+set backup                  " backups are nice ...
+set undofile                "so is persistent undo ...
+set undolevels=1000         "maximum number of changes that can be undone
+set undoreload=10000        "maximum number lines to save for undo on a buffer reload
+
+" shameless copy from spf13
+function! InitializeDirectories()
+    let separator = "."
+    let parent = $HOME
+    let prefix = '.vim'
+    let dir_list = {
+                \ 'backup': 'backupdir',
+                \ 'views': 'viewdir',
+                \ 'swap': 'directory' }
+
+    if has('persistent_undo')
+        let dir_list['undo'] = 'undodir'
+    endif
+
+    for [dirname, settingname] in items(dir_list)
+        let directory = parent . '/' . prefix . dirname . "/"
+        if exists("*mkdir")
+            if !isdirectory(directory)
+                call mkdir(directory)
+            endif
+        endif
+        if !isdirectory(directory)
+            echo "Warning: Unable to create backup directory: " . directory
+            echo "Try: mkdir -p " . directory
+        else
+            let directory = substitute(directory, " ", "\\\\ ", "g")
+            exec "set " . settingname . "=" . directory
+        endif
+    endfor
+endfunction
+call InitializeDirectories()
