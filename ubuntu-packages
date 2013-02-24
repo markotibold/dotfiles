@@ -1,1 +1,2 @@
+# This one is needed to support vim's clipboard feature
 vim-gui-common      install
