@@ -8,9 +8,6 @@ call vundle#rc()
 " required! 
 Bundle 'gmarik/vundle'
 
-" My Bundles here:
-"
-" original repos on github
  
 Bundle 'mileszs/ack.vim'
 Bundle 'altercation/vim-colors-solarized'
@@ -40,10 +37,8 @@ Bundle 'groenewege/vim-less'
 Bundle 'pangloss/vim-javascript'
 Bundle 'briancollins/vim-jst'
 
-
 Bundle 'amirh/HTML-AutoCloseTag'
 Bundle 'hail2u/vim-css3-syntax'
-
 
 Bundle 'tpope/vim-markdown'
 Bundle 'spf13/vim-preview'
@@ -54,22 +49,9 @@ Bundle 'vim-django'
 Bundle 'kchmck/vim-coffee-script'
 
 filetype plugin indent on     " required!
-"
-" Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle command are not allowed..
- 
 
 let mapleader = ','
 
-" My bundle settings 
-" vim: set foldmarker={,} foldlevel=0 foldmethod=marker spell:
-" vim-django:
 let g:django_projects = '~/devshare'    "vim-django: Sets all projects under devshare
 let g:django_activate_virtualenv = 1    "vim-django: Try to activate the associated virtualenv
 let g:django_activate_nerdtree = 1      "vim-django: Start NERDTree upon activation
@@ -77,16 +59,14 @@ let g:django_activate_nerdtree = 1      "vim-django: Start NERDTree upon activat
 " vim-coffee-script autocompile onsave
 au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
 
-" My UI related settings 
-set vb                      " Disable the bell
+set vb                          " Disable the bell
 set guifont=Monaco:h12
 colorscheme wombat
-set incsearch
 set colorcolumn=80
-set nospell                 " Why doesn't this stick??
 syntax on
-set mouse=a                 " automatically enable mouse usage
-set mousehide               " hide the mouse cursor while typing
+set mouse=a                     " automatically enable mouse usage
+set mousehide                   " hide the mouse cursor while typing
+
 scriptencoding utf-8
 
 set history=1000                " Store a ton of history (default is 20)
@@ -108,7 +88,6 @@ set shiftwidth=4                " use indents of 4 spaces
 set expandtab                   " tabs are spaces, not tabs
 set tabstop=4                   " an indentation every four columns
 set softtabstop=4               " let backspace delete indent
-
 
 " Easier moving in tabs and windows
 map <C-J> <C-W>j<C-W>_
@@ -185,8 +164,6 @@ let g:undotree_SetFocusWhenToggle=1 " if undotree is opened, it is likely one wa
  " }
 
 " My mappings 
-" Execute file being edited with <Shift> + e:
-map <buffer> <S-e> :w<CR>:!/usr/bin/env python % <CR>
 
 " Rope mappings:
 map <leader>j :RopeGotoDefinition<CR>
@@ -208,10 +185,6 @@ nnoremap <leader>sv :source $HOME/.vimrc<cr>
 " Automatically fix common typos
 iabbrev teh ihe
 
-" Quickly switch between open windows
-nnoremap <leader>h <C-w>h
-nnoremap <leader>l <C-w>l
-
 " Quickly go to next buffer
 nnoremap <C-n> :bn<cr>
 
@@ -230,8 +203,7 @@ vnoremap <leader>s :sort <CR>
 " reload file when changes happen in other editors
 set autoread 
 
-
-" yank copy to the global system clipboard
+" yank to the global system clipboard
 let s:uname = system("uname")
 if s:uname == "Darwin\n"
     " Do Mac stuff here
@@ -245,7 +217,7 @@ noremap <Leader>w :update<CR>"
 
 map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 
-"netrw ignore
+" netrw ignore
 let g:netrw_list_hide= '.*\.swp$,.*\.pyc'
 
 set backup                  " backups are nice ...
