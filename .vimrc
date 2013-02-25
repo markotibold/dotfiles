@@ -197,6 +197,9 @@ set pastetoggle=<F2>
 " unfold all folds 
 nnoremap <S-space> zR
 
+
+nnoremap <silent> <leader>tt :TagbarToggle<CR>
+
 " Sorting
 vnoremap <leader>s :sort <CR>
 
