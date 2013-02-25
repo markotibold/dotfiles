@@ -221,7 +221,7 @@ noremap <Leader>w :update<CR>"
 map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 
 " netrw ignore
-let g:netrw_list_hide= '.*\.swp$,.*\.pyc'
+let g:netrw_list_hide= '.*\.swp$,.*\.pyc,.*\.DS_Store'
 
 set backup                  " backups are nice ...
 set undofile                "so is persistent undo ...
