@@ -8,7 +8,8 @@ call vundle#rc()
 " required! 
 Bundle 'gmarik/vundle'
 
- 
+Bundle 'nelstrom/vim-mac-classic-theme' 
+Bundle 'nelstrom/vim-markdown-folding'
 Bundle 'mileszs/ack.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'spf13/vim-colors'
@@ -41,6 +42,7 @@ Bundle 'amirh/HTML-AutoCloseTag'
 Bundle 'hail2u/vim-css3-syntax'
 
 Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-unimpaired'
 Bundle 'spf13/vim-preview'
 
 Bundle 'vim-scripts/django.vim'
