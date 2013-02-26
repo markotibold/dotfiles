@@ -259,3 +259,5 @@ function! InitializeDirectories()
     endfor
 endfunction
 call InitializeDirectories()
+
+set nolist " Don't display end of line chars in some cases
