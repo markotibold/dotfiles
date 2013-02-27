@@ -263,3 +263,7 @@ endfunction
 call InitializeDirectories()
 
 set nolist " Don't display end of line chars in some cases
+
+set wildignore=*.pyc,*.png,*.fig,*.sql
+
+set laststatus=2 " Shows the statusline for single windows
