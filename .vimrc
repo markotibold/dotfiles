@@ -266,4 +266,8 @@ set nolist " Don't display end of line chars in some cases
 
 set wildignore=*.pyc,*.png,*.fig,*.sql
 
-set laststatus=2 " Shows the statusline for single windows
+set laststatus=2 " Shows the status line for single windows
+
+" Store spell-files in the ~/.vim/spell directory
+setlocal spellfile=~/.vim/spell/en.utf-8.add
+
