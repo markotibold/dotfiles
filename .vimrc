@@ -176,10 +176,6 @@ inoremap jj <ESC> "jj brings you back to normal mode from insert mode
 nnoremap <C-cr> ddp
 nnoremap <S-C-cr> ddkP
 
-" Uppercase current word
-nnoremap <C-u> vawUe
-inoremap <C-u> <ESC>vawUi
-
 " Quickly edit this file
 nnoremap <leader>ev :vsplit $HOME/.vimrc<cr>
 nnoremap <leader>sv :source $HOME/.vimrc<cr>
