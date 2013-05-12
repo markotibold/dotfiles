@@ -63,7 +63,7 @@ au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
 
 set vb                          " Disable the bell
 set guifont=Monaco:h12
-colorscheme wombat
+colorscheme professional
 set colorcolumn=80
 syntax on
 set mouse=a                     " automatically enable mouse usage
