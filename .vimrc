@@ -9,6 +9,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 Bundle 'nelstrom/vim-mac-classic-theme' 
+Bundle 'nelstrom/vim-qargs' 
 Bundle 'nelstrom/vim-markdown-folding'
 Bundle 'mileszs/ack.vim'
 Bundle 'altercation/vim-colors-solarized'
