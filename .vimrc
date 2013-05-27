@@ -26,6 +26,9 @@ Bundle 'tpope/vim-surround'
 
 " Fuzzy file, buffer, mru, tag, etc finder
 Bundle 'kien/ctrlp.vim'
+let g:ctrlp_custom_ignore = {
+\ 'dir':  '\.git$\|\.hg$\|\.svn$',
+\ 'file': '\.exe$\|\.so$\|\.dll$|\.pyc$' }
 
 " matchit.zip : extended % matching for HTML, LaTeX, and many other languages 
 Bundle 'matchit.zip'
@@ -38,6 +41,8 @@ Bundle 'godlygeek/csapprox'
 
 " undotree.vim : Display your undo history in a graph. 
 Bundle 'mbbill/undotree'
+nnoremap <Leader>u :UndotreeToggle<CR>
+let g:undotree_SetFocusWhenToggle=1 " if undotree is opened, it is likely one wants to interact with it.
 
 " better line numbers for vim
 Bundle 'myusuf3/numbers.vim'
@@ -64,17 +69,42 @@ Bundle 'godlygeek/tabular'
 
 " Tagbar : Display tags of the current file ordered by scope 
 Bundle 'majutsushi/tagbar'
+nnoremap <silent> <leader>tt :TagbarToggle<CR>
 
 " Ultimate auto-completion system for Vim
 Bundle 'Shougo/neocomplcache'
+let g:neocomplcache_enable_at_startup = 1
+if !exists('g:neocomplcache_omni_functions')
+let g:neocomplcache_omni_functions = {}
+endif
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+if !exists('g:neocomplcache_omni_patterns')
+let g:neocomplcache_omni_patterns = {}
+endif
+let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
+
 
 " Using the jedi autocompletion library for VIM
 Bundle 'davidhalter/jedi-vim'
+let g:neocomplcache_omni_functions['python'] = 'jedi#complete'
+let g:jedi#popup_on_dot = 0
 
 "Python-mode is a vim plugin that allows you to use the pylint, rope, pydoc
 "library in vim to provide features like python code looking for bugs,
 "refactoring and some other usefull things. 
 Bundle 'klen/python-mode'
+let g:pymode_lint_checker = "pyflakes"
+let g:pymode_utils_whitespaces = 0
 
 " JSON.vim : A syntax highlighting file for JSON 
 Bundle 'leshill/vim-json'
@@ -99,13 +129,12 @@ Bundle 'jmcantrell/vim-virtualenv'
 
 " CoffeeScript support for vim
 Bundle 'kchmck/vim-coffee-script'
+" vim-coffee-script autocompile onsave
+au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
 
 filetype plugin indent on     " required!
 
 let mapleader = ','
-
-" vim-coffee-script autocompile onsave
-au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
 
 set vb                          " Disable the bell
 set guifont=Monaco:h12
@@ -154,50 +183,9 @@ nnoremap Y y$
 vnoremap < <gv
 vnoremap > >gv
 
-let g:pymode_lint_checker = "pyflakes"
-let g:pymode_utils_whitespaces = 0
-
-let g:ctrlp_custom_ignore = {
-\ 'dir':  '\.git$\|\.hg$\|\.svn$',
-\ 'file': '\.exe$\|\.so$\|\.dll$|\.pyc$' }
-
-let g:neocomplcache_enable_at_startup = 1
-if !exists('g:neocomplcache_omni_functions')
-let g:neocomplcache_omni_functions = {}
-endif
-let g:neocomplcache_omni_functions['python'] = 'jedi#complete'
-let g:jedi#popup_on_dot = 0
-
-" Plugin key-mappings.
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-
 " <TAB>: completion.
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
-
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-
-" Enable heavy omni completion.
-if !exists('g:neocomplcache_omni_patterns')
-let g:neocomplcache_omni_patterns = {}
-endif
-let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
-
-nnoremap <Leader>u :UndotreeToggle<CR>
-let g:undotree_SetFocusWhenToggle=1 " if undotree is opened, it is likely one wants to interact with it.
-
-" My mappings 
 
 " Rope mappings:
 map <leader>j :RopeGotoDefinition<CR>
@@ -217,8 +205,6 @@ set pastetoggle=<F2>
 
 " unfold all folds 
 nnoremap <S-space> zR
-
-nnoremap <silent> <leader>tt :TagbarToggle<CR>
 
 " reload file when changes happen in other editors
 set autoread 
