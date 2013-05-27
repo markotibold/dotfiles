@@ -8,56 +8,101 @@ call vundle#rc()
 " required! 
 Bundle 'gmarik/vundle'
 
-Bundle 'nelstrom/vim-mac-classic-theme' 
+" pass all files in quick-fix window to the arglist
 Bundle 'nelstrom/vim-qargs' 
+
+" This plugin enables folding by section headings in markdown documents.
 Bundle 'nelstrom/vim-markdown-folding'
-Bundle 'mileszs/ack.vim'
+
+" Colors and themes
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'nelstrom/vim-mac-classic-theme' 
 Bundle 'spf13/vim-colors'
 Bundle 'flazz/vim-colorschemes'
+Bundle 'd11wtq/tomorrow-theme-vim'
+
+" surround.vim: quoting/parenthesizing made simple
 Bundle 'tpope/vim-surround'
+
+" Fuzzy file, buffer, mru, tag, etc finder
 Bundle 'kien/ctrlp.vim'
+
+" matchit.zip : extended % matching for HTML, LaTeX, and many other languages 
 Bundle 'matchit.zip'
+
+" vim-powerline : The ultimate vim statusline utility. 
 Bundle 'Lokaltog/vim-powerline'
+
+" CSApprox : Make gvim-only colorschemes work transparently in terminal vim 
 Bundle 'godlygeek/csapprox'
+
+" undotree.vim : Display your undo history in a graph. 
 Bundle 'mbbill/undotree'
+
+" better line numbers for vim
 Bundle 'myusuf3/numbers.vim'
+
+" Indent Guides : A plugin for visually displaying indent levels in Vim. 
 Bundle 'nathanaelkane/vim-indent-guides'
+
+" restore_view.vim : A plugin for automatically restoring file's cursor
+" position and folding 
 Bundle 'vim-scripts/restore_view.vim'
+
+" Syntastic : Automatic syntax checking 
 Bundle 'scrooloose/syntastic'
+
+" fugitive.vim : A Git wrapper so awesome, it should be illegal 
 Bundle 'tpope/vim-fugitive'
+
+" The NERD Commenter : A plugin that allows for easy commenting of code for
+" many filetypes. 
 Bundle 'scrooloose/nerdcommenter'
+
+" Tabular : Vim script for text filtering and alignment 
 Bundle 'godlygeek/tabular'
+
+" Tagbar : Display tags of the current file ordered by scope 
 Bundle 'majutsushi/tagbar'
+
+" Ultimate auto-completion system for Vim
 Bundle 'Shougo/neocomplcache'
 
+" Using the jedi autocompletion library for VIM
 Bundle 'davidhalter/jedi-vim'
+
+"Python-mode is a vim plugin that allows you to use the pylint, rope, pydoc
+"library in vim to provide features like python code looking for bugs,
+"refactoring and some other usefull things. 
 Bundle 'klen/python-mode'
 
+" JSON.vim : A syntax highlighting file for JSON 
 Bundle 'leshill/vim-json'
-Bundle 'groenewege/vim-less'
-Bundle 'pangloss/vim-javascript'
-Bundle 'briancollins/vim-jst'
 
-Bundle 'amirh/HTML-AutoCloseTag'
+" JavaScript syntax : Better JavaScrirpt syntax support 
+Bundle 'pangloss/vim-javascript'
+
+" Add CSS3 syntax support to vim's built-in syntax/css.vim.
 Bundle 'hail2u/vim-css3-syntax'
 
+" Markdown : Syntax highlight for Markdown text files 
 Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'spf13/vim-preview'
 
+" unimpaired.vim : Pairs of handy bracket mappings 
+Bundle 'tpope/vim-unimpaired'
+
+" Syntax highlighting for Django templates
 Bundle 'vim-scripts/django.vim'
+
+" Work with python virtualenvs in vim
 Bundle 'jmcantrell/vim-virtualenv'
-Bundle 'vim-django'
+
+" CoffeeScript support for vim
 Bundle 'kchmck/vim-coffee-script'
 
 filetype plugin indent on     " required!
 
 let mapleader = ','
-
-let g:django_projects = '~/devshare'    "vim-django: Sets all projects under devshare
-let g:django_activate_virtualenv = 1    "vim-django: Try to activate the associated virtualenv
-let g:django_activate_nerdtree = 1      "vim-django: Start NERDTree upon activation
 
 " vim-coffee-script autocompile onsave
 au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
@@ -152,30 +197,10 @@ let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
 nnoremap <Leader>u :UndotreeToggle<CR>
 let g:undotree_SetFocusWhenToggle=1 " if undotree is opened, it is likely one wants to interact with it.
 
- " indent_guides {
-    if !exists('g:spf13_no_indent_guides_autocolor')
-        let g:indent_guides_auto_colors = 1
-    else
-        " for some colorscheme ,autocolor will not work,like 'desert','ir_black'.
-        autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#212121   ctermbg=3
-        autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#404040 ctermbg=4
-    endif
-    set ts=4 sw=4 et
-    let g:indent_guides_start_level = 2
-    let g:indent_guides_guide_size = 1
-    let g:indent_guides_enable_on_vim_startup = 1
- " }
-
 " My mappings 
 
 " Rope mappings:
 map <leader>j :RopeGotoDefinition<CR>
-
-inoremap jj <ESC> "jj brings you back to normal mode from insert mode
-
-" Move current line up / down
-nnoremap <C-cr> ddp
-nnoremap <S-C-cr> ddkP
 
 " Quickly edit this file
 nnoremap <leader>ev :vsplit $HOME/.vimrc<cr>
@@ -183,9 +208,6 @@ nnoremap <leader>sv :source $HOME/.vimrc<cr>
 
 " Automatically fix common typos
 iabbrev teh ihe
-
-" Quickly go to next buffer
-nnoremap <C-n> :bn<cr>
 
 " Fold and unfold with space
 nnoremap <space> za
@@ -196,11 +218,7 @@ set pastetoggle=<F2>
 " unfold all folds 
 nnoremap <S-space> zR
 
-
 nnoremap <silent> <leader>tt :TagbarToggle<CR>
-
-" Sorting
-vnoremap <leader>s :sort <CR>
 
 " reload file when changes happen in other editors
 set autoread 
