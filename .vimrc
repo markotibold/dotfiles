@@ -71,33 +71,8 @@ Bundle 'godlygeek/tabular'
 Bundle 'majutsushi/tagbar'
 nnoremap <silent> <leader>tt :TagbarToggle<CR>
 
-" Ultimate auto-completion system for Vim
-Bundle 'Shougo/neocomplcache'
-let g:neocomplcache_enable_at_startup = 1
-if !exists('g:neocomplcache_omni_functions')
-let g:neocomplcache_omni_functions = {}
-endif
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-if !exists('g:neocomplcache_omni_patterns')
-let g:neocomplcache_omni_patterns = {}
-endif
-let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
-
-
-" Using the jedi autocompletion library for VIM
-Bundle 'davidhalter/jedi-vim'
-let g:neocomplcache_omni_functions['python'] = 'jedi#complete'
-let g:jedi#popup_on_dot = 0
+Bundle 'Valloric/YouCompleteMe'
+nnoremap <leader>j :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 "Python-mode is a vim plugin that allows you to use the pylint, rope, pydoc
 "library in vim to provide features like python code looking for bugs,
@@ -186,9 +161,6 @@ vnoremap > >gv
 " <TAB>: completion.
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
-
-" Rope mappings:
-map <leader>j :RopeGotoDefinition<CR>
 
 " Quickly edit this file
 nnoremap <leader>ev :vsplit $HOME/.vimrc<cr>
