@@ -82,7 +82,7 @@ let g:pymode_lint_checker = "pyflakes"
 let g:pymode_utils_whitespaces = 0
 
 " JSON.vim : A syntax highlighting file for JSON 
-Bundle 'leshill/vim-json'
+Bundle 'jakar/vim-json'
 
 " JavaScript syntax : Better JavaScrirpt syntax support 
 Bundle 'pangloss/vim-javascript'
@@ -244,3 +244,5 @@ set laststatus=2 " Shows the status line for single windows
 " Store spell-files in the ~/.vim/spell directory
 setlocal spellfile=~/.vim/spell/en.utf-8.add
 
+" Reindent json 
+command! -range -nargs=0 -bar JsonTool <line1>,<line2>!python -m json.tool
