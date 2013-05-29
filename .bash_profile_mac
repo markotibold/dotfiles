@@ -21,3 +21,8 @@ export PATH="/usr/local/bin:/usr/local/mysql/bin:$PATH"
 # Hack for mysql-python, TODO really solve this
 export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+export PATH="/usr/local/Cellar/gettext/0.18.2/bin/:$PATH"
+
+source ~/.bash_profile_local
