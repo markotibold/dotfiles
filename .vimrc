@@ -72,7 +72,7 @@ Bundle 'majutsushi/tagbar'
 nnoremap <silent> <leader>tt :TagbarToggle<CR>
 
 Bundle 'Valloric/YouCompleteMe'
-nnoremap <leader>j :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <leader>j :YcmCompleter GoToDefinition<CR>
 let g:ycm_autoclose_preview_window_after_completion = 1
 
 "Python-mode is a vim plugin that allows you to use the pylint, rope, pydoc
@@ -247,3 +247,5 @@ setlocal spellfile=~/.vim/spell/en.utf-8.add
 
 " Reindent json 
 command! -range -nargs=0 -bar JsonTool <line1>,<line2>!python -m json.tool
+
+nnoremap <leader>e :Explore<cr>
