@@ -73,6 +73,7 @@ nnoremap <silent> <leader>tt :TagbarToggle<CR>
 
 Bundle 'Valloric/YouCompleteMe'
 nnoremap <leader>j :YcmCompleter GoToDefinitionElseDeclaration<CR>
+let g:ycm_autoclose_preview_window_after_completion = 1
 
 "Python-mode is a vim plugin that allows you to use the pylint, rope, pydoc
 "library in vim to provide features like python code looking for bugs,
