@@ -85,8 +85,11 @@ let g:pymode_utils_whitespaces = 0
 " JSON.vim : A syntax highlighting file for JSON 
 Bundle 'jakar/vim-json'
 
-" JavaScript syntax : Better JavaScrirpt syntax support 
+" JavaScript syntax : Better JavaScript syntax support 
 Bundle 'pangloss/vim-javascript'
+
+" JSHint fork of jslint.vim
+Bundle 'wookiehangover/jshint.vim'
 
 " Add CSS3 syntax support to vim's built-in syntax/css.vim.
 Bundle 'hail2u/vim-css3-syntax'
