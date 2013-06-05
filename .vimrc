@@ -117,6 +117,9 @@ Bundle 'kana/vim-textobj-user'
 " Text objects for the last searched pattern
 Bundle 'kana/vim-textobj-lastpat'
 
+" Text objects for python
+Bundle 'bps/vim-textobj-python'
+
 filetype plugin indent on     " required!
 
 let mapleader = ','
