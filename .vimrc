@@ -120,6 +120,9 @@ Bundle 'kana/vim-textobj-lastpat'
 " Text objects for python
 Bundle 'bps/vim-textobj-python'
 
+" Start a * or # search from a visual block
+Bundle 'nelstrom/vim-visual-star-search'
+
 filetype plugin indent on     " required!
 
 let mapleader = ','
