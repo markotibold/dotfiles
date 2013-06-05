@@ -111,6 +111,12 @@ Bundle 'kchmck/vim-coffee-script'
 " vim-coffee-script autocompile onsave
 au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
 
+" Create your own text objects — Read more
+Bundle 'kana/vim-textobj-user'
+
+" Text objects for the last searched pattern
+Bundle 'kana/vim-textobj-lastpat'
+
 filetype plugin indent on     " required!
 
 let mapleader = ','
@@ -199,7 +205,7 @@ noremap <Leader>w :update<CR>"
 
 map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 
-" netrw ignore
+" netrw 
 let g:netrw_list_hide= '.*\.swp$,.*\.pyc,.*\.DS_Store'
 
 set backup                  " backups are nice ...
@@ -252,3 +258,4 @@ setlocal spellfile=~/.vim/spell/en.utf-8.add
 command! -range -nargs=0 -bar JsonTool <line1>,<line2>!python -m json.tool
 
 nnoremap <leader>e :Explore<cr>
+
