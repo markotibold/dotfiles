@@ -253,7 +253,7 @@ call InitializeDirectories()
 
 set nolist " Don't display end of line chars in some cases
 
-set wildignore=*.pyc,*.png,*.fig,*.sql
+set wildignore=*.pyc,*.png,*.fig,*.sql,**/migrations/[0-9][0-9][0-9][0-9]*.py
 
 set laststatus=2 " Shows the status line for single windows
 
