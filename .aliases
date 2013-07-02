@@ -23,3 +23,5 @@ alias rs="python manage.py runserver 0:8000"
 alias gti="git"
 
 alias st="open -a \"SourceTree\" ."
+
+alias marked='open -a marked'
