@@ -25,3 +25,5 @@ alias gti="git"
 alias st="open -a \"SourceTree\" ."
 
 alias marked='open -a marked'
+
+alias t='tree -C'
