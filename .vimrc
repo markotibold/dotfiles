@@ -123,6 +123,13 @@ Bundle 'bps/vim-textobj-python'
 " Start a * or # search from a visual block
 Bundle 'nelstrom/vim-visual-star-search'
 
+" Vim Latex plugin
+" Download Mactex http://tug.org/mactex/
+" brew install latex-mk
+Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
+let g:Tex_DefaultTargetFormat = 'pdf'
+let g:Tex_CompileRule_pdf = 'xelatex -interaction=nonstopmode $*'
+
 filetype plugin indent on     " required!
 
 let mapleader = ','
