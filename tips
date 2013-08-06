@@ -1,2 +1,6 @@
 # Export a git repo to antoher directory
 git archive branchname | (cd otherpath; tar x)
+
+# remove recursively by exgtension
+$ find . -name \*.pyc -delete
+
