@@ -130,6 +130,9 @@ Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_CompileRule_pdf = 'xelatex -interaction=nonstopmode $*'
 
+" Github mirror of Go vimscripts, synced with main repository
+Bundle 'jnwhiteh/vim-golang'
+
 filetype plugin indent on     " required!
 
 let mapleader = ','
