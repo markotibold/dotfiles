@@ -1,0 +1,26 @@
+[extensions]
+pager=
+hgext.convert=
+hgext.extdiff=
+hgext.graphlog=
+hgext.color=
+hgext.progress=
+hgext.highlight=
+hgext.churn=
+hgshelve=~/.hgext/hgshelve/hgshelve.py
+hgflow=~/.hgext/hgflow/src/hgflow/hgflow.py
+
+[pager]
+pager = LESS='FRX' less
+
+# Put the content below in ~/.hgcredentials
+#[ui]
+#username = Your Name <you.email@exapmle.com>
+
+#[auth]
+#foo.prefix = https://foo.com/
+#foo.username = <username>
+#foo.password = <password>
+#foo.schemes = https
+
+%include ~/.hgcredentials

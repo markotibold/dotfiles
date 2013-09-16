@@ -133,6 +133,9 @@ let g:Tex_CompileRule_pdf = 'xelatex -interaction=nonstopmode $*'
 " Github mirror of Go vimscripts, synced with main repository
 Bundle 'jnwhiteh/vim-golang'
 
+" Vim ini syntax
+Bundle 'vim-scripts/ini-syntax-definition'
+
 filetype plugin indent on     " required!
 
 let mapleader = ','
