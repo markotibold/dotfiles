@@ -136,13 +136,16 @@ Bundle 'jnwhiteh/vim-golang'
 " Vim ini syntax
 Bundle 'vim-scripts/ini-syntax-definition'
 
+" Better rst support for vim
+Bundle 'Rykka/riv.vim' 
+
 filetype plugin indent on     " required!
 
 let mapleader = ','
 
 set vb                          " Disable the bell
 set guifont=Monaco:h12
-colorscheme professional
+colorscheme wombat
 set colorcolumn=80
 syntax on
 set mouse=a                     " automatically enable mouse usage
@@ -222,7 +225,7 @@ endif
 " Quicksave command
 noremap <Leader>w :update<CR>"
 
-map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
+map <Leader>ib Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 
 " netrw 
 let g:netrw_list_hide= '.*\.swp$,.*\.pyc,.*\.DS_Store'
