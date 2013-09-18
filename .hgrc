@@ -13,6 +13,9 @@ hgflow=~/.hgext/hgflow/src/hgflow/hgflow.py
 [pager]
 pager = LESS='FRX' less
 
+[ui]
+ignore = ~/.dotfiles/.hgignore
+
 # Put the content below in ~/.hgcredentials
 #[ui]
 #username = Your Name <you.email@exapmle.com>
