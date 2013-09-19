@@ -139,6 +139,9 @@ Bundle 'vim-scripts/ini-syntax-definition'
 " Better rst support for vim
 Bundle 'Rykka/riv.vim' 
 
+" RST preview, run :Rst
+:command Rst :!rst2html.py % > /tmp/rstprev.html && open /tmp/rstprev.html
+
 filetype plugin indent on     " required!
 
 let mapleader = ','
