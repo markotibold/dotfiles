@@ -18,6 +18,7 @@ pager = LESS='FRX' less
 
 [ui]
 ignore = ~/.dotfiles/.hgignore
+editor = vim
 
 # Put the content below in ~/.hgcredentials
 #[ui]
