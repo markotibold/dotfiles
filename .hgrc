@@ -7,6 +7,7 @@ hgext.color=
 hgext.progress=
 hgext.highlight=
 hgext.churn=
+mq =
 
 hgshelve=~/.hgext/hgshelve/hgshelve.py
 
@@ -19,6 +20,9 @@ pager = LESS='FRX' less
 [ui]
 ignore = ~/.dotfiles/.hgignore
 editor = vim
+
+[flow]
+autoshelve = true
 
 # Put the content below in ~/.hgcredentials
 #[ui]
