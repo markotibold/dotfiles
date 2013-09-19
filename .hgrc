@@ -7,8 +7,11 @@ hgext.color=
 hgext.progress=
 hgext.highlight=
 hgext.churn=
+
 hgshelve=~/.hgext/hgshelve/hgshelve.py
-hgflow=~/.hgext/hgflow/src/hgflow/hgflow.py
+
+# https://bitbucket.org/yujiewu/hgflow/wiki/Home
+hgflow=~/.hgext/hgflow/src/hgflow.py
 
 [pager]
 pager = LESS='FRX' less
