@@ -142,6 +142,9 @@ Bundle 'Rykka/riv.vim'
 " RST preview, run :Rst
 :command Rst :!rst2html.py % > /tmp/rstprev.html && open /tmp/rstprev.html
 
+" Vim VCS plugin
+Bundle 'git://repo.or.cz/vcscommand'
+
 filetype plugin indent on     " required!
 
 let mapleader = ','
