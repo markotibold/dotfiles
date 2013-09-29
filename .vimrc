@@ -139,8 +139,7 @@ Bundle 'vim-scripts/ini-syntax-definition'
 " Better rst support for vim
 Bundle 'Rykka/riv.vim' 
 
-" RST preview, run :Rst
-:command Rst :!rst2html.py % > /tmp/rstprev.html && open /tmp/rstprev.html
+" Tip  RST preview, run :Rst
 
 " Vim VCS plugin
 Bundle 'git://repo.or.cz/vcscommand'
@@ -207,14 +206,8 @@ nnoremap <leader>sv :source $HOME/.vimrc<cr>
 " Automatically fix common typos
 iabbrev teh ihe
 
-" Fold and unfold with space
-nnoremap <space> za
-
 " Paste mode prevents indenting text when pasting
 set pastetoggle=<F2>
-
-" unfold all folds 
-nnoremap <S-space> zR
 
 " reload file when changes happen in other editors
 set autoread 
