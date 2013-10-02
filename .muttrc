@@ -50,13 +50,12 @@ set spoolfile = "+marko-tibold.nl/INBOX"
 
 # Mailboxes to show in the sidebar.
 mailboxes +marko-tibold.nl/INBOX \
-          +marko-tibold.nl/vim \
-          +marko-tibold.nl/clojure \
-          +marko-tibold.nl/python \
-          +marko-tibold.nl/mercurial \
-          +marko-tibold.nl/archive \
-          +marko-tibold.nl/sent \
+          +marko-tibold.nl/Archive \
           +marko-tibold.nl/drafts \
+          +marko-tibold.nl/flagged \
+          +marko-tibold.nl/sent \
+          +marko-tibold.nl/trash \
+          +marko-tibold.nl/spam \
 
 # Other special folders.
 set mbox      = "+marko-tibold.nl/archive"
@@ -146,9 +145,9 @@ bind compose p postpone-message
 bind index p recall-message
 
 # Contacts --------------------------------------
-set query_command = "contacts -Sf '%eTOKEN%n' '%s' | sed -e 's/TOKEN/\t/g'"
+set query_command="goobook query '%s'"
+macro index,pager a "<pipe-message>goobook add<return>" "add sender to google contacts"
 bind editor <Tab> complete-query
-bind editor ^T    complete
 
 # Searching
 bind index N search-opposite
