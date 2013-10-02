@@ -79,7 +79,6 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 "library in vim to provide features like python code looking for bugs,
 "refactoring and some other usefull things. 
 Bundle 'klen/python-mode'
-let g:pymode_lint_checker = "pyflakes"
 let g:pymode_utils_whitespaces = 0
 
 " JSON.vim : A syntax highlighting file for JSON 
