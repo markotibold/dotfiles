@@ -80,6 +80,7 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 "refactoring and some other usefull things. 
 Bundle 'klen/python-mode'
 let g:pymode_utils_whitespaces = 0
+let g:pymode_lint_ignore = "W391"
 
 " JSON.vim : A syntax highlighting file for JSON 
 Bundle 'jakar/vim-json'
