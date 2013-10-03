@@ -139,7 +139,8 @@ Bundle 'vim-scripts/ini-syntax-definition'
 " Better rst support for vim
 Bundle 'Rykka/riv.vim' 
 
-" Tip  RST preview, run :Rst
+" RST preview, run :Rst
+:command Rst :!rst2html.py % > /tmp/rstprev.html && open /tmp/rstprev.html
 
 " Vim VCS plugin
 Bundle 'git://repo.or.cz/vcscommand'
