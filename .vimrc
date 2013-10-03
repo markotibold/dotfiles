@@ -28,7 +28,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'kien/ctrlp.vim'
 let g:ctrlp_custom_ignore = {
 \ 'dir':  '\.git$\|\.hg$\|\.svn$',
-\ 'file': '\.exe$\|\.so$\|\.dll$|\.pyc$' }
+\ 'file': '\.exe$\|\.so$\|\.dll$|\.pyc$|\.orig$'}
 
 " matchit.zip : extended % matching for HTML, LaTeX, and many other languages 
 Bundle 'matchit.zip'
@@ -227,7 +227,7 @@ noremap <Leader>w :update<CR>"
 map <Leader>ib Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 
 " netrw 
-let g:netrw_list_hide= '.*\.swp$,.*\.pyc,.*\.DS_Store'
+let g:netrw_list_hide= '.*\.swp$,.*\.pyc,.*\.DS_Store,.*\.orig'
 
 set backup                  " backups are nice ...
 set undofile                "so is persistent undo ...
@@ -268,7 +268,7 @@ call InitializeDirectories()
 
 set nolist " Don't display end of line chars in some cases
 
-set wildignore=*.pyc,*.png,*.fig,*.sql,**/migrations/[0-9][0-9][0-9][0-9]*.py
+set wildignore=*.pyc,*.orig,*.png,*.fig,*.sql,**/migrations/[0-9][0-9][0-9][0-9]*.py
 
 set laststatus=2 " Shows the status line for single windows
 
