@@ -50,7 +50,7 @@ set spoolfile = "+marko-tibold.nl/INBOX"
 
 # Mailboxes to show in the sidebar.
 mailboxes +marko-tibold.nl/INBOX \
-          +marko-tibold.nl/Archive \
+          +marko-tibold.nl/archive \
           +marko-tibold.nl/drafts \
           +marko-tibold.nl/flagged \
           +marko-tibold.nl/sent \
