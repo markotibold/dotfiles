@@ -149,6 +149,7 @@ filetype plugin indent on     " required!
 
 let mapleader = ','
 
+set nofoldenable
 set vb                          " Disable the bell
 set guifont=Monaco:h12
 colorscheme wombat
