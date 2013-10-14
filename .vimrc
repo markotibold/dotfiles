@@ -282,3 +282,8 @@ command! -range -nargs=0 -bar JsonTool <line1>,<line2>!python -m json.tool
 
 nnoremap <leader>e :Explore<cr>
 
+" Strip trailing whitespaces
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+
+" Send last closing bracket to next line
+nnoremap <leader>C 0/)$<cr>i<cr><esc>:noh<cr>
