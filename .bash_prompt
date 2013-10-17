@@ -202,3 +202,6 @@ PATH=$PATH:~/.dotfiles/bin
 
 # python tab-completion
 export PYTHONSTARTUP=$HOME/.dotfiles/.pythonrc
+
+# Overwrite ~/.ssh/config with everything in ~/.ssh/config.d
+alias ssh="cat ~/.ssh/config.d/* > ~/.ssh/config; ssh"
