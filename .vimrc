@@ -14,17 +14,28 @@ Bundle 'nelstrom/vim-qargs'
 " This plugin enables folding by section headings in markdown documents.
 Bundle 'nelstrom/vim-markdown-folding'
 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colors and themes
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'nelstrom/vim-mac-classic-theme' 
 Bundle 'spf13/vim-colors'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'd11wtq/tomorrow-theme-vim'
+" CSApprox : Make gvim-only colorschemes work transparently in terminal vim 
+Bundle 'godlygeek/csapprox'
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Efficiency
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " surround.vim: quoting/parenthesizing made simple
 Bundle 'tpope/vim-surround'
 
-" Fuzzy file, buffer, mru, tag, etc finder
+" CTRL-P: Fuzzy file, buffer, mru, tag, etc finder
 Bundle 'kien/ctrlp.vim'
 let g:ctrlp_custom_ignore = {
 \ 'dir':  '\.git$\|\.hg$\|\.svn$',
@@ -33,32 +44,15 @@ let g:ctrlp_custom_ignore = {
 " matchit.zip : extended % matching for HTML, LaTeX, and many other languages 
 Bundle 'matchit.zip'
 
-" vim-powerline : The ultimate vim statusline utility. 
-Bundle 'Lokaltog/vim-powerline'
-
-" CSApprox : Make gvim-only colorschemes work transparently in terminal vim 
-Bundle 'godlygeek/csapprox'
-
 " undotree.vim : Display your undo history in a graph. 
 Bundle 'mbbill/undotree'
 nnoremap <Leader>u :UndotreeToggle<CR>
-let g:undotree_SetFocusWhenToggle=1 " if undotree is opened, it is likely one wants to interact with it.
-
-" better line numbers for vim
-Bundle 'myusuf3/numbers.vim'
-
-" Indent Guides : A plugin for visually displaying indent levels in Vim. 
-Bundle 'nathanaelkane/vim-indent-guides'
+let g:undotree_SetFocusWhenToggle=1 " if undotree is opened, it is likely one
+                                    " wants to interact with it.
 
 " restore_view.vim : A plugin for automatically restoring file's cursor
 " position and folding 
 Bundle 'vim-scripts/restore_view.vim'
-
-" Syntastic : Automatic syntax checking 
-Bundle 'scrooloose/syntastic'
-
-" fugitive.vim : A Git wrapper so awesome, it should be illegal 
-Bundle 'tpope/vim-fugitive'
 
 " The NERD Commenter : A plugin that allows for easy commenting of code for
 " many filetypes. 
@@ -71,9 +65,39 @@ Bundle 'godlygeek/tabular'
 Bundle 'majutsushi/tagbar'
 nnoremap <silent> <leader>tt :TagbarToggle<CR>
 
-Bundle 'Valloric/YouCompleteMe'
-nnoremap <leader>j :YcmCompleter GoToDefinition<CR>
-let g:ycm_autoclose_preview_window_after_completion = 1
+" unimpaired.vim : Pairs of handy bracket mappings 
+Bundle 'tpope/vim-unimpaired'
+
+" Create your own text objects — Read more
+Bundle 'kana/vim-textobj-user'
+
+" Text objects for the last searched pattern
+Bundle 'kana/vim-textobj-lastpat'
+
+" Start a * or # search from a visual block
+Bundle 'nelstrom/vim-visual-star-search'
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" UI Improvements
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" vim-powerline : The ultimate vim statusline utility. 
+Bundle 'Lokaltog/vim-powerline'
+
+" better line numbers for vim
+Bundle 'myusuf3/numbers.vim'
+
+" Indent Guides : A plugin for visually displaying indent levels in Vim. 
+Bundle 'nathanaelkane/vim-indent-guides'
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Linters and stuff
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Syntastic : Automatic syntax checking 
+Bundle 'scrooloose/syntastic'
 
 "Python-mode is a vim plugin that allows you to use the pylint, rope, pydoc
 "library in vim to provide features like python code looking for bugs,
@@ -82,14 +106,48 @@ Bundle 'klen/python-mode'
 let g:pymode_utils_whitespaces = 0
 let g:pymode_lint_ignore = "W391"
 
+" JSHint fork of jslint.vim
+Bundle 'wookiehangover/jshint.vim'
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Version control
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" fugitive.vim : A Git wrapper so awesome, it should be illegal 
+Bundle 'tpope/vim-fugitive'
+
+" Vim VCS plugin
+Bundle 'git://repo.or.cz/vcscommand'
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Python utils
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Fast Python completion and Go-to-definition
+Bundle 'Valloric/YouCompleteMe'
+nnoremap <leader>j :YcmCompleter GoToDefinition<CR>
+let g:ycm_autoclose_preview_window_after_completion = 1
+
+" Work with python virtualenvs in vim
+Bundle 'jmcantrell/vim-virtualenv'
+
+" Text objects for python
+Bundle 'bps/vim-textobj-python'
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Syntax
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " JSON.vim : A syntax highlighting file for JSON 
 Bundle 'jakar/vim-json'
+" Reindent json 
+command! -range -nargs=0 -bar JsonTool <line1>,<line2>!python -m json.tool
 
 " JavaScript syntax : Better JavaScript syntax support 
 Bundle 'pangloss/vim-javascript'
-
-" JSHint fork of jslint.vim
-Bundle 'wookiehangover/jshint.vim'
 
 " Add CSS3 syntax support to vim's built-in syntax/css.vim.
 Bundle 'hail2u/vim-css3-syntax'
@@ -97,31 +155,26 @@ Bundle 'hail2u/vim-css3-syntax'
 " Markdown : Syntax highlight for Markdown text files 
 Bundle 'tpope/vim-markdown'
 
-" unimpaired.vim : Pairs of handy bracket mappings 
-Bundle 'tpope/vim-unimpaired'
-
 " Syntax highlighting for Django templates
 Bundle 'vim-scripts/django.vim'
-
-" Work with python virtualenvs in vim
-Bundle 'jmcantrell/vim-virtualenv'
 
 " CoffeeScript support for vim
 Bundle 'kchmck/vim-coffee-script'
 " vim-coffee-script autocompile onsave
 au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
 
-" Create your own text objects — Read more
-Bundle 'kana/vim-textobj-user'
+" Vim ini syntax
+Bundle 'vim-scripts/ini-syntax-definition'
 
-" Text objects for the last searched pattern
-Bundle 'kana/vim-textobj-lastpat'
+" Better rst support for vim
+Bundle 'Rykka/riv.vim' 
+" RST preview, run :Rst
+:command Rst :!rst2html.py % > /tmp/rstprev.html && open /tmp/rstprev.html
 
-" Text objects for python
-Bundle 'bps/vim-textobj-python'
 
-" Start a * or # search from a visual block
-Bundle 'nelstrom/vim-visual-star-search'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Other
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Vim Latex plugin
 " Download Mactex http://tug.org/mactex/
@@ -133,17 +186,10 @@ let g:Tex_CompileRule_pdf = 'xelatex -interaction=nonstopmode $*'
 " Github mirror of Go vimscripts, synced with main repository
 Bundle 'jnwhiteh/vim-golang'
 
-" Vim ini syntax
-Bundle 'vim-scripts/ini-syntax-definition'
 
-" Better rst support for vim
-Bundle 'Rykka/riv.vim' 
-
-" RST preview, run :Rst
-:command Rst :!rst2html.py % > /tmp/rstprev.html && open /tmp/rstprev.html
-
-" Vim VCS plugin
-Bundle 'git://repo.or.cz/vcscommand'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" General configureation
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 filetype plugin indent on     " required!
 
@@ -180,31 +226,6 @@ set expandtab                   " tabs are spaces, not tabs
 set tabstop=4                   " an indentation every four columns
 set softtabstop=4               " let backspace delete indent
 
-" Easier moving in tabs and windows
-map <C-J> <C-W>j<C-W>_
-map <C-K> <C-W>k<C-W>_
-map <C-L> <C-W>l<C-W>_
-map <C-H> <C-W>h<C-W>_
-
-" Wrapped lines goes down/up to next row, rather than next line in file.
-nnoremap j gj
-nnoremap k gk
-
-" Yank from the cursor to the end of the line, to be consistent with C and D.
-nnoremap Y y$
-
-" visual shifting (does not exit Visual mode)
-vnoremap < <gv
-vnoremap > >gv
-
-" <TAB>: completion.
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
-
-" Quickly edit this file
-nnoremap <leader>ev :vsplit $HOME/.vimrc<cr>
-nnoremap <leader>sv :source $HOME/.vimrc<cr>
-
 " Automatically fix common typos
 iabbrev teh ihe
 
@@ -223,13 +244,11 @@ else
     set clipboard=unnamedplus
 endif
 
-" Quicksave command
-noremap <Leader>w :update<CR>"
-
-map <Leader>ib Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
-
-" netrw 
+" Ignore these files in netrw
 let g:netrw_list_hide= '.*\.swp$,.*\.pyc,.*\.DS_Store,.*\.orig'
+
+" wildcard ignore, amkes CTRLP plugin more useful
+set wildignore=*.pyc,*.orig,*.png,*.fig,*.sql,**/migrations/[0-9][0-9][0-9][0-9]*.py
 
 set backup                  " backups are nice ...
 set undofile                "so is persistent undo ...
@@ -270,20 +289,50 @@ call InitializeDirectories()
 
 set nolist " Don't display end of line chars in some cases
 
-set wildignore=*.pyc,*.orig,*.png,*.fig,*.sql,**/migrations/[0-9][0-9][0-9][0-9]*.py
-
 set laststatus=2 " Shows the status line for single windows
 
 " Store spell-files in the ~/.vim/spell directory
 setlocal spellfile=~/.vim/spell/en.utf-8.add
 
-" Reindent json 
-command! -range -nargs=0 -bar JsonTool <line1>,<line2>!python -m json.tool
 
-nnoremap <leader>e :Explore<cr>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Mappings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Strip trailing whitespaces
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 " Send last closing bracket to next line
 nnoremap <leader>C 0/)$<cr>i<cr><esc>:noh<cr>
+
+" Quicksave command
+noremap <Leader>w :update<CR>"
+
+" Invoke iPython's debugger
+map <Leader>ib Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
+
+" Easier moving in tabs and windows
+map <C-J> <C-W>j<C-W>_
+map <C-K> <C-W>k<C-W>_
+map <C-L> <C-W>l<C-W>_
+map <C-H> <C-W>h<C-W>_
+
+" Wrapped lines goes down/up to next row, rather than next line in file.
+nnoremap j gj
+nnoremap k gk
+
+" Yank from the cursor to the end of the line, to be consistent with C and D.
+nnoremap Y y$
+
+" visual shifting (does not exit Visual mode)
+vnoremap < <gv
+vnoremap > >gv
+
+" <TAB>: completion.
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
+
+" Quickly edit this file
+nnoremap <leader>ev :vsplit $HOME/.vimrc<cr>
+nnoremap <leader>sv :source $HOME/.vimrc<cr>
+
