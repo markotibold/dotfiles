@@ -2,3 +2,4 @@ syntax: glob
 *.egg-info/
 *.orig
 *.DS_Store
+.ropeproject/
