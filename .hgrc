@@ -35,3 +35,6 @@ autoshelve = true
 #foo.schemes = https
 
 %include ~/.hgcredentials
+
+[alias]
+push = push --new-branch

@@ -339,10 +339,3 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
 nnoremap <leader>ev :vsplit $HOME/.vimrc<cr>
 nnoremap <leader>sv :source $HOME/.vimrc<cr>
 
-" For all file types highlight trailing whitespaces
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
-
