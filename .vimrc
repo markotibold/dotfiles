@@ -172,8 +172,7 @@ Bundle 'Rykka/riv.vim'
 :command Rst :!rst2html.py % > /tmp/rstprev.html && open /tmp/rstprev.html
 
 " Puppet syntax
-Bundle 'mv/mv-vim-puppet'
-
+Bundle 'rodjek/vim-puppet'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Other
