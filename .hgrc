@@ -8,6 +8,7 @@ hgext.progress=
 hgext.highlight=
 hgext.churn=
 mq =
+mercurial_keyring=
 
 hgshelve=~/.hgext/hgshelve/hgshelve.py
 
@@ -31,10 +32,9 @@ autoshelve = true
 #[auth]
 #foo.prefix = https://foo.com/
 #foo.username = <username>
-#foo.password = <password>
-#foo.schemes = https
 
 %include ~/.hgcredentials
 
 [alias]
 push = push --new-branch
+
