@@ -98,13 +98,17 @@ Bundle 'nathanaelkane/vim-indent-guides'
 
 " Syntastic : Automatic syntax checking 
 Bundle 'scrooloose/syntastic'
+" Leave python linting to `python-mode` plugin
+let g:syntastic_python_checkers=[]
 
 "Python-mode is a vim plugin that allows you to use the pylint, rope, pydoc
 "library in vim to provide features like python code looking for bugs,
 "refactoring and some other usefull things. 
-Bundle 'klen/python-mode'
-let g:pymode_utils_whitespaces = 0
-let g:pymode_lint_ignore = "W391"
+"Bundle 'klen/python-mode'
+"let g:pymode_utils_whitespaces = 0
+
+"ignore , trailing whitespace
+"let g:pymode_lint_ignore = "W391,C0303,F0401,C0110,R0924"
 
 " JSHint fork of jslint.vim
 Bundle 'wookiehangover/jshint.vim'
@@ -173,6 +177,10 @@ Bundle 'Rykka/riv.vim'
 
 " Puppet syntax
 Bundle 'rodjek/vim-puppet'
+
+" Varnish Configuration Language (VCL)
+Bundle 'smerrill/vcl-vim-plugin'
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Other

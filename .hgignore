@@ -2,5 +2,7 @@ syntax: glob
 *.egg-info/
 *.orig
 *.DS_Store
+*.pyc
 .ropeproject/
 dbdump/
+
