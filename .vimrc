@@ -19,9 +19,7 @@ Bundle 'nelstrom/vim-markdown-folding'
 " Colors and themes
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-Bundle 'altercation/vim-colors-solarized'
 Bundle 'nelstrom/vim-mac-classic-theme' 
-Bundle 'spf13/vim-colors'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'd11wtq/tomorrow-theme-vim'
 " CSApprox : Make gvim-only colorschemes work transparently in terminal vim 
