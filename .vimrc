@@ -302,6 +302,8 @@ set laststatus=2 " Shows the status line for single windows
 " Store spell-files in the ~/.vim/spell directory
 setlocal spellfile=~/.vim/spell/en.utf-8.add
 
+hi clear SpellBad
+hi SpellBad cterm=underline,bold
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mappings
@@ -350,3 +352,4 @@ match ExtraWhitespace /\s\+$/
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
+
