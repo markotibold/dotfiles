@@ -29,5 +29,7 @@ ln -s ~/.dotfiles/.urlview ~/.urlview
 ln -s ~/.private_dotfiles/.hgcredentials  ~/.hgcredentials
 ln -s ~/.dotfiles/.hgigonre  ~/.hgigonre_global
 
+ln ~/.private_dotfiles/ssh-config ~/.ssh/config
+
 echo "setup osx settings"
 ./.osx
