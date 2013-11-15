@@ -28,6 +28,7 @@ ln -s ~/.dotfiles/.urlview ~/.urlview
 
 ln -s ~/.private_dotfiles/.hgcredentials  ~/.hgcredentials
 ln -s ~/.dotfiles/.hgigonre  ~/.hgigonre_global
+ln -s ~/.dotfiles/vim/spell  ~/.vim/spell
 
 ln ~/.private_dotfiles/ssh-config ~/.ssh/config
 
