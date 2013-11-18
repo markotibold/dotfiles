@@ -5,11 +5,11 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle
-" required! 
+" required!
 Bundle 'gmarik/vundle'
 
 " pass all files in quick-fix window to the arglist
-Bundle 'nelstrom/vim-qargs' 
+Bundle 'nelstrom/vim-qargs'
 
 " This plugin enables folding by section headings in markdown documents.
 Bundle 'nelstrom/vim-markdown-folding'
@@ -19,11 +19,16 @@ Bundle 'nelstrom/vim-markdown-folding'
 " Colors and themes
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-Bundle 'nelstrom/vim-mac-classic-theme' 
 Bundle 'flazz/vim-colorschemes'
-Bundle 'd11wtq/tomorrow-theme-vim'
-" CSApprox : Make gvim-only colorschemes work transparently in terminal vim 
+" CSApprox : Make gvim-only colorschemes work transparently in terminal vim
 Bundle 'godlygeek/csapprox'
+
+Bundle 'markotibold/markolors'
+" For developing color schemes
+" Usage :call SyntaxAttr()
+Bundle 'SyntaxAttr.vim'
+" All 256 xterm colors with their RGB equivalents, right in Vim!
+Bundle 'guns/xterm-color-table.vim'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -39,31 +44,31 @@ let g:ctrlp_custom_ignore = {
 \ 'dir':  '\.git$\|\.hg$\|\.svn$',
 \ 'file': '\.exe$\|\.so$\|\.dll$|\.pyc$|\.orig$'}
 
-" matchit.zip : extended % matching for HTML, LaTeX, and many other languages 
+" matchit.zip : extended % matching for HTML, LaTeX, and many other languages
 Bundle 'matchit.zip'
 
-" undotree.vim : Display your undo history in a graph. 
+" undotree.vim : Display your undo history in a graph.
 Bundle 'mbbill/undotree'
 nnoremap <Leader>u :UndotreeToggle<CR>
 let g:undotree_SetFocusWhenToggle=1 " if undotree is opened, it is likely one
                                     " wants to interact with it.
 
 " restore_view.vim : A plugin for automatically restoring file's cursor
-" position and folding 
+" position and folding
 Bundle 'vim-scripts/restore_view.vim'
 
 " The NERD Commenter : A plugin that allows for easy commenting of code for
-" many filetypes. 
+" many filetypes.
 Bundle 'scrooloose/nerdcommenter'
 
-" Tabular : Vim script for text filtering and alignment 
+" Tabular : Vim script for text filtering and alignment
 Bundle 'godlygeek/tabular'
 
-" Tagbar : Display tags of the current file ordered by scope 
+" Tagbar : Display tags of the current file ordered by scope
 Bundle 'majutsushi/tagbar'
 nnoremap <silent> <leader>tt :TagbarToggle<CR>
 
-" unimpaired.vim : Pairs of handy bracket mappings 
+" unimpaired.vim : Pairs of handy bracket mappings
 Bundle 'tpope/vim-unimpaired'
 
 " Create your own text objects — Read more
@@ -80,13 +85,13 @@ Bundle 'nelstrom/vim-visual-star-search'
 " UI Improvements
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" vim-powerline : The ultimate vim statusline utility. 
+" vim-powerline : The ultimate vim statusline utility.
 Bundle 'Lokaltog/vim-powerline'
 
 " better line numbers for vim
 Bundle 'myusuf3/numbers.vim'
 
-" Indent Guides : A plugin for visually displaying indent levels in Vim. 
+" Indent Guides : A plugin for visually displaying indent levels in Vim.
 Bundle 'nathanaelkane/vim-indent-guides'
 
 
@@ -94,19 +99,19 @@ Bundle 'nathanaelkane/vim-indent-guides'
 " Linters and stuff
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Syntastic : Automatic syntax checking 
+" Syntastic : Automatic syntax checking
 Bundle 'scrooloose/syntastic'
 " Leave python linting to `python-mode` plugin
 let g:syntastic_python_checkers=[]
 
 "Python-mode is a vim plugin that allows you to use the pylint, rope, pydoc
 "library in vim to provide features like python code looking for bugs,
-"refactoring and some other usefull things. 
-"Bundle 'klen/python-mode'
-"let g:pymode_utils_whitespaces = 0
+"refactoring and some other usefull things.
+Bundle 'klen/python-mode'
+let g:pymode_utils_whitespaces = 0
 
 "ignore , trailing whitespace
-"let g:pymode_lint_ignore = "W391,C0303,F0401,C0110,R0924"
+let g:pymode_lint_ignore = "W391,C0303,F0401,C0110,R0924 R0201,E1102"
 
 " JSHint fork of jslint.vim
 Bundle 'wookiehangover/jshint.vim'
@@ -116,7 +121,7 @@ Bundle 'wookiehangover/jshint.vim'
 " Version control
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" fugitive.vim : A Git wrapper so awesome, it should be illegal 
+" fugitive.vim : A Git wrapper so awesome, it should be illegal
 Bundle 'tpope/vim-fugitive'
 
 " Vim VCS plugin
@@ -143,18 +148,18 @@ Bundle 'bps/vim-textobj-python'
 " Syntax
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" JSON.vim : A syntax highlighting file for JSON 
+" JSON.vim : A syntax highlighting file for JSON
 Bundle 'jakar/vim-json'
-" Reindent json 
+" Reindent json
 command! -range -nargs=0 -bar JsonTool <line1>,<line2>!python -m json.tool
 
-" JavaScript syntax : Better JavaScript syntax support 
+" JavaScript syntax : Better JavaScript syntax support
 Bundle 'pangloss/vim-javascript'
 
 " Add CSS3 syntax support to vim's built-in syntax/css.vim.
 Bundle 'hail2u/vim-css3-syntax'
 
-" Markdown : Syntax highlight for Markdown text files 
+" Markdown : Syntax highlight for Markdown text files
 Bundle 'tpope/vim-markdown'
 
 " Syntax highlighting for Django templates
@@ -169,9 +174,8 @@ au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
 Bundle 'vim-scripts/ini-syntax-definition'
 
 " Better rst support for vim
-Bundle 'Rykka/riv.vim' 
+Bundle 'Rykka/riv.vim'
 " RST preview, run :Rst
-:command Rst :!rst2html.py % > /tmp/rstprev.html && open /tmp/rstprev.html
 
 " Puppet syntax
 Bundle 'rodjek/vim-puppet'
@@ -196,6 +200,13 @@ Bundle 'jnwhiteh/vim-golang'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Presentation
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" A simple tool for presenting slides in vim based on text files.
+Bundle 'sotte/presenting.vim'
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General configureation
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -206,8 +217,9 @@ let mapleader = ','
 set nofoldenable
 set vb                          " Disable the bell
 set guifont=Monaco:h12
-colorscheme wombat
+colorscheme markolors
 set colorcolumn=80
+
 syntax on
 set mouse=a                     " automatically enable mouse usage
 set mousehide                   " hide the mouse cursor while typing
@@ -226,7 +238,7 @@ set hlsearch                    " highlight search terms
 set ignorecase                  " case insensitive search
 set smartcase                   " case sensitive when uc present
 
-" Formatting 
+" Formatting
 set nowrap                      " wrap long lines
 set autoindent                  " indent at the same level of the previous line
 set shiftwidth=4                " use indents of 4 spaces
@@ -241,7 +253,7 @@ iabbrev teh ihe
 set pastetoggle=<F2>
 
 " reload file when changes happen in other editors
-set autoread 
+set autoread
 
 " yank to the global system clipboard
 let s:uname = system("uname")
@@ -302,8 +314,6 @@ set laststatus=2 " Shows the status line for single windows
 " Store spell-files in the ~/.vim/spell directory
 setlocal spellfile=~/.vim/spell/en.utf-8.add
 
-hi clear SpellBad
-hi SpellBad cterm=underline,bold
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Mappings
@@ -322,10 +332,10 @@ noremap <Leader>w :update<CR>"
 map <Leader>ib Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 
 " Easier moving in tabs and windows
-map <C-J> <C-W>j<C-W>_
-map <C-K> <C-W>k<C-W>_
-map <C-L> <C-W>l<C-W>_
-map <C-H> <C-W>h<C-W>_
+noremap <C-> <C-W>j
+noremap <C-K> <C-W>k
+noremap <C-L> <C-W>l
+noremap <C-H> <C-W>h
 
 " Wrapped lines goes down/up to next row, rather than next line in file.
 nnoremap j gj
@@ -352,4 +362,5 @@ match ExtraWhitespace /\s\+$/
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
+
 
