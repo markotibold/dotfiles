@@ -85,14 +85,11 @@ Bundle 'nelstrom/vim-visual-star-search'
 " UI Improvements
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" vim-powerline : The ultimate vim statusline utility.
-Bundle 'Lokaltog/vim-powerline'
+" lean & mean status/tabline for vim that's light as air
+Bundle 'bling/vim-airline'
 
 " better line numbers for vim
 Bundle 'myusuf3/numbers.vim'
-
-" Indent Guides : A plugin for visually displaying indent levels in Vim.
-Bundle 'nathanaelkane/vim-indent-guides'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -109,9 +106,10 @@ let g:syntastic_python_checkers=[]
 "refactoring and some other usefull things.
 Bundle 'klen/python-mode'
 let g:pymode_utils_whitespaces = 0
-
+" Don't use rope
+let g:pymode_rope = 0
 "ignore , trailing whitespace
-let g:pymode_lint_ignore = "W391,C0303,F0401,C0110,R0924 R0201,E1102"
+let g:pymode_lint_ignore = "W391,C0303,F0401,C0110,R0924 R0201,E1102,E1002"
 
 " JSHint fork of jslint.vim
 Bundle 'wookiehangover/jshint.vim'
@@ -124,9 +122,11 @@ Bundle 'wookiehangover/jshint.vim'
 " fugitive.vim : A Git wrapper so awesome, it should be illegal
 Bundle 'tpope/vim-fugitive'
 
-" Vim VCS plugin
-Bundle 'git://repo.or.cz/vcscommand'
+" Show a VCS diff using Vim's sign column.
+Bundle 'mhinz/vim-signify'
 
+" Lawrencium is a Mercurial wrapper for Vim, inspired by Tim Pope's Fugitive.
+Bundle 'ludovicchabant/vim-lawrencium'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Python utils
@@ -198,6 +198,16 @@ let g:Tex_CompileRule_pdf = 'xelatex -interaction=nonstopmode $*'
 " Github mirror of Go vimscripts, synced with main repository
 Bundle 'jnwhiteh/vim-golang'
 
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Mail
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" This plugin allows Mac OS X users to send e-mails from Vim using Mail.app.
+Bundle "markotibold/MailApp"
+let MailApp_bundle = '~/.vim/bundle/MailApp/MailApp.bundle/'
+
+" Show the message window
+let MailApp_visible = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Presentation
