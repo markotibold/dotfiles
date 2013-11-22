@@ -14,10 +14,11 @@ export LC_ALL="en_US.UTF-8"
 export LANG="en_US"
 
 # virtualenvwrapper related
+# use brew's python:
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
 source /usr/local/bin/virtualenvwrapper.sh
 export WORKON_HOME=~/mac_envs
 export VIRTUALENVWRAPPER_HOOK_DIR=~/.dotfiles/.virtualenvs
-
 export PATH="/usr/local/bin:/usr/local/mysql/bin:$PATH"
 
 # Hack for mysql-python, TODO really solve this
