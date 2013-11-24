@@ -16,7 +16,8 @@ hgshelve=~/.hgext/hgshelve/hgshelve.py
 hgflow=~/.hgext/hgflow/src/hgflow.py
 
 [pager]
-pager = LESS='FRX' less
+pager = LESS='FSRX' less
+attend = cat, diff, glog, log, incoming, outgoing, lg, show, lga
 
 [ui]
 ignore = ~/.dotfiles/.hgignore
@@ -38,3 +39,5 @@ autoshelve = true
 [alias]
 push = push --new-branch
 
+# Based on http://jamie-wong.com/2012/07/11/my-mercurial-setup-and-workflow-at-khan-academy/
+lga = glog --style=/Users/marko/.dotfiles/hg-prettylog.lg
