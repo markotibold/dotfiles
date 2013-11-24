@@ -41,16 +41,16 @@ function set_git_branch {
     remote_pattern="# Your branch is (.*)"
     if [[ ${git_status} =~ ${remote_pattern} ]]; then
         if [[ ${BASH_REMATCH[1]} == "ahead" ]]; then
-            remote="↓"
+            git_remote="↓"
         else
-            remote="↑"
+            git_remote="↑"
         fi
     else
-        remote=""
+        git_remote=""
     fi
     diverge_pattern="# Your branch and (.*) have diverged"
     if [[ ${git_status} =~ ${diverge_pattern} ]]; then
-        remote="↕"
+        git_remote="↕"
     fi
 
     # Get the name of the branch.
@@ -60,7 +60,7 @@ function set_git_branch {
     fi
 
     # Set the final branch string.
-    BRANCH="${state}[git ${branch}]${remote}${COLOR_NONE} "
+    BRANCH="${state}[git ${git_branch}]${git_remote}${COLOR_NONE} "
 }
 
 # Determine the branch/state information for this hg repository.
@@ -68,6 +68,7 @@ function set_hg_branch {
     # Capture the output of the "hg status" command.
     hg_status="$(hg status 2> /dev/null)"
     hg_branch="$(hg branch 2> /dev/null)"
+    hg_phase="$(hg phase -r-1 2> /dev/null)"
 
     # Clean
     if [[ "${hg_status}" == "" ]]; then
@@ -80,23 +81,19 @@ function set_hg_branch {
     fi
 
     # Set arrow icon based on status against remote.
-    #remote_pattern="# Your branch is (.*) of"
-    #if [[ ${hg_status} =~ ${remote_pattern} ]]; then
-        #if [[ ${BASH_REMATCH[1]} == "ahead" ]]; then
-            #remote="↑"
-        #else
-            #remote="↓"
-        #fi
-    #else
-        #remote=""
-    #fi
+    hg_draft_pattern="draft$"
+    if [[ ${hg_phase} =~ ${hg_draft_pattern} ]]; then
+            hg_remote="↑"
+    else
+        hg_remote=""
+    fi
     #diverge_pattern="# Your branch and (.*) have diverged"
     #if [[ ${hg_status} =~ ${diverge_pattern} ]]; then
         #remote="↕"
     #fi
 
     # Set the final branch string.
-    BRANCH="${state}[hg ${hg_branch}]${remote}${COLOR_NONE} "
+    BRANCH="${state}[hg ${hg_branch}]${hg_remote}${COLOR_NONE} "
 }
 
 # Determine active Python virtualenv details.
