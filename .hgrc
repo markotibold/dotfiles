@@ -11,10 +11,14 @@ rebase=
 mq =
 mercurial_keyring=
 
+# https://bitbucket.org/astiob/hgshelve
 hgshelve=~/.hgext/hgshelve/hgshelve.py
 
 # https://bitbucket.org/yujiewu/hgflow/wiki/Home
 hgflow=~/.hgext/hgflow/src/hgflow.py
+
+# https://bitbucket.org/durin42/hg-remotebranches/
+remotebranches=~/.hgext/hg-remotebranches/hg_remotebranches.py
 
 [pager]
 pager = LESS='FSRX' less
