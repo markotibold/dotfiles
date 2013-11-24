@@ -41,9 +41,9 @@ function set_git_branch {
     remote_pattern="# Your branch is (.*)"
     if [[ ${git_status} =~ ${remote_pattern} ]]; then
         if [[ ${BASH_REMATCH[1]} == "ahead" ]]; then
-            remote="↑"
-        else
             remote="↓"
+        else
+            remote="↑"
         fi
     else
         remote=""
