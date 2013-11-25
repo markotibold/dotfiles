@@ -341,6 +341,9 @@ noremap <Leader>w :update<CR>"
 " Invoke iPython's debugger
 map <Leader>ib Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 
+" Invoke pudb debugger
+map <leader>pb Ofrom pudb import set_trace; set_trace()<C-c>
+
 " Easier moving in tabs and windows
 noremap <C-> <C-W>j
 noremap <C-K> <C-W>k
