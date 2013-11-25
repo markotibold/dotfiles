@@ -3,7 +3,7 @@ source ~/.dotfiles/colors.sh
 for dir in ./*/
 do
     cd ${dir%*/}
-    curr_dir=$(pwd)
+    curr_dir=${dir:2}
     if ! hg_status="$(hg status 2> /dev/null)"; then
         echo 'Not a hg repo' ${curr_dir}
     else
