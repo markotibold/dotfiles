@@ -16,17 +16,9 @@ function set_bash_prompt () {
         BRANCH=''
     fi
 
-    # set HOST_COLOR
-    ssh_status="$(echo $SSH_CLIENT 2> /dev/null)"
-    if [[ ${ssh_status} ]]; then
-        HOST_COLOR="${ORANGE}"
-    else
-        HOST_COLOR="${BASE1}"
-    fi
-
     # Set the bash prompt variable.
     PS1="
-${PYTHON_VIRTUALENV}${BASE1}\u ${BASE01}at ${HOST_COLOR}\h ${BLUE}\w${COLOR_NONE} ${BRANCH}
+${PYTHON_VIRTUALENV}${BASE1}\u ${BASE01}at \h ${BLUE}\w${COLOR_NONE} ${BRANCH}
 \$ "
 }
 
