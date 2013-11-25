@@ -7,6 +7,13 @@ do
     if ! hg_status="$(hg status 2> /dev/null)"; then
         echo 'Not a hg repo' ${curr_dir}
     else
+        hg_phase="$(hg phase -r-1 2> /dev/null)"
+        hg_draft_pattern="draft$"
+        if [[ ${hg_phase} =~ ${hg_draft_pattern} ]]; then
+                hg_remote="↑"
+        else
+            hg_remote=""
+        fi
         if [[ "${hg_status}" == "" ]]; then
             state="${GREEN}"
         # Modified, Added or Removed
@@ -15,7 +22,7 @@ do
         else
             state="${RED}"
         fi
-        echo ${state}${curr_dir}${COLOR_NONE}
+        echo ${state}${curr_dir}${COLOR_NONE}${hg_remote}
     fi
     cd ..
 done
