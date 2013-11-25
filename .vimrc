@@ -123,7 +123,7 @@ Bundle 'wookiehangover/jshint.vim'
 Bundle 'tpope/vim-fugitive'
 
 " Show a VCS diff using Vim's sign column.
-Bundle 'mhinz/vim-signify'
+Bundle 'markotibold/vim-signify'
 
 " Lawrencium is a Mercurial wrapper for Vim, inspired by Tim Pope's Fugitive.
 Bundle 'ludovicchabant/vim-lawrencium'
@@ -197,6 +197,12 @@ let g:Tex_CompileRule_pdf = 'xelatex -interaction=nonstopmode $*'
 
 " Github mirror of Go vimscripts, synced with main repository
 Bundle 'jnwhiteh/vim-golang'
+
+" stopwatch timing of execution time of vim commands and command sequences
+Bundle 'timing.vim'
+
+" Plugin to manage Most Recently Used (MRU) files
+Bundle 'mru.vim'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -284,6 +290,7 @@ set backup                  " backups are nice ...
 set undofile                "so is persistent undo ...
 set undolevels=1000         "maximum number of changes that can be undone
 set undoreload=10000        "maximum number lines to save for undo on a buffer reload
+set textwidth=79
 
 " shameless copy from spf13
 function! InitializeDirectories()
