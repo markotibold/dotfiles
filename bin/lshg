@@ -3,9 +3,9 @@ source ~/.dotfiles/colors.sh
 for dir in ./*/
 do
     cd ${dir%*/}
+    curr_dir=$(pwd)
     if ! hg_status="$(hg status 2> /dev/null)"; then
-        echo 'woops'
-        pwd
+        echo 'Not a hg repo' ${curr_dir}
     else
         if [[ "${hg_status}" == "" ]]; then
             state="${GREEN}"
@@ -15,8 +15,7 @@ do
         else
             state="${RED}"
         fi
+        echo ${state}${curr_dir}${COLOR_NONE}
     fi
-    curr_dir=$(pwd)
-    echo ${state}${curr_dir}${COLOR_NONE}
     cd ..
 done
