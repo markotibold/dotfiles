@@ -1,0 +1,22 @@
+#!/bin/bash
+source ~/.dotfiles/colors.sh
+for dir in ./*/
+do
+    cd ${dir%*/}
+    if ! hg_status="$(hg status 2> /dev/null)"; then
+        echo 'woops'
+        pwd
+    else
+        if [[ "${hg_status}" == "" ]]; then
+            state="${GREEN}"
+        # Modified, Added or Removed
+        elif [[ "${hg_status}" =~ ^[M|A|R] ]]; then
+            state="${YELLOW}"
+        else
+            state="${RED}"
+        fi
+    fi
+    curr_dir=$(pwd)
+    echo ${state}${curr_dir}${COLOR_NONE}
+    cd ..
+done
