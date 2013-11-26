@@ -123,7 +123,7 @@ Bundle 'wookiehangover/jshint.vim'
 Bundle 'tpope/vim-fugitive'
 
 " Show a VCS diff using Vim's sign column.
-Bundle 'markotibold/vim-signify'
+Bundle 'mhinz/vim-signify'
 
 " Lawrencium is a Mercurial wrapper for Vim, inspired by Tim Pope's Fugitive.
 Bundle 'ludovicchabant/vim-lawrencium'
@@ -176,6 +176,8 @@ Bundle 'vim-scripts/ini-syntax-definition'
 " Better rst support for vim
 Bundle 'Rykka/riv.vim'
 " RST preview, run :Rst
+" Disable folding behaviour whens saving rst files (should be default)
+let g:riv_fold_auto_update = 0
 
 " Puppet syntax
 Bundle 'rodjek/vim-puppet'
