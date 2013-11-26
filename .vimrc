@@ -206,17 +206,6 @@ Bundle 'timing.vim'
 " Plugin to manage Most Recently Used (MRU) files
 Bundle 'mru.vim'
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Mail
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" This plugin allows Mac OS X users to send e-mails from Vim using Mail.app.
-Bundle "markotibold/MailApp"
-let MailApp_bundle = '~/.vim/bundle/MailApp/MailApp.bundle/'
-
-" Show the message window
-let MailApp_visible = 1
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Presentation
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
