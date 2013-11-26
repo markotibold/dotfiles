@@ -1,32 +1,17 @@
 #!/bin/bash
 source ~/.dotfiles/colors.sh
+source ~/.dotfiles/cool-prompt.sh
+
 for dir in ./*/
 do
     cd ${dir%*/}
     curr_dir=${dir:2}
-    if ! hg_status="$(hg status 2> /dev/null)"; then
+    if ! is_hg_repository; then
         echo 'Not a hg repo' ${curr_dir}
     else
-        hg_phase="$(hg phase -r-1 2> /dev/null)"
-        hg_shelve_status="$(hg shelve -l 2> /dev/null)"
-        if [[ "$hg_shelve_status" != "" ]]; then
-            hg_shelve_status="S"
-        fi
-        hg_draft_pattern="draft$"
-        if [[ ${hg_phase} =~ ${hg_draft_pattern} ]]; then
-                hg_remote="↑"
-        else
-            hg_remote=""
-        fi
-        if [[ "${hg_status}" == "" ]]; then
-            state="${GREEN}"
-        # Modified, Added or Removed
-        elif [[ "${hg_status}" =~ ^[M|A|R] ]]; then
-            state="${YELLOW}"
-        else
-            state="${RED}"
-        fi
-        echo ${state}${curr_dir}${COLOR_NONE}${hg_remote}${BLUE}${hg_shelve_status}
+        eval_hg_repo
+        echo ${state}${curr_dir}${COLOR_NONE}${hg_remote}${BLUE}\
+            ${hg_shelve_status}
     fi
     cd ..
 done

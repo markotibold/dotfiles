@@ -63,9 +63,7 @@ function set_git_branch {
     BRANCH="${state}[git ${git_branch}]${git_remote}${COLOR_NONE} "
 }
 
-# Determine the branch/state information for this hg repository.
-function set_hg_branch {
-    # Capture the output of the "hg status" command.
+function eval_hg_repo {
     hg_status="$(hg status 2> /dev/null)"
     hg_branch="$(hg branch 2> /dev/null)"
     hg_phase="$(hg phase -r-1 2> /dev/null)"
@@ -77,13 +75,16 @@ function set_hg_branch {
     elif [[ "${hg_status}" =~ ^[M|A|R] ]]; then
         state="${YELLOW}"
     else
+    # Dirty
         state="${RED}"
     fi
 
+    # Any active shelves?
     hg_shelve_status="$(hg shelve -l 2> /dev/null)"
     if [[ "$hg_shelve_status" != "" ]]; then
         hg_shelve_status=${BLUE}"[S]"
     fi
+
     # Set arrow icon based on status against remote.
     hg_draft_pattern="draft$"
     if [[ ${hg_phase} =~ ${hg_draft_pattern} ]]; then
@@ -91,11 +92,11 @@ function set_hg_branch {
     else
         hg_remote=""
     fi
-    #diverge_pattern="# Your branch and (.*) have diverged"
-    #if [[ ${hg_status} =~ ${diverge_pattern} ]]; then
-        #remote="↕"
-    #fi
+}
 
+# Determine the branch/state information for this hg repository.
+function set_hg_branch {
+    eval_hg_repo
     # Set the final branch string.
     BRANCH="${state}[hg ${hg_branch}]${hg_remote} ${hg_shelve_status}${COLOR_NONE} "
 }
