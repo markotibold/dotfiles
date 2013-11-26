@@ -80,6 +80,10 @@ function set_hg_branch {
         state="${RED}"
     fi
 
+    hg_shelve_status="$(hg shelve -l 2> /dev/null)"
+    if [[ "$hg_shelve_status" != "" ]]; then
+        hg_shelve_status=${BLUE}"[S]"
+    fi
     # Set arrow icon based on status against remote.
     hg_draft_pattern="draft$"
     if [[ ${hg_phase} =~ ${hg_draft_pattern} ]]; then
@@ -93,7 +97,7 @@ function set_hg_branch {
     #fi
 
     # Set the final branch string.
-    BRANCH="${state}[hg ${hg_branch}]${hg_remote}${COLOR_NONE} "
+    BRANCH="${state}[hg ${hg_branch}]${hg_remote} ${hg_shelve_status}${COLOR_NONE} "
 }
 
 # Determine active Python virtualenv details.
