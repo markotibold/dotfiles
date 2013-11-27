@@ -180,10 +180,7 @@ Bundle 'Rykka/riv.vim'
 let g:riv_fold_auto_update = 0
 
 " RST preview, run :Rst
-:command Rst :!rst2html5 % > /tmp/rstprev.html && open /tmp/rstprev.html
-" Somehow vim sets this to an empty value, set it again to make rst2html
-" work
-let $LC_ALL = 'LC_ALL=en_US.UTF-8'
+:command Rst :!LC_ALL=en_US.UTF-8 rst2html5 --stylesheet=/Users/marko/.dotfiles/css/bootstrap.css % > /tmp/rstprev.html && open /tmp/rstprev.html
 
 " Puppet syntax
 Bundle 'rodjek/vim-puppet'
