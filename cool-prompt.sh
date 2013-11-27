@@ -30,11 +30,11 @@ function set_git_branch {
 
     # Set color based on clean/staged/dirty.
     if [[ ${git_status} =~ "working directory clean" ]]; then
-        state="${GREEN}"
+        state="${green}"
     elif [[ ${git_status} =~ "Changes to be committed" ]]; then
-        state="${YELLOW}"
+        state="${yellow}"
     else
-        state="${RED}"
+        state="${red}"
     fi
 
     # Set arrow icon based on status against remote.
@@ -60,7 +60,7 @@ function set_git_branch {
     fi
 
     # Set the final branch string.
-    BRANCH="${state}[git ${git_branch}]${git_remote}${COLOR_NONE} "
+    BRANCH="${state}[git ${git_branch}]${git_remote}${reset} "
 }
 
 function eval_hg_repo {
@@ -70,19 +70,19 @@ function eval_hg_repo {
 
     # Clean
     if [[ "${hg_status}" == "" ]]; then
-        state="${GREEN}"
+        state="${green}"
     # Modified, Added or Removed
     elif [[ "${hg_status}" =~ ^[M|A|R] ]]; then
-        state="${YELLOW}"
+        state="${yellow}"
     else
     # Dirty
-        state="${RED}"
+        state="${red}"
     fi
 
     # Any active shelves?
     hg_shelve_status="$(hg shelve -l 2> /dev/null)"
     if [[ "$hg_shelve_status" != "" ]]; then
-        hg_shelve_status=${BLUE}"[S]"
+        hg_shelve_status=${blue}"[S]"
     fi
 
     # Set arrow icon based on status against remote.
@@ -98,7 +98,7 @@ function eval_hg_repo {
 function set_hg_branch {
     eval_hg_repo
     # Set the final branch string.
-    BRANCH="${state}[hg ${hg_branch}]${hg_remote} ${hg_shelve_status}${COLOR_NONE} "
+    BRANCH="${state}[hg ${hg_branch}]${hg_remote} ${hg_shelve_status}${reset} "
 }
 
 # Determine active Python virtualenv details.
@@ -106,7 +106,7 @@ function set_virtualenv () {
     if test -z "$VIRTUAL_ENV" ; then
         PYTHON_VIRTUALENV=""
     else
-        PYTHON_VIRTUALENV="${CYAN}[`basename \"$VIRTUAL_ENV\"`]${COLOR_NONE} "
+        PYTHON_VIRTUALENV="${cyan}[`basename \"$VIRTUAL_ENV\"`]${reset} "
     fi
 }
 

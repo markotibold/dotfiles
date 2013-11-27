@@ -10,7 +10,7 @@ do
         echo 'Not a hg repo' ${curr_dir}
     else
         eval_hg_repo
-        echo ${state}${curr_dir}${COLOR_NONE}${hg_remote}${BLUE}\
+        echo ${state}${curr_dir}${reset}${hg_remote}${blue}\
             ${hg_shelve_status}
     fi
     cd ..

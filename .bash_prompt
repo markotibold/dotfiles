@@ -1,6 +1,6 @@
 #!/bin/bash
-source ~/.dotfiles/cool-prompt.sh
 source ~/.dotfiles/colors.sh
+source ~/.dotfiles/cool-prompt.sh
 
 # Set the full bash prompt.
 function set_bash_prompt () {
@@ -18,15 +18,12 @@ function set_bash_prompt () {
 
     # Set the bash prompt variable.
     PS1="
-${PYTHON_VIRTUALENV}${BASE1}\u ${BASE01}at \h ${BLUE}\w${COLOR_NONE} ${BRANCH}
+${PYTHON_VIRTUALENV}${orange}\u ${white}at \h ${blue}\w${reset} ${BRANCH}
 \$ "
 }
 
 # Tell bash to execute this function just before displaying its prompt.
 PROMPT_COMMAND=set_bash_prompt
-
-# LSCOLORS
-export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 # coffeescript config file
 export COFFEELINT_CONFIG=~/.dotfiles/.coffeelint
@@ -39,4 +36,14 @@ export PYTHONSTARTUP=$HOME/.dotfiles/.pythonrc
 
 # Overwrite ~/.ssh/config (symlinking doesn't work for some reason)
 alias ssh="cp ~/.private_dotfiles/ssh-config ~/.ssh/config; ssh"
+
+# Prefer coreutils binaries
+PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+
+eval `dircolors -b ~/.dotfiles/dircolors-solarized/dircolors.ansi-dark`
+
+alias ls="ls --color=always"
+alias grep="grep --color=always"
+alias egrep="egrep --color=always"
 
