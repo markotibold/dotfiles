@@ -91,6 +91,10 @@ Bundle 'bling/vim-airline'
 " better line numbers for vim
 Bundle 'myusuf3/numbers.vim'
 
+" zen mode vim plugin
+Bundle 'mmai/vim-zenmode'
+let g:zenmode_background = "dark"
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Linters and stuff
