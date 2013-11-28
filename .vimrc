@@ -20,8 +20,6 @@ Bundle 'nelstrom/vim-markdown-folding'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 Bundle 'flazz/vim-colorschemes'
-" CSApprox : Make gvim-only colorschemes work transparently in terminal vim
-Bundle 'godlygeek/csapprox'
 
 Bundle 'markotibold/markolors'
 " For developing color schemes
@@ -29,6 +27,10 @@ Bundle 'markotibold/markolors'
 Bundle 'SyntaxAttr.vim'
 " All 256 xterm colors with their RGB equivalents, right in Vim!
 Bundle 'guns/xterm-color-table.vim'
+
+syntax enable
+set background=dark
+colorscheme solarized
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -230,8 +232,6 @@ let mapleader = ','
 
 set nofoldenable
 set vb                          " Disable the bell
-set guifont=Monaco:h12
-colorscheme markolors
 set colorcolumn=80
 
 syntax on
@@ -380,5 +380,4 @@ match ExtraWhitespace /\s\+$/
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
-
 
