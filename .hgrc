@@ -27,6 +27,13 @@ attend = cat, diff, glog, log, incoming, outgoing, lg, show, lga
 [ui]
 ignore = ~/.dotfiles/.hgignore
 editor = vim
+#merge = vimdiff
+
+[merge-tools]
+splice.executable = vim
+splice.args = -f $base $local $other $output -c 'SpliceInit'
+splice.premerge = keep
+splice.priority = 1
 
 [flow]
 autoshelve = true

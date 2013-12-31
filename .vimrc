@@ -43,7 +43,7 @@ Bundle 'tpope/vim-surround'
 " CTRL-P: Fuzzy file, buffer, mru, tag, etc finder
 Bundle 'kien/ctrlp.vim'
 let g:ctrlp_custom_ignore = {
-\ 'dir':  '\.git$\|\.hg$\|\.svn$',
+\ 'dir':  '\.git$\|\.hg$\|\.svn$\|_build$',
 \ 'file': '\.exe$\|\.so$\|\.dll$|\.pyc$|\.orig$'}
 
 " matchit.zip : extended % matching for HTML, LaTeX, and many other languages
@@ -133,6 +133,10 @@ Bundle 'mhinz/vim-signify'
 
 " Lawrencium is a Mercurial wrapper for Vim, inspired by Tim Pope's Fugitive.
 Bundle 'ludovicchabant/vim-lawrencium'
+
+"Splice is a Vim plugin for resolving conflicts during three-way merges.
+Bundle 'sjl/splice.vim'
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Python utils
