@@ -18,7 +18,7 @@ function set_bash_prompt () {
 
     # Set the bash prompt variable.
     PS1="
-${PYTHON_VIRTUALENV}${orange}\u ${white}at${reset} mbp ${blue}\w${reset} ${BRANCH}
+${PYTHON_VIRTUALENV}${orange}\u ${yellow}at${reset} mbp ${blue}\w${reset} ${BRANCH}
 \$ "
 }
 
@@ -47,3 +47,6 @@ alias ls="ls --color=always"
 alias grep="grep --color=always"
 alias egrep="egrep --color=always"
 
+# Magick wand tweaks see
+# https://github.com/dahlia/wand/issues/14://github.com/dahlia/wand/issues/141
+export MAGICK_HOME=/usr/local
