@@ -4,5 +4,6 @@ syntax: glob
 *.DS_Store
 *.pyc
 .ropeproject/
-dbdump/
+dump/
+*.sqlite
 

@@ -193,8 +193,7 @@ let g:riv_fold_auto_update = 0
 :command Rst :!LC_ALL=en_US.UTF-8 rst2html5 --stylesheet=/Users/marko/.dotfiles/css/bootstrap.css % > /tmp/rstprev.html && open /tmp/rstprev.html
 
 " Puppet syntax
-Bundle 'rodjek/vim-puppet'
-
+Bundle 'mv/mv-vim-puppet'
 " Varnish Configuration Language (VCL)
 Bundle 'smerrill/vcl-vim-plugin'
 
@@ -376,6 +375,7 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
 
 " Quickly edit this file
 nnoremap <leader>ev :vsplit $HOME/.vimrc<cr>
+nnoremap <leader>lev :vsplit $HOME/.vimrc-volatile<cr>
 nnoremap <leader>sv :source $HOME/.vimrc<cr>
 
 " For all file types highlight trailing whitespaces
