@@ -18,6 +18,8 @@ ln -s ~/.dotfiles/.ackrc ~/.ackrc
 
 ln -s ~/.dotfiles/.vimrc ~/.vimrc
 
+ln -s ~/.dotfiles/.tmxux.con ~/.tmux.conf
+
 mkdir -p ~/.mutt
 mkdir -p ~/.mail
 ln -s ~/.dotfiles/mutt/.goobookrc  ~/.goobookrc
