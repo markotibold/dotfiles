@@ -36,3 +36,5 @@ source ~/.bash_profile_local
 export PATH="/usr/local/heroku/bin:$PATH"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+
+source ~/.dotfiles/bin/tmuxinator.bash

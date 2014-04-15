@@ -35,7 +35,7 @@ PATH=$PATH:~/.dotfiles/bin
 export PYTHONSTARTUP=$HOME/.dotfiles/.pythonrc
 
 # Overwrite ~/.ssh/config (symlinking doesn't work for some reason)
-alias ssh="cat ~/.ssh/ssh-config/* >  ~/.ssh/config; ssh"
+alias ssh="cat ~/.ssh/ssh-config/* >  ~/.ssh/config; TERM=xterm ssh"
 
 # Prefer coreutils binaries
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
