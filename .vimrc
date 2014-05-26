@@ -197,7 +197,9 @@ Bundle 'mv/mv-vim-puppet'
 " Varnish Configuration Language (VCL)
 Bundle 'smerrill/vcl-vim-plugin'
 
-
+" vim plugin which formated javascript files by js-beautify
+Bundle 'maksimr/vim-jsbeautify'
+Bundle 'einars/js-beautify'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Other
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -377,6 +379,9 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
 nnoremap <leader>ev :vsplit $HOME/.vimrc<cr>
 nnoremap <leader>lev :vsplit $HOME/.vimrc-volatile<cr>
 nnoremap <leader>sv :source $HOME/.vimrc<cr>
+
+" Quickly edit a global plaintext todo file.
+nnoremap <leader>to :vsplit $HOME/todos<cr>
 
 " For all file types highlight trailing whitespaces
 highlight ExtraWhitespace ctermbg=red guibg=red
