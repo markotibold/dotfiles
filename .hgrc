@@ -53,3 +53,6 @@ push = push --new-branch
 
 # Based on http://jamie-wong.com/2012/07/11/my-mercurial-setup-and-workflow-at-khan-academy/
 lga = glog --style=/Users/marko/.dotfiles/hg-prettylog.lg
+
+[hooks]
+commit.feature_finish = python:~/.hgext/hg-extensions/hooks.py:update_changelog_on_merge
