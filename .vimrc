@@ -198,6 +198,7 @@ Bundle 'mv/mv-vim-puppet'
 Bundle 'smerrill/vcl-vim-plugin'
 
 " vim plugin which formated javascript files by js-beautify
+" :call HtmlBeautify()
 Bundle 'maksimr/vim-jsbeautify'
 Bundle 'einars/js-beautify'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
