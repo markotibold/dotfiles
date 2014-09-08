@@ -1,0 +1,10 @@
+# A shortcut to creating pull requests in RhodeCode
+#!/bin/bash
+
+url=`hg paths`
+# default = https://<user>@repo_url
+url=${url#*@}
+# rep_url
+url=https://$url/pull-request/new
+# http://rep_url/pull-request/new
+open $url
