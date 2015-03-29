@@ -2,6 +2,13 @@
     name = Marko Tibold
 	email = marko@tibold.nl
 
+[merge]
+tool = splice
+
+[mergetool "splice"]
+cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
+trustExitCode = true
+
 [core]
     excludesfile = ~/.gitignore
     editor = vim

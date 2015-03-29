@@ -33,34 +33,44 @@ function set_git_branch {
         state="${green}"
     elif [[ ${git_status} =~ "Changes to be committed" ]]; then
         state="${yellow}"
+    elif [[ ${git_status} =~ "no changes added to commit" ]]; then
+        state="${black}"
     else
         state="${red}"
     fi
 
     # Set arrow icon based on status against remote.
-    remote_pattern="# Your branch is (.*)"
+    remote_pattern="Your branch is (.*)"
     if [[ ${git_status} =~ ${remote_pattern} ]]; then
         if [[ ${BASH_REMATCH[1]} == "ahead" ]]; then
-            git_remote="↓"
-        else
             git_remote="↑"
+        elif [[ ${BASH_REMATCH[1]} == "up-to-date" ]]; then
+            git_remote=""
+        elif [[ ${BASH_REMATCH[1]} == "behind" ]]; then
+            git_remote="↓"
         fi
     else
         git_remote=""
     fi
-    diverge_pattern="# Your branch and (.*) have diverged"
+    diverge_pattern="Your branch and (.*) have diverged"
     if [[ ${git_status} =~ ${diverge_pattern} ]]; then
         git_remote="↕"
     fi
 
     # Get the name of the branch.
-    branch_pattern="^# On branch ([^${IFS}]*)"
+    branch_pattern="On branch ([^${IFS}]*)"
     if [[ ${git_status} =~ ${branch_pattern} ]]; then
         branch=${BASH_REMATCH[1]}
     fi
 
+    # Any active stashes?
+    git_stash_status="$(git stash list 2> /dev/null)"
+    if [[ "$git_stash_status" != "" ]]; then
+        git_stash_status=${blue}"[S]"
+    fi
+
     # Set the final branch string.
-    BRANCH="${state}[git ${git_branch}]${git_remote}${reset} "
+    BRANCH="${state}[git ${git_remote}]${git_stash_status}\n${cyan}${branch}${reset} "
 }
 
 function eval_hg_repo {
