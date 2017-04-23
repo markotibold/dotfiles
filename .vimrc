@@ -128,7 +128,6 @@ let g:pymode_run = 0
 let g:pymode_motion = 0
 let g:pymode_folding = 0
 
-"let g:pymode_syntax = 0
 let g:pymode_virtualenv = 0
 "let g:pymode_lint_ignore = "E501,W391,C0303,F0401,C0110,R0924 R0201,E1102,E1002"
 
@@ -395,13 +394,13 @@ source ~/.vimrc-volatile
 
 " Enhanced python highlighting
 "hi pythonLambdaExpr      ctermfg=105 guifg=#8787ff
-hi pythonInclude         ctermfg=68  guifg=#5f4777 cterm=bold gui=bold
-"hi pythonClass           ctermfg=167 guifg=#FF62B0 cterm=bold gui=bold
-"hi pythonParameters      ctermfg=147 guifg=#AAAAFF
-"hi pythonParam           ctermfg=175 guifg=#E37795
+hi pythonInclude         ctermfg=68  guifg=#5f4777
+hi pythonClass           ctermfg=167 guifg=#FF62B0
+hi pythonParameters      ctermfg=147 guifg=#AAAAFF
+hi pythonParam           ctermfg=175 guifg=#E37795
 "hi pythonBrackets        ctermfg=183 guifg=#d7afff
-"hi pythonClassParameters ctermfg=111 guifg=#FF5353
-"hi pythonSelf            ctermfg=68  guifg=#5f87d7 cterm=bold gui=bold
+hi pythonClassParameters ctermfg=111 guifg=#FF5353
+hi pythonSelf            ctermfg=68  guifg=#5f87d7
 
 "hi pythonDottedName      ctermfg=74  guifg=#5fafd7
 
