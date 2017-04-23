@@ -3,9 +3,10 @@
 
 # ./watch.sh| gource --log-format git -
 
-pushd $1
+cd $1
 
-SINCE='1971-01-01'
+SINCE=$(date -d "yesterday" +%Y-%m-%d)
+#SINCE='1971-01-01'
 
 # initial gource call (fills up ui)
 git --no-pager log $word --pretty=format:user:%aN%n%at --reverse --raw --encoding=UTF-8 --all --no-renames --after=$SINCE

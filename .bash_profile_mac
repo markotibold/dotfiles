@@ -3,6 +3,8 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
 fi
 
+complete -C '/usr/local/bin/aws_completer' aws
+
 # Load .aliases
 source ~/.dotfiles/.aliases
 
@@ -11,7 +13,7 @@ source ~/.dotfiles/.bash_prompt
 
 # Prefer US English and use UTF-8
 export LC_ALL="en_US.UTF-8"
-export LANG="en_US"
+export LANG="en_US.UTF-8"
 
 # virtualenvwrapper related
 # use brew's python:
@@ -36,5 +38,23 @@ source ~/.bash_profile_local
 export PATH="/usr/local/heroku/bin:$PATH"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+#export PATH=$PATH:/usr/local/opt/go/libexec/bin
+#export GOPATH=/usr/local/opt/go/bin
 
 source ~/.dotfiles/bin/tmuxinator.bash
+source ~/openstack.rc
+
+export JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home"
+
+export PATH="~/devshare/android-sdk-macosx/platform-tools:$PATH"
+
+export PATH="$PATH:/Applications/microchip/xc8/v1.36/bin"
+
+#export PATH="$PATH:~/google-cloud-sdk/bin"
+
+# The next line updates PATH for the Google Cloud SDK.
+source '/Users/marko/google-cloud-sdk/path.bash.inc'
+
+# The next line enables shell command completion for gcloud.
+source '/Users/marko/google-cloud-sdk/completion.bash.inc'
+export TERM=xterm-256color-italic

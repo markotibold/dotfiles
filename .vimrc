@@ -1,6 +1,7 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
+set termguicolors
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -14,24 +15,36 @@ Bundle 'nelstrom/vim-qargs'
 " This plugin enables folding by section headings in markdown documents.
 Bundle 'nelstrom/vim-markdown-folding'
 
+set shortmess=atOI " No help Uganda information, and overwrite read messages to avoid PRESS ENTER prompts
 
+" :W sudo saves the file
+" (useful for handling the permission-denied error)
+command! W w !sudo tee % > /dev/null
+
+" Change cursor shape for iTerm2 on macOS {
+  " bar in Insert mode
+  " inside iTerm2
+  if $TERM_PROGRAM =~# 'iTerm'
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+  endif
+
+  " inside tmux
+  "if exists('$TMUX')
+    "let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+    "let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+    "let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+  "endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colors and themes
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-Bundle 'flazz/vim-colorschemes'
-
-Bundle 'markotibold/markolors'
-" For developing color schemes
-" Usage :call SyntaxAttr()
-Bundle 'SyntaxAttr.vim'
-" All 256 xterm colors with their RGB equivalents, right in Vim!
-Bundle 'guns/xterm-color-table.vim'
-
+"Bundle 'flazz/vim-colorschemes'
+Bundle 'lifepillar/vim-solarized8'
 syntax enable
-set background=dark
-colorscheme solarized
-
+"set background=dark
+colorscheme solarized8_dark
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Efficiency
@@ -90,37 +103,39 @@ Bundle 'nelstrom/vim-visual-star-search'
 " lean & mean status/tabline for vim that's light as air
 Bundle 'bling/vim-airline'
 
-" better line numbers for vim
-Bundle 'myusuf3/numbers.vim'
-
-" zen mode vim plugin
-Bundle 'mmai/vim-zenmode'
-let g:zenmode_background = "dark"
-
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Linters and stuff
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Syntastic : Automatic syntax checking
-Bundle 'scrooloose/syntastic'
-" Leave python linting to `python-mode` plugin
-let g:syntastic_python_checkers=[]
-
+Bundle 'w0rp/ale'
+let g:ale_linters = {
+\ 'python': ['flake8'],
+\}
 "Python-mode is a vim plugin that allows you to use the pylint, rope, pydoc
 "library in vim to provide features like python code looking for bugs,
 "refactoring and some other usefull things.
 Bundle 'klen/python-mode'
+
+let g:pymode = 1
+let g:pymode_syntax_all = 1
+"let g:pymode_syntax_highlight_equal_operator = g:pymode_syntax_all
+let g:pymode_syntax = 1
 let g:pymode_utils_whitespaces = 0
 " Don't use rope
 let g:pymode_rope = 0
-"ignore , trailing whitespace
-let g:pymode_lint_ignore = "W391,C0303,F0401,C0110,R0924 R0201,E1102,E1002"
+"let g:pymode_lint = 0
+let g:pymode_run = 0
+let g:pymode_motion = 0
+let g:pymode_folding = 0
+
+"let g:pymode_syntax = 0
+let g:pymode_virtualenv = 0
+"let g:pymode_lint_ignore = "E501,W391,C0303,F0401,C0110,R0924 R0201,E1102,E1002"
 
 " JSHint fork of jslint.vim
 Bundle 'wookiehangover/jshint.vim'
 
-
+Bundle 'fatih/vim-go'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Version control
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -131,12 +146,8 @@ Bundle 'tpope/vim-fugitive'
 " Show a VCS diff using Vim's sign column.
 Bundle 'mhinz/vim-signify'
 
-" Lawrencium is a Mercurial wrapper for Vim, inspired by Tim Pope's Fugitive.
-Bundle 'ludovicchabant/vim-lawrencium'
-
 "Splice is a Vim plugin for resolving conflicts during three-way merges.
 Bundle 'sjl/splice.vim'
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Python utils
@@ -152,11 +163,12 @@ Bundle 'jmcantrell/vim-virtualenv'
 
 " Text objects for python
 Bundle 'bps/vim-textobj-python'
-
+Bundle 'fisadev/vim-isort'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntax
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Bundle 'tomlion/vim-solidity'
 
 " JSON.vim : A syntax highlighting file for JSON
 Bundle 'jakar/vim-json'
@@ -190,7 +202,7 @@ Bundle 'Rykka/riv.vim'
 let g:riv_fold_auto_update = 0
 
 " RST preview, run :Rst
-:command Rst :!LC_ALL=en_US.UTF-8 rst2html5 --stylesheet=/Users/marko/.dotfiles/css/bootstrap.css % > /tmp/rstprev.html && open /tmp/rstprev.html
+":command Rst :!LC_ALL=en_US.UTF-8 rst2html5 --stylesheet=/Users/marko/.dotfiles/css/bootstrap.css % > /tmp/rstprev.html && open /tmp/rstprev.html
 
 " Puppet syntax
 Bundle 'mv/mv-vim-puppet'
@@ -215,8 +227,7 @@ let g:Tex_CompileRule_pdf = 'xelatex -interaction=nonstopmode $*'
 " Github mirror of Go vimscripts, synced with main repository
 Bundle 'jnwhiteh/vim-golang'
 
-" stopwatch timing of execution time of vim commands and command sequences
-Bundle 'timing.vim'
+Bundle '4Evergreen4/vim-hardy'
 
 " Plugin to manage Most Recently Used (MRU) files
 Bundle 'mru.vim'
@@ -238,7 +249,7 @@ let mapleader = ','
 
 set nofoldenable
 set vb                          " Disable the bell
-set colorcolumn=80
+set colorcolumn=100
 
 syntax on
 set mouse=a                     " automatically enable mouse usage
@@ -288,13 +299,13 @@ endif
 let g:netrw_list_hide= '.*\.swp$,.*\.pyc,.*\.DS_Store,.*\.orig'
 
 " wildcard ignore, amkes CTRLP plugin more useful
-set wildignore=*.pyc,*.orig,*.png,*.fig,*.sql,**/migrations/[0-9][0-9][0-9][0-9]*.py
+set wildignore=**/.git/,*.pyc,*.orig,*.png,*.fig,*.sql,**/migrations/[0-9][0-9][0-9][0-9]*.py
 
 set backup                  " backups are nice ...
 set undofile                "so is persistent undo ...
 set undolevels=1000         "maximum number of changes that can be undone
 set undoreload=10000        "maximum number lines to save for undo on a buffer reload
-set textwidth=79
+set textwidth=99
 
 " shameless copy from spf13
 function! InitializeDirectories()
@@ -340,9 +351,6 @@ setlocal spellfile=~/.vim/spell/en.utf-8.add
 " Mappings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Strip trailing whitespaces
-nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
-
 " Send last closing bracket to next line
 nnoremap <leader>C 0/)$<cr>i<cr><esc>:noh<cr>
 
@@ -353,7 +361,7 @@ noremap <Leader>w :update<CR>"
 map <Leader>ib Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
 
 " Invoke pudb debugger
-map <leader>pb Ofrom pudb import set_trace; set_trace()<C-c>
+map <leader>pb Ofrom pdb import set_trace; set_trace()<C-c>
 
 " Easier moving in tabs and windows
 noremap <C-> <C-W>j
@@ -364,9 +372,6 @@ noremap <C-H> <C-W>h
 " Wrapped lines goes down/up to next row, rather than next line in file.
 nnoremap j gj
 nnoremap k gk
-
-" Yank from the cursor to the end of the line, to be consistent with C and D.
-nnoremap Y y$
 
 " visual shifting (does not exit Visual mode)
 vnoremap < <gv
@@ -381,14 +386,34 @@ nnoremap <leader>ev :vsplit $HOME/.vimrc<cr>
 nnoremap <leader>lev :vsplit $HOME/.vimrc-volatile<cr>
 nnoremap <leader>sv :source $HOME/.vimrc<cr>
 
-" Quickly edit a global plaintext todo file.
-nnoremap <leader>to :vsplit $HOME/todos<cr>
+" autocommands
+" Strip trailing whitespaces automotically
+autocmd BufWritePre * %s/\s\+$//e
 
-" For all file types highlight trailing whitespaces
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
-
+" Load any confs that are not to be commited
 source ~/.vimrc-volatile
+
+" Enhanced python highlighting
+"hi pythonLambdaExpr      ctermfg=105 guifg=#8787ff
+hi pythonInclude         ctermfg=68  guifg=#5f4777 cterm=bold gui=bold
+"hi pythonClass           ctermfg=167 guifg=#FF62B0 cterm=bold gui=bold
+"hi pythonParameters      ctermfg=147 guifg=#AAAAFF
+"hi pythonParam           ctermfg=175 guifg=#E37795
+"hi pythonBrackets        ctermfg=183 guifg=#d7afff
+"hi pythonClassParameters ctermfg=111 guifg=#FF5353
+"hi pythonSelf            ctermfg=68  guifg=#5f87d7 cterm=bold gui=bold
+
+"hi pythonDottedName      ctermfg=74  guifg=#5fafd7
+
+"hi pythonError           ctermfg=196 guifg=#ff0000
+"hi pythonIndentError     ctermfg=197 guifg=#ff005f
+"hi pythonSpaceError      ctermfg=198 guifg=#ff0087
+
+"hi pythonBuiltinType     ctermfg=74  guifg=#9191FF
+"hi pythonBuiltinObj      ctermfg=71  guifg=#5faf5f
+"hi pythonBuiltinFunc     ctermfg=169 guifg=#d75faf cterm=bold gui=bold
+
+"hi pythonException       ctermfg=207 guifg=#CC3366 cterm=bold gui=bold
+
+hi Comment cterm=italic
+

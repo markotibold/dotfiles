@@ -50,3 +50,4 @@ alias egrep="egrep --color=always"
 # Magick wand tweaks see
 # https://github.com/dahlia/wand/issues/14://github.com/dahlia/wand/issues/141
 export MAGICK_HOME=/usr/local
+export GOBIN=$GOPATH/bin
