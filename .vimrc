@@ -111,30 +111,14 @@ Bundle 'w0rp/ale'
 let g:ale_linters = {
 \ 'python': ['flake8'],
 \}
-"Python-mode is a vim plugin that allows you to use the pylint, rope, pydoc
-"library in vim to provide features like python code looking for bugs,
-"refactoring and some other usefull things.
-Bundle 'klen/python-mode'
-
-let g:pymode = 1
-let g:pymode_syntax_all = 1
-"let g:pymode_syntax_highlight_equal_operator = g:pymode_syntax_all
-let g:pymode_syntax = 1
-let g:pymode_utils_whitespaces = 0
-" Don't use rope
-let g:pymode_rope = 0
-"let g:pymode_lint = 0
-let g:pymode_run = 0
-let g:pymode_motion = 0
-let g:pymode_folding = 0
-
-let g:pymode_virtualenv = 0
-"let g:pymode_lint_ignore = "E501,W391,C0303,F0401,C0110,R0924 R0201,E1102,E1002"
 
 " JSHint fork of jslint.vim
 Bundle 'wookiehangover/jshint.vim'
 
 Bundle 'fatih/vim-go'
+
+Bundle 'junegunn/fzf'
+Bundle 'junegunn/fzf.vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Version control
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -151,7 +135,9 @@ Bundle 'sjl/splice.vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Python utils
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Bundle 'Chiel92/vim-autoformat'
 
+let g:formatter_yapf_style = 'pep8'
 " Fast Python completion and Go-to-definition
 Bundle 'Valloric/YouCompleteMe'
 nnoremap <leader>j :YcmCompleter GoToDefinition<CR>
