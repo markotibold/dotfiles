@@ -116,9 +116,10 @@ let g:ale_linters = {
 Bundle 'wookiehangover/jshint.vim'
 
 Bundle 'fatih/vim-go'
-
+Bundle 'terryma/vim-multiple-cursors'
 Bundle 'junegunn/fzf'
 Bundle 'junegunn/fzf.vim'
+" :Lines (Search through recent lines of text)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Version control
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -400,5 +401,5 @@ hi pythonSelf            ctermfg=68  guifg=#5f87d7
 
 "hi pythonException       ctermfg=207 guifg=#CC3366 cterm=bold gui=bold
 
-hi Comment cterm=italic
 
+hi Comment cterm=italic
