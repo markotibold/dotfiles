@@ -2,18 +2,18 @@ set nocompatible               " be iMproved
 filetype off                   " required!
 
 set termguicolors
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " let Vundle manage Vundle
 " required!
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " pass all files in quick-fix window to the arglist
-Bundle 'nelstrom/vim-qargs'
+Plugin 'nelstrom/vim-qargs'
 
 " This plugin enables folding by section headings in markdown documents.
-Bundle 'nelstrom/vim-markdown-folding'
+Plugin 'nelstrom/vim-markdown-folding'
 
 set shortmess=atOI " No help Uganda information, and overwrite read messages to avoid PRESS ENTER prompts
 
@@ -40,60 +40,59 @@ command! W w !sudo tee % > /dev/null
 " Colors and themes
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"Bundle 'flazz/vim-colorschemes'
-Bundle 'lifepillar/vim-solarized8'
+"Plugin 'flazz/vim-colorschemes'
+Plugin 'lifepillar/vim-solarized8'
 syntax enable
 "set background=dark
-colorscheme solarized8_dark
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Efficiency
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " surround.vim: quoting/parenthesizing made simple
-Bundle 'tpope/vim-surround'
+Plugin 'tpope/vim-surround'
 
 " CTRL-P: Fuzzy file, buffer, mru, tag, etc finder
-Bundle 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
 let g:ctrlp_custom_ignore = {
 \ 'dir':  '\.git$\|\.hg$\|\.svn$\|_build$',
 \ 'file': '\.exe$\|\.so$\|\.dll$|\.pyc$|\.orig$'}
 
 " matchit.zip : extended % matching for HTML, LaTeX, and many other languages
-Bundle 'matchit.zip'
+Plugin 'matchit.zip'
 
 " undotree.vim : Display your undo history in a graph.
-Bundle 'mbbill/undotree'
+Plugin 'mbbill/undotree'
 nnoremap <Leader>u :UndotreeToggle<CR>
 let g:undotree_SetFocusWhenToggle=1 " if undotree is opened, it is likely one
                                     " wants to interact with it.
 
 " restore_view.vim : A plugin for automatically restoring file's cursor
 " position and folding
-Bundle 'vim-scripts/restore_view.vim'
+Plugin 'vim-scripts/restore_view.vim'
 
 " The NERD Commenter : A plugin that allows for easy commenting of code for
 " many filetypes.
-Bundle 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdcommenter'
 
 " Tabular : Vim script for text filtering and alignment
-Bundle 'godlygeek/tabular'
+Plugin 'godlygeek/tabular'
 
 " Tagbar : Display tags of the current file ordered by scope
-Bundle 'majutsushi/tagbar'
+Plugin 'majutsushi/tagbar'
 nnoremap <silent> <leader>tt :TagbarToggle<CR>
 
 " unimpaired.vim : Pairs of handy bracket mappings
-Bundle 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-unimpaired'
 
 " Create your own text objects — Read more
-Bundle 'kana/vim-textobj-user'
+Plugin 'kana/vim-textobj-user'
 
 " Text objects for the last searched pattern
-Bundle 'kana/vim-textobj-lastpat'
+Plugin 'kana/vim-textobj-lastpat'
 
 " Start a * or # search from a visual block
-Bundle 'nelstrom/vim-visual-star-search'
+Plugin 'nelstrom/vim-visual-star-search'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -101,88 +100,88 @@ Bundle 'nelstrom/vim-visual-star-search'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " lean & mean status/tabline for vim that's light as air
-Bundle 'bling/vim-airline'
+Plugin 'bling/vim-airline'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Linters and stuff
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-Bundle 'w0rp/ale'
+Plugin 'w0rp/ale'
 let g:ale_linters = {
 \ 'python': ['flake8'],
 \}
 
 " JSHint fork of jslint.vim
-Bundle 'wookiehangover/jshint.vim'
+Plugin 'wookiehangover/jshint.vim'
 
-Bundle 'fatih/vim-go'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'junegunn/fzf'
-Bundle 'junegunn/fzf.vim'
+Plugin 'fatih/vim-go'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 " :Lines (Search through recent lines of text)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Version control
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " fugitive.vim : A Git wrapper so awesome, it should be illegal
-Bundle 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 
 " Show a VCS diff using Vim's sign column.
-Bundle 'mhinz/vim-signify'
+Plugin 'mhinz/vim-signify'
 
 "Splice is a Vim plugin for resolving conflicts during three-way merges.
-Bundle 'sjl/splice.vim'
+Plugin 'sjl/splice.vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Python utils
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Bundle 'Chiel92/vim-autoformat'
+Plugin 'Chiel92/vim-autoformat'
 
 let g:formatter_yapf_style = 'pep8'
 " Fast Python completion and Go-to-definition
-Bundle 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 nnoremap <leader>j :YcmCompleter GoToDefinition<CR>
 let g:ycm_autoclose_preview_window_after_completion = 1
 
 " Work with python virtualenvs in vim
-Bundle 'jmcantrell/vim-virtualenv'
+Plugin 'jmcantrell/vim-virtualenv'
 
 " Text objects for python
-Bundle 'bps/vim-textobj-python'
-Bundle 'fisadev/vim-isort'
+Plugin 'bps/vim-textobj-python'
+Plugin 'fisadev/vim-isort'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntax
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Bundle 'tomlion/vim-solidity'
+Plugin 'tomlion/vim-solidity'
 
 " JSON.vim : A syntax highlighting file for JSON
-Bundle 'jakar/vim-json'
+Plugin 'jakar/vim-json'
 " Reindent json
 command! -range -nargs=0 -bar JsonTool <line1>,<line2>!python -m json.tool
 
 " JavaScript syntax : Better JavaScript syntax support
-Bundle 'pangloss/vim-javascript'
+Plugin 'pangloss/vim-javascript'
 
 " Add CSS3 syntax support to vim's built-in syntax/css.vim.
-Bundle 'hail2u/vim-css3-syntax'
+Plugin 'hail2u/vim-css3-syntax'
 
 " Markdown : Syntax highlight for Markdown text files
-Bundle 'tpope/vim-markdown'
+Plugin 'tpope/vim-markdown'
 
 " Syntax highlighting for Django templates
-Bundle 'vim-scripts/django.vim'
+Plugin 'vim-scripts/django.vim'
 
 " CoffeeScript support for vim
-Bundle 'kchmck/vim-coffee-script'
+Plugin 'kchmck/vim-coffee-script'
 " vim-coffee-script autocompile onsave
 au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
 
 " Vim ini syntax
-Bundle 'vim-scripts/ini-syntax-definition'
+Plugin 'vim-scripts/ini-syntax-definition'
 
 " Better rst support for vim
-Bundle 'Rykka/riv.vim'
+Plugin 'Rykka/riv.vim'
 " RST preview, run :Rst
 " Disable folding behaviour whens saving rst files (should be default)
 let g:riv_fold_auto_update = 0
@@ -191,14 +190,14 @@ let g:riv_fold_auto_update = 0
 ":command Rst :!LC_ALL=en_US.UTF-8 rst2html5 --stylesheet=/Users/marko/.dotfiles/css/bootstrap.css % > /tmp/rstprev.html && open /tmp/rstprev.html
 
 " Puppet syntax
-Bundle 'mv/mv-vim-puppet'
+Plugin 'mv/mv-vim-puppet'
 " Varnish Configuration Language (VCL)
-Bundle 'smerrill/vcl-vim-plugin'
+Plugin 'smerrill/vcl-vim-plugin'
 
 " vim plugin which formated javascript files by js-beautify
 " :call HtmlBeautify()
-Bundle 'maksimr/vim-jsbeautify'
-Bundle 'einars/js-beautify'
+Plugin 'maksimr/vim-jsbeautify'
+Plugin 'einars/js-beautify'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Other
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -206,29 +205,31 @@ Bundle 'einars/js-beautify'
 " Vim Latex plugin
 " Download Mactex http://tug.org/mactex/
 " brew install latex-mk
-Bundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
-let g:Tex_DefaultTargetFormat = 'pdf'
-let g:Tex_CompileRule_pdf = 'xelatex -interaction=nonstopmode $*'
+"Plugin 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
+"let g:Tex_DefaultTargetFormat = 'pdf'
+"let g:Tex_CompileRule_pdf = 'xelatex -interaction=nonstopmode $*'
 
 " Github mirror of Go vimscripts, synced with main repository
-Bundle 'jnwhiteh/vim-golang'
+Plugin 'jnwhiteh/vim-golang'
 
-Bundle '4Evergreen4/vim-hardy'
+Plugin '4Evergreen4/vim-hardy'
 
 " Plugin to manage Most Recently Used (MRU) files
-Bundle 'mru.vim'
+Plugin 'mru.vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Presentation
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " A simple tool for presenting slides in vim based on text files.
-Bundle 'sotte/presenting.vim'
+Plugin 'sotte/presenting.vim'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General configureation
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call vundle#end()
 
+colorscheme solarized8_dark
 filetype plugin indent on     " required!
 
 let mapleader = ','

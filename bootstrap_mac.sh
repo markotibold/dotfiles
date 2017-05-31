@@ -18,7 +18,8 @@ ln -s ~/.dotfiles/.ackrc ~/.ackrc
 
 ln -s ~/.dotfiles/.vimrc ~/.vimrc
 
-ln -s ~/.dotfiles/.tmxux.con ~/.tmux.conf
+ln -s ~/.dotfiles/.tmxux.conf ~/.tmux.conf
+ln -s ~/.private_dotfiles/.tmuxinator ~/.tmuxinator
 
 mkdir -p ~/.mutt
 mkdir -p ~/.mail
