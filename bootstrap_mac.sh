@@ -39,3 +39,5 @@ ln -s ~/.private_dotfiles/ssh-config ~/.ssh/config
 
 echo "setup osx settings"
 ./.osx
+
+ln -s ~/.dotfiles/.zshrc ~/.zshrc
