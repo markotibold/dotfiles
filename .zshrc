@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/marko/.oh-my-zsh
+export ZSH=/Users/m.tibold/.oh-my-zsh
 
 export TERM=xterm-256color-italic
 # Set name of the theme to load. Optionally, if you set this to "random"
@@ -11,9 +11,6 @@ export TERM=xterm-256color-italic
 #ZSH_THEME="robbyrussell"
 ZSH_THEME="blinks"
 
-export WORKON_HOME=$HOME/mac_envs
-export PROJECT_HOME=$HOME/Devel
-source /usr/local/bin/virtualenvwrapper.sh
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -91,4 +88,10 @@ source ~/.dotfiles/bin/tmuxinator.zsh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ssh="TERM=xterm-256color ssh"
 
+alias vim="nvim"
+export EDITOR=vim
 source ~/.dotfiles/.aliases
+
+export WORKON_HOME=$HOME/envs
+export PROJECT_HOME=$HOME/Devel
+source /usr/local/bin/virtualenvwrapper.sh

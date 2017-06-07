@@ -10,7 +10,7 @@ cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
 trustExitCode = true
 
 [core]
-    excludesfile = ~/.gitignore
+	excludesfile = /Users/m.tibold/.gitignore
     editor = vim
 
 [color]
@@ -29,6 +29,7 @@ trustExitCode = true
     br = branch
     ps = push
     pl = pull
+	up = pull --rebase --autostash
 
 [push]
     default = simple
@@ -48,3 +49,9 @@ trustExitCode = true
 
 [url "git://bitbucket.org/"]
     insteadOf = "bitbucket:"
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

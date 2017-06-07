@@ -17,3 +17,4 @@ project_media.tar
 .project
 Gemfile.lock
 vim/spell
+*.log
