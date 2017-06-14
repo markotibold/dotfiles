@@ -186,8 +186,8 @@ Plugin 'Rykka/riv.vim'
 " Disable folding behaviour whens saving rst files (should be default)
 let g:riv_fold_auto_update = 0
 
-" RST preview, run :Rst
-":command Rst :!LC_ALL=en_US.UTF-8 rst2html5 --stylesheet=/Users/marko/.dotfiles/css/bootstrap.css % > /tmp/rstprev.html && open /tmp/rstprev.html
+" npm install -g livedown
+Plugin 'shime/vim-livedown'
 
 " Puppet syntax
 Plugin 'mv/mv-vim-puppet'
@@ -198,6 +198,7 @@ Plugin 'smerrill/vcl-vim-plugin'
 " :call HtmlBeautify()
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'einars/js-beautify'
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Other
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -404,3 +405,4 @@ hi pythonSelf            ctermfg=68  guifg=#5f87d7
 
 
 hi Comment cterm=italic
+
