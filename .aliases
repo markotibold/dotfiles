@@ -27,3 +27,5 @@ alias st="open -a \"SourceTree\" ."
 alias marked='open -a marked'
 
 alias t='tree -C -a -I .git'
+
+alias openports="sudo lsof -PiTCP -sTCP:LISTEN"

@@ -1,3 +1,4 @@
+" SOMETIMES indentation get mixed, : set expandtab
 set nocompatible               " be iMproved
 filetype off                   " required!
 
@@ -7,7 +8,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle
 " required!
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 " pass all files in quick-fix window to the arglist
 Plugin 'nelstrom/vim-qargs'
@@ -142,6 +143,7 @@ let g:formatter_yapf_style = 'pep8'
 Plugin 'Valloric/YouCompleteMe'
 nnoremap <leader>j :YcmCompleter GoToDefinition<CR>
 let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_python_binary_path = 'python'
 
 " Work with python virtualenvs in vim
 Plugin 'jmcantrell/vim-virtualenv'
@@ -176,9 +178,6 @@ Plugin 'vim-scripts/django.vim'
 Plugin 'kchmck/vim-coffee-script'
 " vim-coffee-script autocompile onsave
 au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
-
-" Vim ini syntax
-Plugin 'vim-scripts/ini-syntax-definition'
 
 " Better rst support for vim
 Plugin 'Rykka/riv.vim'
@@ -224,6 +223,9 @@ Plugin 'mru.vim'
 " A simple tool for presenting slides in vim based on text files.
 Plugin 'sotte/presenting.vim'
 
+
+" Neovim homegrown plugins
+"Plugin 'nvim-example-python-plugin'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General configureation
@@ -294,6 +296,7 @@ set undofile                "so is persistent undo ...
 set undolevels=1000         "maximum number of changes that can be undone
 set undoreload=10000        "maximum number lines to save for undo on a buffer reload
 set textwidth=99
+set number
 
 " shameless copy from spf13
 function! InitializeDirectories()
@@ -405,4 +408,6 @@ hi pythonSelf            ctermfg=68  guifg=#5f87d7
 
 
 hi Comment cterm=italic
+
+let g:python_host_prog = '/usr/local/opt/python/libexec/bin/python'
 

@@ -95,3 +95,6 @@ source ~/.dotfiles/.aliases
 export WORKON_HOME=$HOME/envs
 export PROJECT_HOME=$HOME/Devel
 source /usr/local/bin/virtualenvwrapper.sh
+
+# brew installed python
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
