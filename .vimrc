@@ -136,6 +136,18 @@ Plugin 'sjl/splice.vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Python utils
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plugin 'python-mode/python-mode'
+let g:pymode_lint = 0
+let g:pymode_syntax = 0
+let g:pymode_rope = 1
+let g:pymode_run = 1
+let g:pymode_rope_completion = 0
+let g:pymode_virtualenv = 1
+let g:pymode_rope_autoimport=1
+let g:pymode_rope_rename_bind = '<C-c>rr'
+let g:pymode_rope_rename_module_bind = '<C-c>r1r'
+let g:pymode_rope_organize_imports_bind = '<C-c>ro'
+
 Plugin 'Chiel92/vim-autoformat'
 
 let g:formatter_yapf_style = 'pep8'
@@ -381,9 +393,6 @@ nnoremap <leader>sv :source $HOME/.vimrc<cr>
 " Strip trailing whitespaces automotically
 autocmd BufWritePre * %s/\s\+$//e
 
-" Load any confs that are not to be commited
-source ~/.vimrc-volatile
-
 " Enhanced python highlighting
 "hi pythonLambdaExpr      ctermfg=105 guifg=#8787ff
 hi pythonInclude         ctermfg=68  guifg=#5f4777
@@ -410,4 +419,11 @@ hi pythonSelf            ctermfg=68  guifg=#5f87d7
 hi Comment cterm=italic
 
 let g:python_host_prog = '/usr/local/opt/python/libexec/bin/python'
+
+" Load any confs that are not to be commited
+source ~/.vimrc-volatile
+
+hi clear SpellBad
+hi SpellBad cterm=underline
+
 
