@@ -1,6 +1,5 @@
 " SOMETIMES indentation get mixed, : set expandtab
 set nocompatible               " be iMproved
-filetype off                   " required!
 
 set termguicolors
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -59,6 +58,7 @@ let g:ctrlp_custom_ignore = {
 \ 'dir':  '\.git$\|\.hg$\|\.svn$\|_build$',
 \ 'file': '\.exe$\|\.so$\|\.dll$|\.pyc$|\.orig$'}
 
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 " matchit.zip : extended % matching for HTML, LaTeX, and many other languages
 Plugin 'matchit.zip'
 
@@ -138,18 +138,20 @@ Plugin 'sjl/splice.vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plugin 'python-mode/python-mode'
 let g:pymode_lint = 0
+let g:pymode_indent = 0
 let g:pymode_syntax = 0
 let g:pymode_rope = 1
 let g:pymode_run = 1
 let g:pymode_rope_completion = 0
 let g:pymode_virtualenv = 1
-let g:pymode_rope_autoimport=1
+"let g:pymode_rope_autoimport=1
+"let g:pymode_rope_autoimport_bind = '<C-c>ra'
 let g:pymode_rope_rename_bind = '<C-c>rr'
 let g:pymode_rope_rename_module_bind = '<C-c>r1r'
 let g:pymode_rope_organize_imports_bind = '<C-c>ro'
 
+let g:pymode_rope_autoimport_modules = ['os', 'shutil', 'datetime']
 Plugin 'Chiel92/vim-autoformat'
-
 let g:formatter_yapf_style = 'pep8'
 " Fast Python completion and Go-to-definition
 Plugin 'Valloric/YouCompleteMe'
@@ -243,9 +245,6 @@ Plugin 'sotte/presenting.vim'
 " General configureation
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call vundle#end()
-
-colorscheme solarized8_dark
-filetype plugin indent on     " required!
 
 let mapleader = ','
 
@@ -415,7 +414,6 @@ hi pythonSelf            ctermfg=68  guifg=#5f87d7
 
 "hi pythonException       ctermfg=207 guifg=#CC3366 cterm=bold gui=bold
 
-
 hi Comment cterm=italic
 
 let g:python_host_prog = '/usr/local/opt/python/libexec/bin/python'
@@ -425,5 +423,3 @@ source ~/.vimrc-volatile
 
 hi clear SpellBad
 hi SpellBad cterm=underline
-
-

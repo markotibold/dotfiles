@@ -11,7 +11,7 @@ trustExitCode = true
 
 [core]
 	excludesfile = /Users/m.tibold/.gitignore
-    editor = vim
+    editor = nvim
 
 [color]
     ui = true
@@ -51,7 +51,7 @@ trustExitCode = true
     insteadOf = "bitbucket:"
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true

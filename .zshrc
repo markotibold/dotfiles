@@ -5,6 +5,7 @@
 export ZSH=/Users/m.tibold/.oh-my-zsh
 
 export TERM=xterm-256color-italic
+#export TERM=tmux-256color-italic
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -88,8 +89,8 @@ source ~/.dotfiles/bin/tmuxinator.zsh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ssh="TERM=xterm-256color ssh"
 
-alias vim="nvim"
 export EDITOR=vim
+export VISUAL=nvim
 source ~/.dotfiles/.aliases
 
 export WORKON_HOME=$HOME/envs
