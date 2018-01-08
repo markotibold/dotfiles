@@ -1,19 +1,13 @@
-" SOMETIMES indentation get mixed, : set expandtab
-set nocompatible               " be iMproved
-
 set termguicolors
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
 
-" let Vundle manage Vundle
-" required!
-Plugin 'VundleVim/Vundle.vim'
+packadd minpac
+call minpac#init()
 
 " pass all files in quick-fix window to the arglist
-Plugin 'nelstrom/vim-qargs'
+call minpac#add('nelstrom/vim-qargs')
 
 " This plugin enables folding by section headings in markdown documents.
-Plugin 'nelstrom/vim-markdown-folding'
+call minpac#add('nelstrom/vim-markdown-folding')
 
 set shortmess=atOI " No help Uganda information, and overwrite read messages to avoid PRESS ENTER prompts
 
@@ -21,79 +15,60 @@ set shortmess=atOI " No help Uganda information, and overwrite read messages to 
 " (useful for handling the permission-denied error)
 command! W w !sudo tee % > /dev/null
 
-" Change cursor shape for iTerm2 on macOS {
-  " bar in Insert mode
-  " inside iTerm2
-  if $TERM_PROGRAM =~# 'iTerm'
-    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-    let &t_SR = "\<Esc>]50;CursorShape=2\x7"
-    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-  endif
-
-  " inside tmux
-  "if exists('$TMUX')
-    "let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-    "let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
-    "let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-  "endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Colors and themes
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"Plugin 'flazz/vim-colorschemes'
-Plugin 'lifepillar/vim-solarized8'
+call minpac#add('lifepillar/vim-solarized8')
 syntax enable
-"set background=dark
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Efficiency
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " surround.vim: quoting/parenthesizing made simple
-Plugin 'tpope/vim-surround'
+call minpac#add('tpope/vim-surround')
 
 " CTRL-P: Fuzzy file, buffer, mru, tag, etc finder
-Plugin 'kien/ctrlp.vim'
+call minpac#add('kien/ctrlp.vim')
 let g:ctrlp_custom_ignore = {
 \ 'dir':  '\.git$\|\.hg$\|\.svn$\|_build$',
 \ 'file': '\.exe$\|\.so$\|\.dll$|\.pyc$|\.orig$'}
 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-" matchit.zip : extended % matching for HTML, LaTeX, and many other languages
-Plugin 'matchit.zip'
 
 " undotree.vim : Display your undo history in a graph.
-Plugin 'mbbill/undotree'
+call minpac#add('mbbill/undotree')
 nnoremap <Leader>u :UndotreeToggle<CR>
 let g:undotree_SetFocusWhenToggle=1 " if undotree is opened, it is likely one
                                     " wants to interact with it.
 
 " restore_view.vim : A plugin for automatically restoring file's cursor
 " position and folding
-Plugin 'vim-scripts/restore_view.vim'
+call minpac#add('vim-scripts/restore_view.vim')
 
 " The NERD Commenter : A plugin that allows for easy commenting of code for
 " many filetypes.
-Plugin 'scrooloose/nerdcommenter'
+call minpac#add('scrooloose/nerdcommenter')
 
 " Tabular : Vim script for text filtering and alignment
-Plugin 'godlygeek/tabular'
+call minpac#add('godlygeek/tabular')
 
 " Tagbar : Display tags of the current file ordered by scope
-Plugin 'majutsushi/tagbar'
+call minpac#add('majutsushi/tagbar')
 nnoremap <silent> <leader>tt :TagbarToggle<CR>
 
 " unimpaired.vim : Pairs of handy bracket mappings
-Plugin 'tpope/vim-unimpaired'
+call minpac#add('tpope/vim-unimpaired')
 
 " Create your own text objects — Read more
-Plugin 'kana/vim-textobj-user'
+call minpac#add('kana/vim-textobj-user')
 
 " Text objects for the last searched pattern
-Plugin 'kana/vim-textobj-lastpat'
+call minpac#add('kana/vim-textobj-lastpat')
 
 " Start a * or # search from a visual block
-Plugin 'nelstrom/vim-visual-star-search'
+call minpac#add('nelstrom/vim-visual-star-search')
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -101,42 +76,42 @@ Plugin 'nelstrom/vim-visual-star-search'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " lean & mean status/tabline for vim that's light as air
-Plugin 'bling/vim-airline'
+call minpac#add('bling/vim-airline')
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Linters and stuff
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-Plugin 'w0rp/ale'
+call minpac#add('w0rp/ale')
 let g:ale_linters = {
 \ 'python': ['flake8'],
 \}
 
 " JSHint fork of jslint.vim
-Plugin 'wookiehangover/jshint.vim'
+call minpac#add('wookiehangover/jshint.vim')
 
-Plugin 'fatih/vim-go'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
+call minpac#add('fatih/vim-go')
+call minpac#add('terryma/vim-multiple-cursors')
+call minpac#add('junegunn/fzf')
+call minpac#add('junegunn/fzf.vim')
 " :Lines (Search through recent lines of text)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Version control
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " fugitive.vim : A Git wrapper so awesome, it should be illegal
-Plugin 'tpope/vim-fugitive'
+call minpac#add('tpope/vim-fugitive')
 
 " Show a VCS diff using Vim's sign column.
-Plugin 'mhinz/vim-signify'
+call minpac#add('mhinz/vim-signify')
 
 "Splice is a Vim plugin for resolving conflicts during three-way merges.
-Plugin 'sjl/splice.vim'
+call minpac#add('sjl/splice.vim')
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Python utils
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plugin 'python-mode/python-mode'
+call minpac#add('python-mode/python-mode')
 let g:pymode_lint = 0
 let g:pymode_indent = 0
 let g:pymode_syntax = 0
@@ -151,66 +126,60 @@ let g:pymode_rope_rename_module_bind = '<C-c>r1r'
 let g:pymode_rope_organize_imports_bind = '<C-c>ro'
 
 let g:pymode_rope_autoimport_modules = ['os', 'shutil', 'datetime']
-Plugin 'Chiel92/vim-autoformat'
+call minpac#add('Chiel92/vim-autoformat')
 let g:formatter_yapf_style = 'pep8'
 " Fast Python completion and Go-to-definition
-Plugin 'Valloric/YouCompleteMe'
+call minpac#add('Valloric/YouCompleteMe')
 nnoremap <leader>j :YcmCompleter GoToDefinition<CR>
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_python_binary_path = 'python'
 
 " Work with python virtualenvs in vim
-Plugin 'jmcantrell/vim-virtualenv'
+call minpac#add('jmcantrell/vim-virtualenv')
 
 " Text objects for python
-Plugin 'bps/vim-textobj-python'
-Plugin 'fisadev/vim-isort'
+call minpac#add('bps/vim-textobj-python')
+call minpac#add('fisadev/vim-isort')
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntax
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plugin 'tomlion/vim-solidity'
+call minpac#add('tomlion/vim-solidity')
 
 " JSON.vim : A syntax highlighting file for JSON
-Plugin 'jakar/vim-json'
+call minpac#add('jakar/vim-json')
 " Reindent json
 command! -range -nargs=0 -bar JsonTool <line1>,<line2>!python -m json.tool
 
 " JavaScript syntax : Better JavaScript syntax support
-Plugin 'pangloss/vim-javascript'
+call minpac#add('pangloss/vim-javascript')
 
 " Add CSS3 syntax support to vim's built-in syntax/css.vim.
-Plugin 'hail2u/vim-css3-syntax'
+call minpac#add('hail2u/vim-css3-syntax')
 
 " Markdown : Syntax highlight for Markdown text files
-Plugin 'tpope/vim-markdown'
+call minpac#add('tpope/vim-markdown')
 
 " Syntax highlighting for Django templates
-Plugin 'vim-scripts/django.vim'
+call minpac#add('vim-scripts/django.vim')
 
 " CoffeeScript support for vim
-Plugin 'kchmck/vim-coffee-script'
+call minpac#add('kchmck/vim-coffee-script')
 " vim-coffee-script autocompile onsave
 au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
 
-" Better rst support for vim
-Plugin 'Rykka/riv.vim'
-" RST preview, run :Rst
-" Disable folding behaviour whens saving rst files (should be default)
-let g:riv_fold_auto_update = 0
-
 " npm install -g livedown
-Plugin 'shime/vim-livedown'
+call minpac#add('shime/vim-livedown')
 
 " Puppet syntax
-Plugin 'mv/mv-vim-puppet'
+call minpac#add('mv/mv-vim-puppet')
 " Varnish Configuration Language (VCL)
-Plugin 'smerrill/vcl-vim-plugin'
+call minpac#add('smerrill/vcl-vim-plugin')
 
 " vim plugin which formated javascript files by js-beautify
 " :call HtmlBeautify()
-Plugin 'maksimr/vim-jsbeautify'
-Plugin 'einars/js-beautify'
+call minpac#add('maksimr/vim-jsbeautify')
+call minpac#add('einars/js-beautify')
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Other
@@ -219,32 +188,30 @@ Plugin 'einars/js-beautify'
 " Vim Latex plugin
 " Download Mactex http://tug.org/mactex/
 " brew install latex-mk
-"Plugin 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
+"call minpac#add('git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex')
 "let g:Tex_DefaultTargetFormat = 'pdf'
 "let g:Tex_CompileRule_pdf = 'xelatex -interaction=nonstopmode $*'
 
 " Github mirror of Go vimscripts, synced with main repository
-Plugin 'jnwhiteh/vim-golang'
+call minpac#add('jnwhiteh/vim-golang')
 
-Plugin '4Evergreen4/vim-hardy'
+call minpac#add('4Evergreen4/vim-hardy')
 
 " Plugin to manage Most Recently Used (MRU) files
-Plugin 'mru.vim'
+call minpac#add('vim-scripts/mru.vim')
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Presentation
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " A simple tool for presenting slides in vim based on text files.
-Plugin 'sotte/presenting.vim'
-
+call minpac#add('sotte/presenting.vim')
 
 " Neovim homegrown plugins
-"Plugin 'nvim-example-python-plugin'
+"call minpac#add('nvim-example-python-plugin')
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General configureation
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call vundle#end()
 
 let mapleader = ','
 
