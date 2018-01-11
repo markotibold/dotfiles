@@ -29,14 +29,6 @@ syntax enable
 " surround.vim: quoting/parenthesizing made simple
 call minpac#add('tpope/vim-surround')
 
-" CTRL-P: Fuzzy file, buffer, mru, tag, etc finder
-call minpac#add('kien/ctrlp.vim')
-let g:ctrlp_custom_ignore = {
-\ 'dir':  '\.git$\|\.hg$\|\.svn$\|_build$',
-\ 'file': '\.exe$\|\.so$\|\.dll$|\.pyc$|\.orig$'}
-
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
-
 " undotree.vim : Display your undo history in a graph.
 call minpac#add('mbbill/undotree')
 nnoremap <Leader>u :UndotreeToggle<CR>
@@ -85,6 +77,7 @@ call minpac#add('bling/vim-airline')
 call minpac#add('w0rp/ale')
 let g:ale_linters = {
 \ 'python': ['flake8'],
+\ 'json': ['jsonlint'],
 \}
 
 " JSHint fork of jslint.vim
@@ -101,6 +94,8 @@ call minpac#add('junegunn/fzf.vim')
 
 " fugitive.vim : A Git wrapper so awesome, it should be illegal
 call minpac#add('tpope/vim-fugitive')
+
+call minpac#add('tpope/vim-projectionist')
 
 " Show a VCS diff using Vim's sign column.
 call minpac#add('mhinz/vim-signify')
@@ -119,8 +114,8 @@ let g:pymode_rope = 1
 let g:pymode_run = 1
 let g:pymode_rope_completion = 0
 let g:pymode_virtualenv = 1
-"let g:pymode_rope_autoimport=1
-"let g:pymode_rope_autoimport_bind = '<C-c>ra'
+let g:pymode_rope_autoimport=1
+let g:pymode_rope_autoimport_bind = '<C-c>ra'
 let g:pymode_rope_rename_bind = '<C-c>rr'
 let g:pymode_rope_rename_module_bind = '<C-c>r1r'
 let g:pymode_rope_organize_imports_bind = '<C-c>ro'
@@ -200,6 +195,12 @@ call minpac#add('4Evergreen4/vim-hardy')
 " Plugin to manage Most Recently Used (MRU) files
 call minpac#add('vim-scripts/mru.vim')
 
+call minpac#add('SirVer/ultisnips')
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<C-J>"
+let g:UltiSnipsJumpForwardTrigger="<C-K>"
+let g:UltiSnipsJumpBackwardTrigger="<C-L>"
+call minpac#add('honza/vim-snippets')
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Presentation
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -383,10 +384,11 @@ hi pythonSelf            ctermfg=68  guifg=#5f87d7
 
 hi Comment cterm=italic
 
-let g:python_host_prog = '/usr/local/opt/python/libexec/bin/python'
-
 " Load any confs that are not to be commited
 source ~/.vimrc-volatile
 
 hi clear SpellBad
 hi SpellBad cterm=underline
+
+let g:python_host_prog  = '/Users/m.tibold/envs/neovim/bin/python'
+"let g:python3_host_prog = '/usr/local/bin/python3'
