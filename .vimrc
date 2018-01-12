@@ -78,6 +78,7 @@ call minpac#add('w0rp/ale')
 let g:ale_linters = {
 \ 'python': ['flake8'],
 \ 'json': ['jsonlint'],
+\ 'ansible': ['ansible-lint'],
 \}
 
 " JSHint fork of jslint.vim
@@ -87,6 +88,8 @@ call minpac#add('fatih/vim-go')
 call minpac#add('terryma/vim-multiple-cursors')
 call minpac#add('junegunn/fzf')
 call minpac#add('junegunn/fzf.vim')
+call minpac#add('pearofducks/ansible-vim')
+
 " :Lines (Search through recent lines of text)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Version control
@@ -109,7 +112,7 @@ call minpac#add('sjl/splice.vim')
 call minpac#add('python-mode/python-mode')
 let g:pymode_lint = 0
 let g:pymode_indent = 0
-let g:pymode_syntax = 0
+let g:pymode_syntax = 1
 let g:pymode_rope = 1
 let g:pymode_run = 1
 let g:pymode_rope_completion = 0
@@ -128,6 +131,11 @@ call minpac#add('Valloric/YouCompleteMe')
 nnoremap <leader>j :YcmCompleter GoToDefinition<CR>
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_python_binary_path = 'python'
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " Work with python virtualenvs in vim
 call minpac#add('jmcantrell/vim-virtualenv')
@@ -166,8 +174,6 @@ au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
 " npm install -g livedown
 call minpac#add('shime/vim-livedown')
 
-" Puppet syntax
-call minpac#add('mv/mv-vim-puppet')
 " Varnish Configuration Language (VCL)
 call minpac#add('smerrill/vcl-vim-plugin')
 
@@ -190,6 +196,7 @@ call minpac#add('einars/js-beautify')
 " Github mirror of Go vimscripts, synced with main repository
 call minpac#add('jnwhiteh/vim-golang')
 
+" Arduino syntax
 call minpac#add('4Evergreen4/vim-hardy')
 
 " Plugin to manage Most Recently Used (MRU) files
@@ -197,18 +204,16 @@ call minpac#add('vim-scripts/mru.vim')
 
 call minpac#add('SirVer/ultisnips')
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<C-J>"
-let g:UltiSnipsJumpForwardTrigger="<C-K>"
-let g:UltiSnipsJumpBackwardTrigger="<C-L>"
+g:UltiSnipsExpandTrigger               <tab>
+g:UltiSnipsListSnippets                <c-tab>
+g:UltiSnipsJumpForwardTrigger          <c-j>
+g:UltiSnipsJumpBackwardTrigger         <c-k>
 call minpac#add('honza/vim-snippets')
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Presentation
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " A simple tool for presenting slides in vim based on text files.
 call minpac#add('sotte/presenting.vim')
-
-" Neovim homegrown plugins
-"call minpac#add('nvim-example-python-plugin')
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General configureation
@@ -360,28 +365,6 @@ nnoremap <leader>sv :source $HOME/.vimrc<cr>
 " Strip trailing whitespaces automotically
 autocmd BufWritePre * %s/\s\+$//e
 
-" Enhanced python highlighting
-"hi pythonLambdaExpr      ctermfg=105 guifg=#8787ff
-hi pythonInclude         ctermfg=68  guifg=#5f4777
-hi pythonClass           ctermfg=167 guifg=#FF62B0
-hi pythonParameters      ctermfg=147 guifg=#AAAAFF
-hi pythonParam           ctermfg=175 guifg=#E37795
-"hi pythonBrackets        ctermfg=183 guifg=#d7afff
-hi pythonClassParameters ctermfg=111 guifg=#FF5353
-hi pythonSelf            ctermfg=68  guifg=#5f87d7
-
-"hi pythonDottedName      ctermfg=74  guifg=#5fafd7
-
-"hi pythonError           ctermfg=196 guifg=#ff0000
-"hi pythonIndentError     ctermfg=197 guifg=#ff005f
-"hi pythonSpaceError      ctermfg=198 guifg=#ff0087
-
-"hi pythonBuiltinType     ctermfg=74  guifg=#9191FF
-"hi pythonBuiltinObj      ctermfg=71  guifg=#5faf5f
-"hi pythonBuiltinFunc     ctermfg=169 guifg=#d75faf cterm=bold gui=bold
-
-"hi pythonException       ctermfg=207 guifg=#CC3366 cterm=bold gui=bold
-
 hi Comment cterm=italic
 
 " Load any confs that are not to be commited
@@ -392,3 +375,4 @@ hi SpellBad cterm=underline
 
 let g:python_host_prog  = '/Users/m.tibold/envs/neovim/bin/python'
 "let g:python3_host_prog = '/usr/local/bin/python3'
+"au! BufRead,BufNewFile *.yml set filetype=ansible
