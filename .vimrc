@@ -29,6 +29,9 @@ syntax enable
 " surround.vim: quoting/parenthesizing made simple
 call minpac#add('tpope/vim-surround')
 
+" automatic sessions saving
+call minpac#add('tpope/vim-obsession')
+
 " undotree.vim : Display your undo history in a graph.
 call minpac#add('mbbill/undotree')
 nnoremap <Leader>u :UndotreeToggle<CR>
@@ -55,6 +58,7 @@ call minpac#add('tpope/vim-unimpaired')
 
 " Create your own text objects — Read more
 call minpac#add('kana/vim-textobj-user')
+let test#python#runner = 'pytest'
 
 " Text objects for the last searched pattern
 call minpac#add('kana/vim-textobj-lastpat')
@@ -79,10 +83,8 @@ let g:ale_linters = {
 \ 'python': ['flake8'],
 \ 'json': ['jsonlint'],
 \ 'ansible': ['ansible-lint'],
+\ 'javascript': ['jshint'],
 \}
-
-" JSHint fork of jslint.vim
-call minpac#add('wookiehangover/jshint.vim')
 
 call minpac#add('fatih/vim-go')
 call minpac#add('terryma/vim-multiple-cursors')
@@ -102,7 +104,7 @@ call minpac#add('tpope/vim-projectionist')
 
 " Show a VCS diff using Vim's sign column.
 call minpac#add('mhinz/vim-signify')
-
+let g:signify_vcs_list = ['git']
 "Splice is a Vim plugin for resolving conflicts during three-way merges.
 call minpac#add('sjl/splice.vim')
 
@@ -126,6 +128,7 @@ let g:pymode_rope_organize_imports_bind = '<C-c>ro'
 let g:pymode_rope_autoimport_modules = ['os', 'shutil', 'datetime']
 call minpac#add('Chiel92/vim-autoformat')
 let g:formatter_yapf_style = 'pep8'
+" Just do a visual select and thden run :!yapf
 " Fast Python completion and Go-to-definition
 call minpac#add('Valloric/YouCompleteMe')
 nnoremap <leader>j :YcmCompleter GoToDefinition<CR>
@@ -139,10 +142,10 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " Work with python virtualenvs in vim
 call minpac#add('jmcantrell/vim-virtualenv')
-
 " Text objects for python
 call minpac#add('bps/vim-textobj-python')
 call minpac#add('fisadev/vim-isort')
+call minpac#add('janko-m/vim-test')
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntax
@@ -204,10 +207,10 @@ call minpac#add('vim-scripts/mru.vim')
 
 call minpac#add('SirVer/ultisnips')
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-g:UltiSnipsExpandTrigger               <tab>
-g:UltiSnipsListSnippets                <c-tab>
-g:UltiSnipsJumpForwardTrigger          <c-j>
-g:UltiSnipsJumpBackwardTrigger         <c-k>
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsListSnippets = '<c-tab'
+let g:UltiSnipsJumpForwardTrigger = '<c-j>'
+let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
 call minpac#add('honza/vim-snippets')
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Presentation
@@ -358,6 +361,8 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
 
 " Quickly edit this file
 nnoremap <leader>ev :vsplit $HOME/.vimrc<cr>
+nnoremap <leader>al :vsplit $HOME/awlog.md
+nnoremap <leader>et :vsplit $HOME/.dotfiles/vim-notes.md<cr>
 nnoremap <leader>lev :vsplit $HOME/.vimrc-volatile<cr>
 nnoremap <leader>sv :source $HOME/.vimrc<cr>
 
@@ -370,6 +375,7 @@ hi Comment cterm=italic
 " Load any confs that are not to be commited
 source ~/.vimrc-volatile
 
+filetype plugin indent on
 hi clear SpellBad
 hi SpellBad cterm=underline
 
