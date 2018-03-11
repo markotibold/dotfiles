@@ -3,13 +3,6 @@ set termguicolors
 packadd minpac
 call minpac#init()
 
-for s:path in split(glob('~/.dotfiles/vim/pluginconf/*.vim'), "\n")
-  exe 'source ' . s:path
-endfor
-for s:path in split(glob('~/.dotfiles/vim/*.vim'), "\n")
-  exe 'source ' . s:path
-endfor
-
 let mapleader = ','
 scriptencoding utf-8
 set backspace=indent,eol,start  " backspace for dummies
@@ -85,3 +78,11 @@ filetype plugin indent on
 let g:python_host_prog  = '/Users/m.tibold/envs/neovim/bin/python'
 "let g:python3_host_prog = '/usr/local/bin/python3'
 "au! BufRead,BufNewFile *.yml set filetype=ansible
+
+
+for s:path in split(glob('~/.dotfiles/vim/*.vim'), "\n")
+  exe 'source ' . s:path
+endfor
+for s:path in split(glob('~/.dotfiles/vim/pluginconf/*.vim'), "\n")
+  exe 'source ' . s:path
+endfor
