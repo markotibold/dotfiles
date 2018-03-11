@@ -1,0 +1,13 @@
+let g:pymode_lint = 0
+let g:pymode_indent = 0
+let g:pymode_syntax = 1
+let g:pymode_rope = 1
+let g:pymode_run = 1
+let g:pymode_rope_completion = 0
+let g:pymode_virtualenv = 1
+let g:pymode_rope_autoimport=1
+let g:pymode_rope_autoimport_bind = '<C-c>ra'
+let g:pymode_rope_rename_bind = '<C-c>rr'
+let g:pymode_rope_rename_module_bind = '<C-c>r1r'
+let g:pymode_rope_organize_imports_bind = '<C-c>ro'
+let g:pymode_rope_autoimport_modules = ['os', 'shutil', 'datetime']
