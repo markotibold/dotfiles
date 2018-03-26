@@ -1,6 +1,0 @@
-# This one is needed to support vim's clipboard feature
-vim-gui-common      install
-python-setuptools   install
-python-dev          install
-build-essential     install
-cmake               install

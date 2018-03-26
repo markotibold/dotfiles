@@ -1,4 +1,0 @@
-#!/bin/bash
-sudo apt-get update
-sudo dpkg --set-selections < ubuntu-packages
-sudo apt-get dselect-upgrade
