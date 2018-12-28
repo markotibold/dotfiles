@@ -66,9 +66,6 @@ set wildignore=**/.git/,*.pyc,*.orig,*.png,*.fig,*.sql,**/migrations/[0-9][0-9][
 
 " Store spell-files in the ~/.vim/spell directory
 setlocal spellfile=~/.vim/spell/en.utf-8.add
-hi Comment cterm=italic
-"hi clear SpellBad
-hi SpellBad cterm=underline
 
 " Load any confs that are not to be committed
 source ~/.vimrc-volatile
@@ -76,9 +73,6 @@ source ~/.vimrc-volatile
 filetype plugin indent on
 
 let g:python_host_prog  = '/Users/m.tibold/envs/neovim/bin/python'
-"let g:python3_host_prog = '/usr/local/bin/python3'
-"au! BufRead,BufNewFile *.yml set filetype=ansible
-
 
 for s:path in split(glob('~/.dotfiles/vim/*.vim'), "\n")
   exe 'source ' . s:path

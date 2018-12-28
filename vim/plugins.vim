@@ -1,55 +1,92 @@
-call minpac#add('4Evergreen4/vim-hardy')
 call minpac#add('Chiel92/vim-autoformat')
-call minpac#add('SirVer/ultisnips')
+
 call minpac#add('Valloric/YouCompleteMe')
+
 call minpac#add('bling/vim-airline')
-call minpac#add('bps/vim-textobj-python')
-call minpac#add('einars/js-beautify')
-call minpac#add('fatih/vim-go')
-call minpac#add('fisadev/vim-isort')
-call minpac#add('godlygeek/tabular')
-call minpac#add('hail2u/vim-css3-syntax')
-call minpac#add('honza/vim-snippets')
-call minpac#add('jakar/vim-json')
-call minpac#add('janko-m/vim-test')
-call minpac#add('jmcantrell/vim-virtualenv')
-call minpac#add('jnwhiteh/vim-golang')
-call minpac#add('kana/vim-textobj-lastpat')
+
+" vim-text-obj-python depends on vim-textobj-user
 call minpac#add('kana/vim-textobj-user')
-"call minpac#add('kchmck/vim-coffee-script')
+
+call minpac#add('bps/vim-textobj-python')
+
+" TODO relearn
+call minpac#add('godlygeek/tabular')
+
+" TODO relearn
+call minpac#add('SirVer/ultisnips')
+call minpac#add('honza/vim-snippets')
+
+" TODO LEARN ME
+call minpac#add('janko-m/vim-test')
+
+"call minpac#add('jmcantrell/vim-virtualenv')
+
 call minpac#add('lifepillar/vim-solarized8')
-call minpac#add('maksimr/vim-jsbeautify')
+
+"Visual undotree
 call minpac#add('mbbill/undotree')
+
+" Shows a git gutter
 call minpac#add('mhinz/vim-signify')
-call minpac#add('nelstrom/vim-markdown-folding')
+
+" Make a visual selection and than hit '*' to search for that pattern
 call minpac#add('nelstrom/vim-visual-star-search')
-call minpac#add('pangloss/vim-javascript')
-call minpac#add('pearofducks/ansible-vim')
-"call minpac#add('python-mode/python-mode')
+
+" <leader>c will work in most filetypes
 call minpac#add('scrooloose/nerdcommenter')
-call minpac#add('shime/vim-livedown')
+
+" Tool for resolving merge conflicts
 call minpac#add('sjl/splice.vim')
-call minpac#add('smerrill/vcl-vim-plugin')
+
+" Slideshows in vim
 call minpac#add('sotte/presenting.vim')
+
+" TODO learn me!!
 call minpac#add('terryma/vim-multiple-cursors')
-call minpac#add('tomlion/vim-solidity')
+
+" TODO learn me!!
 call minpac#add('tpope/vim-fugitive')
-call minpac#add('tpope/vim-markdown')
-call minpac#add('JamshedVesuna/vim-markdown-preview')
+
+call minpac#add('shime/vim-livedown')
+
+" TODO learn me!!
 call minpac#add('junegunn/fzf')
 call minpac#add('junegunn/fzf.vim')
-call minpac#add('tpope/vim-obsession')
-call minpac#add('tpope/vim-projectionist')
+
+" Barely used
+"call minpac#add('tpope/vim-obsession')
+
+" Barely used
+"call minpac#add('tpope/vim-projectionist')
+
 call minpac#add('tpope/vim-surround')
+
+" A bunch of mappings ([q, ]q etc...)
 call minpac#add('tpope/vim-unimpaired')
-call minpac#add('vim-scripts/django.vim')
+
 call minpac#add('vim-scripts/mru.vim')
+
+" Restore cursor position after re-opening file
 call minpac#add('vim-scripts/restore_view.vim')
-" Worpale(async) replaces syntastic(blocking)
-call minpac#add('w0rp/ale')
+
+" A personal wiki for vim
 call minpac#add('vimwiki/vimwiki')
-call minpac#add('mgedmin/coverage-highlight.vim')
+
+" **************** LINTING and FORMATTING
+" Worpale(async) replaces syntastic(blocking)
+" linters: pylint
+" # TODO prettify hilighting/tweak
+call minpac#add('w0rp/ale')
+
+" Black autoformats python code
 call minpac#add('ambv/black')
+
+" vim-terraform autoformats *.tf files
 call minpac#add('hashivim/vim-terraform')
-"call minpac#add('nvie/vim-flake8')
+
+" Syntaxing for varnish vcl files
+call minpac#add('smerrill/vcl-vim-plugin')
+
+" Sort python imports :Isort
+call minpac#add('stsewd/isort.nvim')
 
