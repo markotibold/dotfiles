@@ -53,7 +53,7 @@ set backup                  " backups are nice ...
 set laststatus=2 " Shows the status line for single windows
 set nolist " Don't display end of line chars in some cases
 set number
-set textwidth=99
+set textwidth=100
 set undofile                "so is persistent undo ...
 set undolevels=1000         "maximum number of changes that can be undone
 set undoreload=10000        "maximum number lines to save for undo on a buffer reload
@@ -86,3 +86,5 @@ endfor
 for s:path in split(glob('~/.dotfiles/vim/pluginconf/*.vim'), "\n")
   exe 'source ' . s:path
 endfor
+
+colorscheme solarized8

@@ -97,10 +97,20 @@ source ~/.dotfiles/.aliases
 export WORKON_HOME=$HOME/envs
 export PROJECT_HOME=$HOME/Devel
 source /usr/local/bin/virtualenvwrapper.sh
-
+#export LC_ALL=en_US.utf8
 # brew installed python
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 export FZF_DEFAULT_COMMAND='
   (git ls-tree -r --name-only HEAD ||
    find . -path "*/\.*" -prune -o -type f -print -o -type l -print |
       sed s/^..//) 2> /dev/null'
+
+prompt_dir() {
+  prompt_segment blue black '%2~'
+}
+export GOPATH=$HOME/go
+export JAVA_HOME=$(/usr/libexec/java_home)
+
+fpath+=~/.zfunc
+export TERRIBLE_EXPERIMENTAL=true
+alias terrible="/Users/m.tibold/code/tfmod-check/wrap.sh"
