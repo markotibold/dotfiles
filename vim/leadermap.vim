@@ -17,4 +17,5 @@ nnoremap <leader>al :vsplit $HOME/awlog.md
 nnoremap <leader>et :vsplit $HOME/vim-notes.md<cr>
 nnoremap <leader>lev :vsplit $HOME/.vimrc-volatile<cr>
 nnoremap <leader>sv :source $HOME/.vimrc<cr>
+nnoremap <leader>, :Explore<cr>
 
