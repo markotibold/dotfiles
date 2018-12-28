@@ -79,7 +79,7 @@ call minpac#add('vimwiki/vimwiki')
 call minpac#add('w0rp/ale')
 
 " Black autoformats python code
-call minpac#add('ambv/black')
+"call minpac#add('ambv/black')
 
 " vim-terraform autoformats *.tf files
 call minpac#add('hashivim/vim-terraform')

@@ -1,5 +1,5 @@
 " autocommands
-" Strip trailing whitespaces automotically
+" Strip trailing whitespaces automatically
 autocmd BufWritePre * %s/\s\+$//e
 
-autocmd BufWritePre *.py execute ':Black'
+au BufWrite * :Autoformat
