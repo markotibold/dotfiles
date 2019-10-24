@@ -18,3 +18,4 @@ project_media.tar
 Gemfile.lock
 vim/spell
 *.log
+.env

@@ -58,3 +58,5 @@ source '/Users/marko/google-cloud-sdk/path.bash.inc'
 # The next line enables shell command completion for gcloud.
 source '/Users/marko/google-cloud-sdk/completion.bash.inc'
 export TERM=xterm-256color-italic
+
+export PATH="$HOME/.poetry/bin:$PATH"

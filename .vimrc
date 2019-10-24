@@ -72,13 +72,14 @@ source ~/.vimrc-volatile
 
 filetype plugin indent on
 
-let g:python_host_prog  = '/Users/m.tibold/envs/neovim/bin/python'
+let g:python_host_prog = '/Users/m.tibold/.pyenv/versions/neovim2/bin/python'
+let g:python3_host_prog = '/Users/m.tibold/.pyenv/versions/neovim3/bin/python'
 
 for s:path in split(glob('~/.dotfiles/vim/*.vim'), "\n")
-  exe 'source ' . s:path
+    exe 'source ' . s:path
 endfor
 for s:path in split(glob('~/.dotfiles/vim/pluginconf/*.vim'), "\n")
-  exe 'source ' . s:path
+    exe 'source ' . s:path
 endfor
 
 colorscheme solarized8

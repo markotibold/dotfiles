@@ -30,6 +30,9 @@ trustExitCode = true
     ps = push
     pl = pull
 	up = pull --rebase --autostash
+    cleanup = "!git branch --merged | grep  -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
+#    ;remote-cleanup = "!git branch -r --merged | grep -v '\\*\\|master\\|develop'| sed 's/origin\\///'| xargs -n 1 git push --delete origin"
+    remote-delete = "!git push --delete origin"
 
 [push]
     default = simple
