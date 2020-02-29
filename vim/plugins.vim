@@ -19,8 +19,6 @@ call minpac#add('honza/vim-snippets')
 " TODO LEARN ME
 call minpac#add('janko-m/vim-test')
 
-"call minpac#add('jmcantrell/vim-virtualenv')
-
 call minpac#add('lifepillar/vim-solarized8')
 
 "Visual undotree
@@ -53,13 +51,8 @@ call minpac#add('shime/vim-livedown')
 call minpac#add('junegunn/fzf')
 call minpac#add('junegunn/fzf.vim')
 
-" Barely used
-"call minpac#add('tpope/vim-obsession')
-
-" Barely used
-"call minpac#add('tpope/vim-projectionist')
-
 call minpac#add('tpope/vim-surround')
+call minpac#add('tpope/vim-repeat')
 
 " A bunch of mappings ([q, ]q etc...)
 call minpac#add('tpope/vim-unimpaired')
@@ -78,15 +71,10 @@ call minpac#add('vimwiki/vimwiki')
 " # TODO prettify hilighting/tweak
 call minpac#add('w0rp/ale')
 
-" Black autoformats python code
-"call minpac#add('ambv/black')
-
-" vim-terraform autoformats *.tf files
-call minpac#add('hashivim/vim-terraform')
-
 " Syntaxing for varnish vcl files
 call minpac#add('smerrill/vcl-vim-plugin')
 
 " Sort python imports :Isort
 call minpac#add('stsewd/isort.nvim')
 
+call minpac#add('hashivim/vim-terraform')

@@ -6,7 +6,7 @@ call minpac#init()
 let mapleader = ','
 scriptencoding utf-8
 set backspace=indent,eol,start  " backspace for dummies
-set colorcolumn=100
+set colorcolumn=80
 set cursorline                  " highlight current line
 set history=1000                " Store a ton of history (default is 20)
 set hlsearch                    " highlight search terms
@@ -53,7 +53,7 @@ set backup                  " backups are nice ...
 set laststatus=2 " Shows the status line for single windows
 set nolist " Don't display end of line chars in some cases
 set number
-set textwidth=100
+set textwidth=80
 set undofile                "so is persistent undo ...
 set undolevels=1000         "maximum number of changes that can be undone
 set undoreload=10000        "maximum number lines to save for undo on a buffer reload

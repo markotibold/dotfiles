@@ -148,34 +148,6 @@ mfa() {
     export AWS_SESSION_TOKEN=$(echo $CREDENTIALS | jq -r '.SessionToken')
 }
 
-asg_instances() {
-  ASG_NAME=$1
-  DESIRED_CAPACITY=$2
-  aws autoscaling describe-auto-scaling-groups --auto-scaling-group-names $ASG_NAME | jq -r '.AutoScalingGroups[].Instances[] |[.InstanceId, .AvailabilityZone, .LifecycleState, .HealthStatus, .LaunchConfigurationName, .ProtectedFromScaleIn]|  @sh' | sed -e"s/'//g"| while read -r instanceid availabilityzone lifecyclestate healthstatus launchconfigurationname protectedfromscalein; do echo "{ \"InstanceId\": \"${instanceid}\", \"PrivateIpAddress\": \"$(aws --output text ec2 describe-instances --instance-id ${instanceid} --query 'Reservations[].Instances[].PrivateIpAddress')\", \"AvailabilityZone\": \"${availabilityzone}\", \"LifecycleState\": \"${lifecyclestate}\", \"HealthStatus\": \"${healthstatus}\", \"LaunchConfigurationName\": \"${launchconfigurationname}\", \"ProtectedFromScaleIn\": \"${protectedfromscalein}\"}" ; done | jq -s '.'
-  if [[ -n $DESIRED_CAPACITY ]]; then
-    aws autoscaling set-desired-capacity --auto-scaling-group-name $ASG_NAME --desired-capacity $DESIRED_CAPACITY && \
-    echo "Changed desired capacity to $DESIRED_CAPACITY"
-  fi
-}
-
-asg_list() {
-  #aws autoscaling describe-auto-scaling-groups | jq -r .AutoScalingGroups[].AutoScalingGroupName
-  aws --output text autoscaling describe-auto-scaling-groups --query 'AutoScalingGroups[].AutoScalingGroupName' 2>/dev/null
-}
-asg_replace() {
-  INSTANCE_ID=$1
-  aws autoscaling terminate-instance-in-auto-scaling-group --instance-id $INSTANCE_ID --no-should-decrement-desired-capacity
-}
-
-asg_terminate() {
-  INSTANCE_ID=$1
-  aws autoscaling terminate-instance-in-auto-scaling-group --instance-id $INSTANCE_ID --should-decrement-desired-capacity
-}
-
-asg_health() {
-  ASG_NAME=$1
-  aws elbv2 describe-target-health --target-group-arn $(aws --output text autoscaling describe-auto-scaling-groups --auto-scaling-group-names $ASG_NAME --query 'AutoScalingGroups[].TargetGroupARNs[]') --query 'TargetHealthDescriptions[].[Target.Id,TargetHealth.State]'
-}
 
 setProfile() {
   VALID_PROFILES=($(grep -E "^\[.+\]$" ~/.aws/config | sed -e 's!\[!!g' -e 's!profile !!g' -e 's!\]!!g'))
@@ -196,18 +168,7 @@ getProfiles() {
 #complete -W "$(getProfiles)" setProfile
 #
 source ~/code/liquidprompt/liquidprompt
+source ~/code/aws-scripts/functions.sh
 
-function assume_role() {
-  ROLE=$1
-  SESSION_NAME=$USER
-  eval $(aws sts assume-role --role-arn ${ROLE} --role-session-name "${SESSION_NAME}" \
-        --query 'Credentials.[AccessKeyId,SecretAccessKey,SessionToken]' --output text | \
-      (read KEY SECRET TOKEN; echo "export AWS_ACCESS_KEY_ID=\"$KEY\"; \
-      export AWS_SECRET_ACCESS_KEY=\"$SECRET\"; export AWS_SESSION_TOKEN=\"$TOKEN\""))
-}
-
-function un_assume_role() {
-  unset AWS_SECRET_ACCESS_KEY
-  unset AWS_ACCESS_KEY_ID
-  unset AWS_SESSION_TOKEN
-}
+# Created by `userpath` on 2020-02-06 20:34:02
+export PATH="$PATH:/Users/m.tibold/.local/bin"

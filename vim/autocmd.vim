@@ -2,4 +2,4 @@
 " Strip trailing whitespaces automatically
 autocmd BufWritePre * %s/\s\+$//e
 
-"au BufWrite *.py :Autoformat
+au BufWrite *.py :Autoformat
