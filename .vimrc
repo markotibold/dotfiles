@@ -6,7 +6,7 @@ call minpac#init()
 let mapleader = ','
 scriptencoding utf-8
 set backspace=indent,eol,start  " backspace for dummies
-set colorcolumn=80
+set colorcolumn=84
 set cursorline                  " highlight current line
 set history=1000                " Store a ton of history (default is 20)
 set hlsearch                    " highlight search terms
@@ -53,12 +53,14 @@ set backup                  " backups are nice ...
 set laststatus=2 " Shows the status line for single windows
 set nolist " Don't display end of line chars in some cases
 set number
-set textwidth=80
+set textwidth=84
 set undofile                "so is persistent undo ...
 set undolevels=1000         "maximum number of changes that can be undone
 set undoreload=10000        "maximum number lines to save for undo on a buffer reload
 
 " Ignore these files in netrw
+let g:netrw_banner=0 " disable banner at top
+let g:netrw_liststyle=3
 let g:netrw_list_hide= '.*\.swp$,.*\.pyc,.*\.DS_Store,.*\.orig'
 " wildcard ignore, makes CTRLP plugin more useful
 set wildignore=**/.git/,*.pyc,*.orig,*.png,*.fig,*.sql,**/migrations/[0-9][0-9][0-9][0-9]*.py

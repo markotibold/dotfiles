@@ -5,7 +5,7 @@
 export ZSH=/Users/m.tibold/.oh-my-zsh
 
 # zlib fix for transcoders project
-export CPATH="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"
+#export CPATH="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk/usr/include"
 
 export TERM=xterm-256color-italic
 #export TERM=tmux-256color-italic
@@ -59,10 +59,11 @@ export TERM=xterm-256color-italic
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-flow)
+#plugins=(git git-flow aws-scripts aws)
+plugins=(aws-scripts aws)
 
 source $ZSH/oh-my-zsh.sh
-source ~/.dotfiles/bin/tmuxinator.zsh
+#source ~/.dotfiles/bin/tmuxinator.zsh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -116,7 +117,9 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 
 fpath+=~/.zfunc
 export TERRIBLE_EXPERIMENTAL=true
-alias terrible="/Users/m.tibold/code/tfmod-check/wrap.sh"
+#alias terrible="/Users/m.tibold/code/tfmod-check/wrap.sh"
+#
+#alias git="/Users/m.tibold/code/releaser/wrap.sh"
 
 export PATH="/Users/m.tibold/.dotfiles/bin:$PATH"
 
@@ -129,46 +132,17 @@ export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/sqlite/include"
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
-source ~/.poetry/env
-if command -v pyenv 1>/dev/null 2>&1; then
-    eval "$(pyenv init -)"
-fi
-
-
-# usage:
-# source mfa.sh
-# mfa <your mfa-token here that you use for the aws console as well>
-#$(aws ecr get-login --no-include-email --region eu-west-1)
-mfa() {
-    MFA_ARN=$(aws --profile ${AWS_PROFILE:-default} --output text iam list-mfa-devices --user-name $(aws --profile ${AWS_PROFILE:-default} --output text iam get-user --query 'User.UserName') --query 'MFADevices[].SerialNumber')
-    TOKEN_CODE=$1
-    CREDENTIALS=$(aws --profile ${AWS_PROFILE:-default} sts get-session-token --serial-number $MFA_ARN --token-code $TOKEN_CODE --output json| jq -r '.Credentials')
-    export AWS_ACCESS_KEY_ID=$(echo $CREDENTIALS | jq -r '.AccessKeyId')
-    export AWS_SECRET_ACCESS_KEY=$(echo $CREDENTIALS | jq -r '.SecretAccessKey')
-    export AWS_SESSION_TOKEN=$(echo $CREDENTIALS | jq -r '.SessionToken')
-}
-
-
-setProfile() {
-  VALID_PROFILES=($(grep -E "^\[.+\]$" ~/.aws/config | sed -e 's!\[!!g' -e 's!profile !!g' -e 's!\]!!g'))
-  for ((i = 0; i < ${#VALID_PROFILES[@]}; i++)); do
-    if [[ ${VALID_PROFILES[$i]} = $1 ]]; then
-        break
-    fi
-  done
-  #if ((i == ${#VALID_PROFILES[@]})); then
-    #echo -e "${red}Unknown profile, abort${reset}"
-  #else
-    export AWS_PROFILE=$1
-  #fi
-}
-getProfiles() {
-    grep -E "^\[.+\]$" ~/.aws/config | sed -e 's!\[!!g' -e 's!profile !!g' -e 's!\]!!g'
-}
-#complete -W "$(getProfiles)" setProfile
-#
 source ~/code/liquidprompt/liquidprompt
-source ~/code/aws-scripts/functions.sh
+#source ~/code/aws-scripts/functions.sh
+source ~/.oh-my-zsh/custom/plugins/aws-scripts/functions.sh
 
 # Created by `userpath` on 2020-02-06 20:34:02
 export PATH="$PATH:/Users/m.tibold/.local/bin"
+
+source ~/.poetry/env
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+source ~/.zprofile
+export ZSH_CUSTOM=~/.oh-my-zsh/custom/plugins

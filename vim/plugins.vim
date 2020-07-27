@@ -1,3 +1,5 @@
+"call minpac#add('psf/black', {'branch': '19.10b0'})
+
 call minpac#add('Chiel92/vim-autoformat')
 
 call minpac#add('Valloric/YouCompleteMe')
@@ -12,12 +14,14 @@ call minpac#add('bps/vim-textobj-python')
 " TODO relearn
 call minpac#add('godlygeek/tabular')
 
+" easier I guess
+call minpac#add('junegunn/vim-easy-align')
+
 " TODO relearn
 call minpac#add('SirVer/ultisnips')
 call minpac#add('honza/vim-snippets')
 
-" TODO LEARN ME
-call minpac#add('janko-m/vim-test')
+call minpac#add('alfredodeza/pytest.vim')
 
 call minpac#add('lifepillar/vim-solarized8')
 
@@ -62,8 +66,9 @@ call minpac#add('vim-scripts/mru.vim')
 " Restore cursor position after re-opening file
 call minpac#add('vim-scripts/restore_view.vim')
 
+
 " A personal wiki for vim
-call minpac#add('vimwiki/vimwiki')
+"call minpac#add('vimwiki/vimwiki')
 
 " **************** LINTING and FORMATTING
 " Worpale(async) replaces syntastic(blocking)
@@ -71,8 +76,7 @@ call minpac#add('vimwiki/vimwiki')
 " # TODO prettify hilighting/tweak
 call minpac#add('w0rp/ale')
 
-" Syntaxing for varnish vcl files
-call minpac#add('smerrill/vcl-vim-plugin')
+call minpac#add('sheerun/vim-polyglot')
 
 " Sort python imports :Isort
 call minpac#add('stsewd/isort.nvim')
