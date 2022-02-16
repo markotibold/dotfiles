@@ -20,3 +20,4 @@ vim/spell
 *.log
 .env
 .ycm_extra_conf.py
+*.ignore

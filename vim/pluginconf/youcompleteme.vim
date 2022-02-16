@@ -1,4 +1,5 @@
 nnoremap <leader>j :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>J :vsplit \| YcmCompleter GoTo
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_python_binary_path = 'python'
 " make YCM compatible with UltiSnips (using supertab)

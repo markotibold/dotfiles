@@ -60,7 +60,7 @@ export TERM=xterm-256color-italic
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 #plugins=(git git-flow aws-scripts aws)
-plugins=(aws-scripts aws)
+plugins=(aws-scripts poetry)
 
 source $ZSH/oh-my-zsh.sh
 #source ~/.dotfiles/bin/tmuxinator.zsh
@@ -100,14 +100,13 @@ source $ZSH/oh-my-zsh.sh
 
     #export WORKON_HOME=$HOME/envs
     #export PROJECT_HOME=$HOME/Devel
-    #source /usr/local/bin/virtualenvwrapper.sh
     #export LC_ALL=en_US.utf8
-    # brew installed python
     export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-    export FZF_DEFAULT_COMMAND='
-    (git ls-tree -r --name-only HEAD ||
-        find . -path "*/\.*" -prune -o -type f -print -o -type l -print |
-        sed s/^..//) 2> /dev/null'
+    export FZF_DEFAULT_COMMAND='ag -l --hidden --follow --ignore .git/'
+#ag -l --path-to-ignore ~/.ignore --nocolor --hidden -g ""
+    #'(git ls-tree -r --name-only HEAD ||
+        #find . -path "*/\.*" -prune -o -type f -print -o -type l -print |
+        #sed s/^..//) 2> /dev/null'
 
     prompt_dir() {
         prompt_segment blue black '%2~'
@@ -118,14 +117,17 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 fpath+=~/.zfunc
 export TERRIBLE_EXPERIMENTAL=true
 #alias terrible="/Users/m.tibold/code/tfmod-check/wrap.sh"
-#
 #alias git="/Users/m.tibold/code/releaser/wrap.sh"
 
 export PATH="/Users/m.tibold/.dotfiles/bin:$PATH"
 
 # Below libs installed by brew, but header files required by pyenv
-export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/sqlite/lib"
-export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/sqlite/include"
+#For compilers to find openssl@3 you may need to set:
+export LDFLAGS="-L/usr/local/opt/zlib/lib -L/usr/local/opt/sqlite/lib -L/usr/local/opt/openssl@3/lib"
+export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/sqlite/include -I/usr/local/opt/openssl@3/include"
+
+#export LDFLAGS="-L/usr/local/opt/zlib/lib"
+#export CPPFLAGS="-I/usr/local/opt/zlib/include"
 #export PYTHON_CONFIGURE_OPTS="--enable-framework"
 
 
@@ -141,8 +143,12 @@ export PATH="$PATH:/Users/m.tibold/.local/bin"
 
 source ~/.poetry/env
 export PATH="$HOME/.pyenv/bin:$PATH"
+export PATH="/Users/m.tibold/.pyenv/shims:${PATH}"
+source ~/.zprofile
+export ZSH_CUSTOM=~/.oh-my-zsh/custom/plugins
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-source ~/.zprofile
-export ZSH_CUSTOM=~/.oh-my-zsh/custom/plugins
+
+export AWS_CA_BUNDLE="/usr/local/etc/openssl@1.1/cert.pem"
+export REQUESTS_CA_BUNDLE="/usr/local/etc/openssl@1.1/cert.pem"
