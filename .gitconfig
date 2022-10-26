@@ -10,7 +10,7 @@ cmd = "nvim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
 trustExitCode = true
 
 [core]
-	excludesfile = /Users/m.tibold/.gitignore
+	excludesfile = /Users/tibold000/.gitignore
     editor = nvim
 
 [color]
@@ -56,10 +56,10 @@ trustExitCode = true
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 
 [pull]
     rebase = false
-[commit]
-	template = /Users/m.tibold/.stCommitMsg
+;[commit]
+	;template = /Users/m.tibold/.stCommitMsg

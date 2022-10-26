@@ -4,7 +4,7 @@ call minpac#add('Chiel92/vim-autoformat')
 
 call minpac#add('Valloric/YouCompleteMe')
 
-call minpac#add('bling/vim-airline')
+"call minpac#add('bling/vim-airline')
 
 " vim-text-obj-python depends on vim-textobj-user
 call minpac#add('kana/vim-textobj-user')
@@ -24,6 +24,8 @@ call minpac#add('honza/vim-snippets')
 call minpac#add('alfredodeza/pytest.vim')
 
 call minpac#add('lifepillar/vim-solarized8')
+
+call minpac#add('morhetz/gruvbox')
 
 "Visual undotree
 call minpac#add('mbbill/undotree')
@@ -49,7 +51,7 @@ call minpac#add('terryma/vim-multiple-cursors')
 " TODO learn me!!
 call minpac#add('tpope/vim-fugitive')
 
-call minpac#add('shime/vim-livedown')
+"call minpac#add('shime/vim-livedown')
 
 " TODO learn me!!
 call minpac#add('junegunn/fzf')
@@ -76,7 +78,8 @@ call minpac#add('vim-scripts/restore_view.vim')
 " # TODO prettify hilighting/tweak
 call minpac#add('w0rp/ale')
 
-call minpac#add('sheerun/vim-polyglot')
+" See https://github.com/sheerun/vim-polyglot/issues/779
+call minpac#add('sheerun/vim-polyglot', {'rev': 'c96947'})
 
 " Sort python imports :Isort
 call minpac#add('stsewd/isort.nvim')

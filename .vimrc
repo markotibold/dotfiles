@@ -1,3 +1,4 @@
+"set nocompatible
 set termguicolors
 
 packadd minpac
@@ -21,6 +22,10 @@ set showmatch                   " show matching brackets/parenthesis
 set smartcase                   " case sensitive when uc present
 set spell                       " spell checking on
 set vb                          " Disable the bell
+set noswapfile
+set nobackup
+set undodir=~/.vim/undodir
+set undofile
 
 syntax enable
 syntax on
@@ -69,19 +74,18 @@ set wildignore=**/.git/,*.pyc,*.orig,*.png,*.fig,*.sql,**/migrations/[0-9][0-9][
 " Store spell-files in the ~/.vim/spell directory
 setlocal spellfile=~/.vim/spell/en.utf-8.add
 
-" Load any confs that are not to be committed
 source ~/.vimrc-volatile
 
+let g:python3_host_prog = '~/.pyenv/shims/python'
+
 filetype plugin indent on
-
-let g:python_host_prog = '/Users/m.tibold/.pyenv/versions/neovim2/bin/python'
-let g:python3_host_prog = '/Users/m.tibold/.pyenv/versions/neovim3/bin/python'
-
-for s:path in split(glob('~/.dotfiles/vim/*.vim'), "\n")
+for s:path in split(glob('~/dotfiles/vim/*.vim'), "\n")
     exe 'source ' . s:path
 endfor
-for s:path in split(glob('~/.dotfiles/vim/pluginconf/*.vim'), "\n")
+for s:path in split(glob('~/dotfiles/vim/pluginconf/*.vim'), "\n")
     exe 'source ' . s:path
 endfor
 
-colorscheme solarized8
+"colorscheme solarized8
+let g:gruvbox_italic=1
+autocmd vimenter * ++nested colorscheme gruvbox

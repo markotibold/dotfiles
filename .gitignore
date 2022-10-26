@@ -21,3 +21,5 @@ vim/spell
 .env
 .ycm_extra_conf.py
 *.ignore
+*.ignore/
+abc
