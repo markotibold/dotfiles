@@ -27,6 +27,8 @@ call minpac#add('Valloric/YouCompleteMe')
 
 "" TODO relearn
 call minpac#add('godlygeek/tabular')
+"tabular must come before vim-markdown
+call minpac#add('preservim/vim-markdown')
 "" easier I guess
 call minpac#add('junegunn/vim-easy-align')
 
