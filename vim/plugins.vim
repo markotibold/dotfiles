@@ -62,9 +62,7 @@ call minpac#add('scrooloose/nerdcommenter')
 
 "" TODO learn me!!
 " hmz, maybe just stick with lazygit
-"call minpac#add('tpope/vim-fugitive')
-
-call minpac#add('shime/vim-livedown')
+call minpac#add('tpope/vim-fugitive')
 
 "" TODO learn me!!
 call minpac#add('junegunn/fzf')
