@@ -16,4 +16,5 @@ nnoremap <leader>ev :vsplit $HOME/dotfiles/.vimrc<cr>
 nnoremap <leader>lev :vsplit $HOME/.vimrc-volatile<cr>
 nnoremap <leader>sv :source $HOME/.vimrc<cr>
 nnoremap <leader>, :Explore<cr>
+nnoremap <leader>v :Vexplore<cr>
 

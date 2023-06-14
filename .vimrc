@@ -58,6 +58,7 @@ set backup                  " backups are nice ...
 set laststatus=2 " Shows the status line for single windows
 set nolist " Don't display end of line chars in some cases
 set number
+"set title
 set textwidth=80
 set undofile                "so is persistent undo ...
 set undolevels=1000         "maximum number of changes that can be undone

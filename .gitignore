@@ -7,7 +7,6 @@
 *.sublime-project
 *.sublime-workspace
 *.egg-info
-*.sql
 *.tar
 *.swp
 *.sql
@@ -23,3 +22,5 @@ vim/spell
 *.ignore
 *.ignore/
 abc
+weetjes.md
+venv/

@@ -29,6 +29,7 @@ call minpac#add('Valloric/YouCompleteMe')
 call minpac#add('godlygeek/tabular')
 "tabular must come before vim-markdown
 call minpac#add('preservim/vim-markdown')
+call minpac#add('iamcco/markdown-preview.nvim', {'do': 'packloadall! | call mkdp#util#install()'})
 "" easier I guess
 call minpac#add('junegunn/vim-easy-align')
 
@@ -69,8 +70,8 @@ call minpac#add('junegunn/fzf')
 call minpac#add('junegunn/fzf.vim')
 
 call minpac#add('tpope/vim-surround')
-" repeat plugin maps, do I use it?
-"call minpac#add('tpope/vim-repeat')
+" repeat plugin, repeat plugin map commands
+call minpac#add('tpope/vim-repeat')
 
 "" A bunch of mappings ([q, ]q etc...)
 call minpac#add('tpope/vim-unimpaired')
