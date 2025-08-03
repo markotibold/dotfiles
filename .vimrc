@@ -77,7 +77,8 @@ setlocal spellfile=~/.vim/spell/en.utf-8.add
 
 source ~/.vimrc-volatile
 
-let g:python3_host_prog = '~/.pyenv/shims/python'
+"let g:python3_host_prog = '~/.pyenv/shims/python'
+let g:python3_host_prog = 'python3'
 
 filetype plugin indent on
 for s:path in split(glob('~/dotfiles/vim/*.vim'), "\n")

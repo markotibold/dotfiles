@@ -24,3 +24,25 @@ vim/spell
 abc
 weetjes.md
 venv/
+fp-info-cache
+
+## hw_functions symlinks
+hw_functions/button_array
+hw_functions/buttons
+hw_functions/eight_segment_display
+hw_functions/hd44780_display
+hw_functions/led
+hw_functions/led_output
+hw_functions/led_pwm
+hw_functions/max7219_display
+hw_functions/potentiometers
+hw_functions/rotary_encoders
+hw_functions/stepper_motor
+hw_functions/switches
+hw_functions/tm1637_display
+hw_functions/uln28003
+hw_functions/output_toggle
+hw_functions/mega
+hw_functions/servo_pwm
+*.kicad_prl
+ignore/

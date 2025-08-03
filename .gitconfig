@@ -10,7 +10,7 @@ cmd = "nvim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
 trustExitCode = true
 
 [core]
-	excludesfile = /Users/tibold000/.gitignore
+	excludesfile = /Users/marko/.gitignore
     editor = nvim
 
 [color]
@@ -63,3 +63,4 @@ trustExitCode = true
     rebase = false
 ;[commit]
 	;template = /Users/m.tibold/.stCommitMsg
+[safe]
